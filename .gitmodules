@@ -1,0 +1,18 @@
+[submodule "libs/cairo"]
+	path = libs/cairo
+	url = git@github.com:roozbehid/cairo.git
+[submodule "libs/fontconfig"]
+	path = libs/fontconfig
+	url = git@github.com:roozbehid/fontconfig.git
+[submodule "libs/libexpat"]
+	path = libs/libexpat
+	url = git@github.com:roozbehid/libexpat.git
+[submodule "libs/libgdiplus"]
+	path = libs/libgdiplus
+	url = git@github.com:roozbehid/libgdiplus.git
+[submodule "libs/pixman"]
+	path = libs/pixman
+	url = git@github.com:roozbehid/pixman.git
+[submodule "libs/microwindows"]
+	path = libs/microwindows
+	url = git@github.com:roozbehid/microwindows.git
