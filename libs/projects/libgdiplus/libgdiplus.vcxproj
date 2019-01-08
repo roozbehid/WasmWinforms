@@ -70,8 +70,14 @@
     <ProjectReference Include="..\fontconfig\fontconfig.vcxproj">
       <Project>{ac4f5a41-d446-4265-b6c2-a22fff35f360}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\libexpat\libexpat.vcxproj">
+      <Project>{ed9d8242-f782-45da-acf0-f3a8773bfa13}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\microwindows\microwindows.vcxproj">
       <Project>{336c5232-b0da-45d8-a371-9aa11bc7e93d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\pixman\pixman.vcxproj">
+      <Project>{7123a522-d07f-4f81-88b0-5793f377e58c}</Project>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -142,14 +148,14 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;MW;HAVE_FCFINI;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.;..\..\microwindows\src\include;..\..\cairo\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\microwindows\src\include;..\cairo;..\cairo\cairo;..\..\fontconfig;..\..\libexpat\expat\lib</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>pixman.lib;libexpat.lib;cairo.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

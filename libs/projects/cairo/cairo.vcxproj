@@ -90,7 +90,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_WINDOWS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>.;..\..\pixman\pixman;..\pixman;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\pixman\pixman;..\pixman;..\..\fontconfig</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4244;4146;4312;4267;4996;4311;4334;4101</DisableSpecificWarnings>
     </ClCompile>
     <Link>

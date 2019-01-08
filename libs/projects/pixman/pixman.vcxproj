@@ -118,9 +118,9 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>PACKAGE="pixman-1";WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>XML_STATIC;PACKAGE="pixman-1";WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\pixman\pixman</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\pixman\pixman</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4244;4146;4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
