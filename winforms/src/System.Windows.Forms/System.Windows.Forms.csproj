@@ -1,0 +1,1096 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DefineConstants>$(DefineConstants);NET_2_0;NET_4_0;NET_4_5</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>System.Windows.Forms</AssemblyName>
+    <PackageId>System.Windows.Forms</PackageId>
+    <Platforms>AnyCPU;x86;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="resources\1-up.png" />
+    <None Remove="resources\16_computer.png" />
+    <None Remove="resources\16_dialog-error.png" />
+    <None Remove="resources\16_dialog-information.png" />
+    <None Remove="resources\16_dialog-warning.png" />
+    <None Remove="resources\16_document-open.png" />
+    <None Remove="resources\16_folder-remote.png" />
+    <None Remove="resources\16_folder.png" />
+    <None Remove="resources\16_printer.png" />
+    <None Remove="resources\16_user-desktop.png" />
+    <None Remove="resources\16_user-home.png" />
+    <None Remove="resources\2-up.png" />
+    <None Remove="resources\22_page-magnifier.png" />
+    <None Remove="resources\3-up.png" />
+    <None Remove="resources\32_computer.png" />
+    <None Remove="resources\32_document-open.png" />
+    <None Remove="resources\32_folder-remote.png" />
+    <None Remove="resources\32_printer.png" />
+    <None Remove="resources\32_user-desktop.png" />
+    <None Remove="resources\32_user-home.png" />
+    <None Remove="resources\4-up.png" />
+    <None Remove="resources\6-up.png" />
+    <None Remove="resources\computer.png" />
+    <None Remove="resources\DnDCopy.cur" />
+    <None Remove="resources\DnDLink.cur" />
+    <None Remove="resources\DnDMove.cur" />
+    <None Remove="resources\DnDNo.cur" />
+    <None Remove="resources\document-open.png" />
+    <None Remove="resources\errorProvider.ico" />
+    <None Remove="resources\EventsTab.bmp" />
+    <None Remove="resources\folder-new.png" />
+    <None Remove="resources\folder-remote.png" />
+    <None Remove="resources\folder.png" />
+    <None Remove="resources\go-previous.png" />
+    <None Remove="resources\go-top.png" />
+    <None Remove="resources\image-missing.png" />
+    <None Remove="resources\image-x-generic.png" />
+    <None Remove="resources\mono.ico" />
+    <None Remove="resources\nav_delete.png" />
+    <None Remove="resources\nav_end.png" />
+    <None Remove="resources\nav_first.png" />
+    <None Remove="resources\nav_next.png" />
+    <None Remove="resources\nav_plus.png" />
+    <None Remove="resources\nav_previous.png" />
+    <None Remove="resources\NESW.cur" />
+    <None Remove="resources\NWSE.cur" />
+    <None Remove="resources\preferences-system-windows.png" />
+    <None Remove="resources\PropertiesTab.bmp" />
+    <None Remove="resources\propertygrid-alphabetical.png" />
+    <None Remove="resources\propertygrid-categorized.png" />
+    <None Remove="resources\propertygrid-propertypages.png" />
+    <None Remove="resources\SplitterNS.cur" />
+    <None Remove="resources\SplitterWE.cur" />
+    <None Remove="resources\text-x-generic.png" />
+    <None Remove="resources\user-desktop.png" />
+    <None Remove="resources\user-home.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="../../external/mono/mcs/build/common/Locale.cs" Link="mono\Locale.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Resources/ByteArrayFromResXHandler.cs" Link="mono\ByteArrayFromResXHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Resources/FileRefHandler.cs" Link="mono\FileRefHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Resources/InMemoryHandler.cs" Link="mono\InMemoryHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Resources/NullRefHandler.cs" Link="mono\NullRefHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Resources/ResXNullRef.cs" Link="mono\ResXNullRef.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Resources/ResXResourceSet.cs" Link="mono\ResXResourceSet.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Resources/SerializedFromResXHandler.cs" Link="mono\SerializedFromResXHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Resources/TypeConverterFromResXHandler.cs" Link="mono\TypeConverterFromResXHandler.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AccessibleEvents.cs" Link="mono\AccessibleEvents.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AccessibleNavigation.cs" Link="mono\AccessibleNavigation.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AccessibleRole.cs" Link="mono\AccessibleRole.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AccessibleObject.cs" Link="mono\AccessibleObject.cs" />
+    
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AccessibleSelection.cs" Link="mono\AccessibleSelection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AccessibleStates.cs" Link="mono\AccessibleStates.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AmbientProperties.cs" Link="mono\AmbientProperties.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AnchorStyles.cs" Link="mono\AnchorStyles.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Appearance.cs" Link="mono\Appearance.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ApplicationContext.cs" Link="mono\ApplicationContext.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ArrangeDirection.cs" Link="mono\ArrangeDirection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ArrangeStartingPosition.cs" Link="mono\ArrangeStartingPosition.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ArrowDirection.cs" Link="mono\ArrowDirection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AsyncMethodData.cs" Link="mono\AsyncMethodData.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AsyncMethodResult.cs" Link="mono\AsyncMethodResult.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AutoCompleteMode.cs" Link="mono\AutoCompleteMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AutoCompleteSource.cs" Link="mono\AutoCompleteSource.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AutoCompleteStringCollection.cs" Link="mono\AutoCompleteStringCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AutoScaleMode.cs" Link="mono\AutoScaleMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AutoSizeMode.cs" Link="mono\AutoSizeMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AutoValidate.cs" Link="mono\AutoValidate.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BaseCollection.cs" Link="mono\BaseCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BatteryChargeStatus.cs" Link="mono\BatteryChargeStatus.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BindingCompleteContext.cs" Link="mono\BindingCompleteContext.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BindingCompleteEventArgs.cs" Link="mono\BindingCompleteEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BindingCompleteEventHandler.cs" Link="mono\BindingCompleteEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BindingCompleteState.cs" Link="mono\BindingCompleteState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BindingManagerBase.cs" Link="mono\BindingManagerBase.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BindingManagerDataErrorEventArgs.cs" Link="mono\BindingManagerDataErrorEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BindingManagerDataErrorEventHandler.cs" Link="mono\BindingManagerDataErrorEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BindingMemberInfo.cs" Link="mono\BindingMemberInfo.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BindingNavigator.cs" Link="mono\BindingNavigator.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BindingsCollection.cs" Link="mono\BindingsCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BootMode.cs" Link="mono\BootMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Border3DSide.cs" Link="mono\Border3DSide.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Border3DStyle.cs" Link="mono\Border3DStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BorderStyle.cs" Link="mono\BorderStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BoundsSpecified.cs" Link="mono\BoundsSpecified.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Button.cs" Link="mono\Button.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ButtonBase.cs" Link="mono\ButtonBase.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ButtonBorderStyle.cs" Link="mono\ButtonBorderStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ButtonRenderer.cs" Link="mono\ButtonRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ButtonState.cs" Link="mono\ButtonState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CacheVirtualItemsEventArgs.cs" Link="mono\CacheVirtualItemsEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CacheVirtualItemsEventHandler.cs" Link="mono\CacheVirtualItemsEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CaptionButton.cs" Link="mono\CaptionButton.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CategoryGridEntry.cs" Link="mono\CategoryGridEntry.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CharacterCasing.cs" Link="mono\CharacterCasing.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CheckBox.cs" Link="mono\CheckBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CheckBoxRenderer.cs" Link="mono\CheckBoxRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CheckedListBox.cs" Link="mono\CheckedListBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CheckState.cs" Link="mono\CheckState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Clipboard.cs" Link="mono\Clipboard.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CloseReason.cs" Link="mono\CloseReason.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColorDepth.cs" Link="mono\ColorDepth.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColorDialog.cs" Link="mono\ColorDialog.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColumnClickEventArgs.cs" Link="mono\ColumnClickEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColumnClickEventHandler.cs" Link="mono\ColumnClickEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColumnHeader.cs" Link="mono\ColumnHeader.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColumnHeaderAutoResizeStyle.cs" Link="mono\ColumnHeaderAutoResizeStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColumnHeaderConverter.cs" Link="mono\ColumnHeaderConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColumnHeaderStyle.cs" Link="mono\ColumnHeaderStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColumnReorderedEventArgs.cs" Link="mono\ColumnReorderedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColumnReorderedEventHandler.cs" Link="mono\ColumnReorderedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColumnStyle.cs" Link="mono\ColumnStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColumnWidthChangedEventArgs.cs" Link="mono\ColumnWidthChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColumnWidthChangedEventHandler.cs" Link="mono\ColumnWidthChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColumnWidthChangingEventArgs.cs" Link="mono\ColumnWidthChangingEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ColumnWidthChangingEventHandler.cs" Link="mono\ColumnWidthChangingEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ComboBoxRenderer.cs" Link="mono\ComboBoxRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ComboBoxStyle.cs" Link="mono\ComboBoxStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CommonDialog.cs" Link="mono\CommonDialog.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ComponentModel.cs" Link="mono\ComponentModel.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ContainerControl.cs" Link="mono\ContainerControl.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ContentsResizedEventArgs.cs" Link="mono\ContentsResizedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ContentsResizedEventHandler.cs" Link="mono\ContentsResizedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ContextMenu.cs" Link="mono\ContextMenu.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ContextMenuStrip.cs" Link="mono\ContextMenuStrip.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ControlBindingsCollection.cs" Link="mono\ControlBindingsCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ControlEventArgs.cs" Link="mono\ControlEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ControlEventHandler.cs" Link="mono\ControlEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ControlPaint.cs" Link="mono\ControlPaint.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ControlStyles.cs" Link="mono\ControlStyles.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ControlUpdateMode.cs" Link="mono\ControlUpdateMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ConvertEventArgs.cs" Link="mono\ConvertEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ConvertEventHandler.cs" Link="mono\ConvertEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CreateParams.cs" Link="mono\CreateParams.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CurrencyManager.cs" Link="mono\CurrencyManager.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Cursors.cs" Link="mono\Cursors.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataFormats.cs" Link="mono\DataFormats.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGrid.cs" Link="mono\DataGrid.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridBoolColumn.cs" Link="mono\DataGridBoolColumn.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridCell.cs" Link="mono\DataGridCell.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridColumnStyle.cs" Link="mono\DataGridColumnStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridLineStyle.cs" Link="mono\DataGridLineStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridParentRowsLabelStyle.cs" Link="mono\DataGridParentRowsLabelStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridPreferredColumnWidthTypeConverter.cs" Link="mono\DataGridPreferredColumnWidthTypeConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridTextBox.cs" Link="mono\DataGridTextBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridTextBoxColumn.cs" Link="mono\DataGridTextBoxColumn.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewAdvancedBorderStyle.cs" Link="mono\DataGridViewAdvancedBorderStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewAdvancedCellBorderStyle.cs" Link="mono\DataGridViewAdvancedCellBorderStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewAutoSizeColumnMode.cs" Link="mono\DataGridViewAutoSizeColumnMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewAutoSizeColumnModeEventArgs.cs" Link="mono\DataGridViewAutoSizeColumnModeEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewAutoSizeColumnModeEventHandler.cs" Link="mono\DataGridViewAutoSizeColumnModeEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewAutoSizeColumnsMode.cs" Link="mono\DataGridViewAutoSizeColumnsMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewAutoSizeColumnsModeEventArgs.cs" Link="mono\DataGridViewAutoSizeColumnsModeEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewAutoSizeColumnsModeEventHandler.cs" Link="mono\DataGridViewAutoSizeColumnsModeEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewAutoSizeModeEventArgs.cs" Link="mono\DataGridViewAutoSizeModeEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewAutoSizeModeEventHandler.cs" Link="mono\DataGridViewAutoSizeModeEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewAutoSizeRowMode.cs" Link="mono\DataGridViewAutoSizeRowMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewAutoSizeRowsMode.cs" Link="mono\DataGridViewAutoSizeRowsMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewBindingCompleteEventArgs.cs" Link="mono\DataGridViewBindingCompleteEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewBindingCompleteEventHandler.cs" Link="mono\DataGridViewBindingCompleteEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewButtonCell.cs" Link="mono\DataGridViewButtonCell.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewButtonColumn.cs" Link="mono\DataGridViewButtonColumn.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellBorderStyle.cs" Link="mono\DataGridViewCellBorderStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellCancelEventArgs.cs" Link="mono\DataGridViewCellCancelEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellCancelEventHandler.cs" Link="mono\DataGridViewCellCancelEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellCollection.cs" Link="mono\DataGridViewCellCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellContextMenuStripNeededEventArgs.cs" Link="mono\DataGridViewCellContextMenuStripNeededEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellContextMenuStripNeededEventHandler.cs" Link="mono\DataGridViewCellContextMenuStripNeededEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellErrorTextNeededEventArgs.cs" Link="mono\DataGridViewCellErrorTextNeededEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellErrorTextNeededEventHandler.cs" Link="mono\DataGridViewCellErrorTextNeededEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellEventArgs.cs" Link="mono\DataGridViewCellEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellEventHandler.cs" Link="mono\DataGridViewCellEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellFormattingEventArgs.cs" Link="mono\DataGridViewCellFormattingEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellFormattingEventHandler.cs" Link="mono\DataGridViewCellFormattingEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellMouseEventArgs.cs" Link="mono\DataGridViewCellMouseEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellMouseEventHandler.cs" Link="mono\DataGridViewCellMouseEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellPaintingEventHandler.cs" Link="mono\DataGridViewCellPaintingEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellParsingEventArgs.cs" Link="mono\DataGridViewCellParsingEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellParsingEventHandler.cs" Link="mono\DataGridViewCellParsingEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellStateChangedEventArgs.cs" Link="mono\DataGridViewCellStateChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellStateChangedEventHandler.cs" Link="mono\DataGridViewCellStateChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellStyle.cs" Link="mono\DataGridViewCellStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellStyleContentChangedEventArgs.cs" Link="mono\DataGridViewCellStyleContentChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellStyleContentChangedEventHandler.cs" Link="mono\DataGridViewCellStyleContentChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellStyleConverter.cs" Link="mono\DataGridViewCellStyleConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellStyleScopes.cs" Link="mono\DataGridViewCellStyleScopes.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellToolTipTextNeededEventArgs.cs" Link="mono\DataGridViewCellToolTipTextNeededEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellToolTipTextNeededEventHandler.cs" Link="mono\DataGridViewCellToolTipTextNeededEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellValidatingEventArgs.cs" Link="mono\DataGridViewCellValidatingEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellValidatingEventHandler.cs" Link="mono\DataGridViewCellValidatingEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellValueEventArgs.cs" Link="mono\DataGridViewCellValueEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellValueEventHandler.cs" Link="mono\DataGridViewCellValueEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCheckBoxCell.cs" Link="mono\DataGridViewCheckBoxCell.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCheckBoxColumn.cs" Link="mono\DataGridViewCheckBoxColumn.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewClipboardCopyMode.cs" Link="mono\DataGridViewClipboardCopyMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewColumn.cs" Link="mono\DataGridViewColumn.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewColumnCollection.cs" Link="mono\DataGridViewColumnCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewColumnDividerDoubleClickEventArgs.cs" Link="mono\DataGridViewColumnDividerDoubleClickEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewColumnDividerDoubleClickEventHandler.cs" Link="mono\DataGridViewColumnDividerDoubleClickEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewColumnEventArgs.cs" Link="mono\DataGridViewColumnEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewColumnEventHandler.cs" Link="mono\DataGridViewColumnEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewColumnHeaderCell.cs" Link="mono\DataGridViewColumnHeaderCell.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewColumnHeadersHeightSizeMode.cs" Link="mono\DataGridViewColumnHeadersHeightSizeMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewColumnSortMode.cs" Link="mono\DataGridViewColumnSortMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewColumnStateChangedEventArgs.cs" Link="mono\DataGridViewColumnStateChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewColumnStateChangedEventHandler.cs" Link="mono\DataGridViewColumnStateChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewComboBoxCell.cs" Link="mono\DataGridViewComboBoxCell.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewComboBoxColumn.cs" Link="mono\DataGridViewComboBoxColumn.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewComboBoxDisplayStyle.cs" Link="mono\DataGridViewComboBoxDisplayStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewComboBoxEditingControl.cs" Link="mono\DataGridViewComboBoxEditingControl.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewContentAlignment.cs" Link="mono\DataGridViewContentAlignment.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewDataErrorContexts.cs" Link="mono\DataGridViewDataErrorContexts.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewDataErrorEventArgs.cs" Link="mono\DataGridViewDataErrorEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewDataErrorEventHandler.cs" Link="mono\DataGridViewDataErrorEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewEditingControlShowingEventArgs.cs" Link="mono\DataGridViewEditingControlShowingEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewEditingControlShowingEventHandler.cs" Link="mono\DataGridViewEditingControlShowingEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewEditMode.cs" Link="mono\DataGridViewEditMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewElement.cs" Link="mono\DataGridViewElement.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewElementStates.cs" Link="mono\DataGridViewElementStates.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewHeaderBorderStyle.cs" Link="mono\DataGridViewHeaderBorderStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewHeaderCell.cs" Link="mono\DataGridViewHeaderCell.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewHitTestType.cs" Link="mono\DataGridViewHitTestType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewImageCell.cs" Link="mono\DataGridViewImageCell.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewImageCellLayout.cs" Link="mono\DataGridViewImageCellLayout.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewImageColumn.cs" Link="mono\DataGridViewImageColumn.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewLinkCell.cs" Link="mono\DataGridViewLinkCell.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewLinkColumn.cs" Link="mono\DataGridViewLinkColumn.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewPaintParts.cs" Link="mono\DataGridViewPaintParts.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRow.cs" Link="mono\DataGridViewRow.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowCancelEventArgs.cs" Link="mono\DataGridViewRowCancelEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowCancelEventHandler.cs" Link="mono\DataGridViewRowCancelEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowCollection.cs" Link="mono\DataGridViewRowCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowContextMenuStripNeededEventArgs.cs" Link="mono\DataGridViewRowContextMenuStripNeededEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowContextMenuStripNeededEventHandler.cs" Link="mono\DataGridViewRowContextMenuStripNeededEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowDividerDoubleClickEventArgs.cs" Link="mono\DataGridViewRowDividerDoubleClickEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowDividerDoubleClickEventHandler.cs" Link="mono\DataGridViewRowDividerDoubleClickEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowErrorTextNeededEventArgs.cs" Link="mono\DataGridViewRowErrorTextNeededEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowErrorTextNeededEventHandler.cs" Link="mono\DataGridViewRowErrorTextNeededEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowEventArgs.cs" Link="mono\DataGridViewRowEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowEventHandler.cs" Link="mono\DataGridViewRowEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowHeaderCell.cs" Link="mono\DataGridViewRowHeaderCell.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowHeadersWidthSizeMode.cs" Link="mono\DataGridViewRowHeadersWidthSizeMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowHeightInfoNeededEventArgs.cs" Link="mono\DataGridViewRowHeightInfoNeededEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowHeightInfoNeededEventHandler.cs" Link="mono\DataGridViewRowHeightInfoNeededEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowHeightInfoPushedEventArgs.cs" Link="mono\DataGridViewRowHeightInfoPushedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowHeightInfoPushedEventHandler.cs" Link="mono\DataGridViewRowHeightInfoPushedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowPostPaintEventArgs.cs" Link="mono\DataGridViewRowPostPaintEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowPostPaintEventHandler.cs" Link="mono\DataGridViewRowPostPaintEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowPrePaintEventHandler.cs" Link="mono\DataGridViewRowPrePaintEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowsAddedEventArgs.cs" Link="mono\DataGridViewRowsAddedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowsAddedEventHandler.cs" Link="mono\DataGridViewRowsAddedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowsRemovedEventArgs.cs" Link="mono\DataGridViewRowsRemovedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowsRemovedEventHandler.cs" Link="mono\DataGridViewRowsRemovedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowStateChangedEventArgs.cs" Link="mono\DataGridViewRowStateChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowStateChangedEventHandler.cs" Link="mono\DataGridViewRowStateChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewSelectedCellCollection.cs" Link="mono\DataGridViewSelectedCellCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewSelectedColumnCollection.cs" Link="mono\DataGridViewSelectedColumnCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewSelectedRowCollection.cs" Link="mono\DataGridViewSelectedRowCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewSelectionMode.cs" Link="mono\DataGridViewSelectionMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewSortCompareEventArgs.cs" Link="mono\DataGridViewSortCompareEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewSortCompareEventHandler.cs" Link="mono\DataGridViewSortCompareEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewTextBoxCell.cs" Link="mono\DataGridViewTextBoxCell.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewTextBoxColumn.cs" Link="mono\DataGridViewTextBoxColumn.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewTextBoxEditingControl.cs" Link="mono\DataGridViewTextBoxEditingControl.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewTopLeftHeaderCell.cs" Link="mono\DataGridViewTopLeftHeaderCell.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewTriState.cs" Link="mono\DataGridViewTriState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataObject.cs" Link="mono\DataObject.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataSourceUpdateMode.cs" Link="mono\DataSourceUpdateMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DateBoldEventArgs.cs" Link="mono\DateBoldEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DateBoldEventHandler.cs" Link="mono\DateBoldEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DateRangeEventArgs.cs" Link="mono\DateRangeEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DateRangeEventHandler.cs" Link="mono\DateRangeEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DateTimePickerFormat.cs" Link="mono\DateTimePickerFormat.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Day.cs" Link="mono\Day.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DialogResult.cs" Link="mono\DialogResult.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DockingBehavior.cs" Link="mono\DockingBehavior.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DockStyle.cs" Link="mono\DockStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DragAction.cs" Link="mono\DragAction.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DragDropEffects.cs" Link="mono\DragDropEffects.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DragEventArgs.cs" Link="mono\DragEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DragEventHandler.cs" Link="mono\DragEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawItemEventArgs.cs" Link="mono\DrawItemEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawItemEventHandler.cs" Link="mono\DrawItemEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawItemState.cs" Link="mono\DrawItemState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawListViewColumnHeaderEventArgs.cs" Link="mono\DrawListViewColumnHeaderEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawListViewColumnHeaderEventHandler.cs" Link="mono\DrawListViewColumnHeaderEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawListViewItemEventArgs.cs" Link="mono\DrawListViewItemEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawListViewItemEventHandler.cs" Link="mono\DrawListViewItemEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawListViewSubItemEventArgs.cs" Link="mono\DrawListViewSubItemEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawListViewSubItemEventHandler.cs" Link="mono\DrawListViewSubItemEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawMode.cs" Link="mono\DrawMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawToolTipEventArgs.cs" Link="mono\DrawToolTipEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawToolTipEventHandler.cs" Link="mono\DrawToolTipEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawTreeNodeEventArgs.cs" Link="mono\DrawTreeNodeEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DrawTreeNodeEventHandler.cs" Link="mono\DrawTreeNodeEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ErrorBlinkStyle.cs" Link="mono\ErrorBlinkStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ErrorIconAlignment.cs" Link="mono\ErrorIconAlignment.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ErrorProvider.cs" Link="mono\ErrorProvider.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FeatureSupport.cs" Link="mono\FeatureSupport.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FileDialogCustomPlace.cs" Link="mono\FileDialogCustomPlace.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FileDialogCustomPlacesCollection.cs" Link="mono\FileDialogCustomPlacesCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FixedPanel.cs" Link="mono\FixedPanel.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FixedSizeTextBox.cs" Link="mono\FixedSizeTextBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FlatButtonAppearance.cs" Link="mono\FlatButtonAppearance.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FlatStyle.cs" Link="mono\FlatStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FlowDirection.cs" Link="mono\FlowDirection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FlowLayoutPanel.cs" Link="mono\FlowLayoutPanel.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FlowLayoutSettings.cs" Link="mono\FlowLayoutSettings.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FolderBrowserDialog.cs" Link="mono\FolderBrowserDialog.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FontDialog.cs" Link="mono\FontDialog.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Form.cs" Link="mono\Form.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FormBorderStyle.cs" Link="mono\FormBorderStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FormClosedEventArgs.cs" Link="mono\FormClosedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FormClosedEventHandler.cs" Link="mono\FormClosedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FormClosingEventArgs.cs" Link="mono\FormClosingEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FormClosingEventHandler.cs" Link="mono\FormClosingEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FormCollection.cs" Link="mono\FormCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FormStartPosition.cs" Link="mono\FormStartPosition.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FormWindowManager.cs" Link="mono\FormWindowManager.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FormWindowState.cs" Link="mono\FormWindowState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FrameStyle.cs" Link="mono\FrameStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/GetChildAtPointSkip.cs" Link="mono\GetChildAtPointSkip.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/GiveFeedbackEventArgs.cs" Link="mono\GiveFeedbackEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/GiveFeedbackEventHandler.cs" Link="mono\GiveFeedbackEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/GridColumnStylesCollection.cs" Link="mono\GridColumnStylesCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/GridItem.cs" Link="mono\GridItem.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/GridItemCollection.cs" Link="mono\GridItemCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/GridItemType.cs" Link="mono\GridItemType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/GridTablesFactory.cs" Link="mono\GridTablesFactory.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/GridTableStylesCollection.cs" Link="mono\GridTableStylesCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/GroupBox.cs" Link="mono\GroupBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/GroupBoxRenderer.cs" Link="mono\GroupBoxRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HandledMouseEventArgs.cs" Link="mono\HandledMouseEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Help.cs" Link="mono\Help.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HelpEventArgs.cs" Link="mono\HelpEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HelpEventHandler.cs" Link="mono\HelpEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HelpNavigator.cs" Link="mono\HelpNavigator.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HelpProvider.cs" Link="mono\HelpProvider.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HorizontalAlignment.cs" Link="mono\HorizontalAlignment.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HScrollBar.cs" Link="mono\HScrollBar.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HScrollProperties.cs" Link="mono\HScrollProperties.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HtmlDocument.cs" Link="mono\HtmlDocument.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HtmlElement.cs" Link="mono\HtmlElement.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HtmlElementCollection.cs" Link="mono\HtmlElementCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HtmlElementErrorEventArgs.cs" Link="mono\HtmlElementErrorEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HtmlElementErrorEventHandler.cs" Link="mono\HtmlElementErrorEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HtmlElementEventArgs.cs" Link="mono\HtmlElementEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HtmlElementEventHandler.cs" Link="mono\HtmlElementEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HtmlElementInsertionOrientation.cs" Link="mono\HtmlElementInsertionOrientation.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HtmlHistory.cs" Link="mono\HtmlHistory.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HtmlWindow.cs" Link="mono\HtmlWindow.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/HtmlWindowCollection.cs" Link="mono\HtmlWindowCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Hwnd.cs" Link="mono\Hwnd.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IBindableComponent.cs" Link="mono\IBindableComponent.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IBounds.cs" Link="mono\IBounds.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IButtonControl.cs" Link="mono\IButtonControl.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ICommandExecutor.cs" Link="mono\ICommandExecutor.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IComponentEditorPageSite.cs" Link="mono\IComponentEditorPageSite.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IContainerControl.cs" Link="mono\IContainerControl.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ICurrencyManagerProvider.cs" Link="mono\ICurrencyManagerProvider.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IDataGridColumnStyleEditingNotificationService.cs" Link="mono\IDataGridColumnStyleEditingNotificationService.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IDataGridEditingService.cs" Link="mono\IDataGridEditingService.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IDataGridViewEditingCell.cs" Link="mono\IDataGridViewEditingCell.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IDataGridViewEditingControl.cs" Link="mono\IDataGridViewEditingControl.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IDataObject.cs" Link="mono\IDataObject.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IDropTarget.cs" Link="mono\IDropTarget.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IFeatureSupport.cs" Link="mono\IFeatureSupport.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IFileReaderService.cs" Link="mono\IFileReaderService.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IKeyFilter.cs" Link="mono\IKeyFilter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ImageLayout.cs" Link="mono\ImageLayout.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ImageListConverter.cs" Link="mono\ImageListConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ImeMode.cs" Link="mono\ImeMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IMessageFilter.cs" Link="mono\IMessageFilter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ImplicitHScrollBar.cs" Link="mono\ImplicitHScrollBar.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ImplicitVScrollBar.cs" Link="mono\ImplicitVScrollBar.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/InputLanguage.cs" Link="mono\InputLanguage.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/InputLanguageChangedEventArgs.cs" Link="mono\InputLanguageChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/InputLanguageChangedEventHandler.cs" Link="mono\InputLanguageChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/InputLanguageChangingEventArgs.cs" Link="mono\InputLanguageChangingEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/InputLanguageChangingEventHandler.cs" Link="mono\InputLanguageChangingEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/InputLanguageCollection.cs" Link="mono\InputLanguageCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/InsertKeyMode.cs" Link="mono\InsertKeyMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/InternalWindowManager.cs" Link="mono\InternalWindowManager.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/InvalidateEventArgs.cs" Link="mono\InvalidateEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/InvalidateEventHandler.cs" Link="mono\InvalidateEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IRootGridEntry.cs" Link="mono\IRootGridEntry.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ItemActivation.cs" Link="mono\ItemActivation.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ItemBoundsPortion.cs" Link="mono\ItemBoundsPortion.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ItemChangedEventArgs.cs" Link="mono\ItemChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ItemChangedEventHandler.cs" Link="mono\ItemChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ItemCheckedEventArgs.cs" Link="mono\ItemCheckedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ItemCheckedEventHandler.cs" Link="mono\ItemCheckedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ItemCheckEventArgs.cs" Link="mono\ItemCheckEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ItemCheckEventHandler.cs" Link="mono\ItemCheckEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ItemDragEventArgs.cs" Link="mono\ItemDragEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ItemDragEventHandler.cs" Link="mono\ItemDragEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IToolStripData.cs" Link="mono\IToolStripData.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IWin32Window.cs" Link="mono\IWin32Window.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/IWindowTarget.cs" Link="mono\IWindowTarget.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/KeyEventArgs.cs" Link="mono\KeyEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/KeyEventHandler.cs" Link="mono\KeyEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/KeyPressEventArgs.cs" Link="mono\KeyPressEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/KeyPressEventHandler.cs" Link="mono\KeyPressEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Keys.cs" Link="mono\Keys.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Label.cs" Link="mono\Label.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LabelEditEventArgs.cs" Link="mono\LabelEditEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LabelEditEventHandler.cs" Link="mono\LabelEditEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LabelEditTextBox.cs" Link="mono\LabelEditTextBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LayoutEventArgs.cs" Link="mono\LayoutEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LayoutEventHandler.cs" Link="mono\LayoutEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LayoutSettings.cs" Link="mono\LayoutSettings.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LeftRightAlignment.cs" Link="mono\LeftRightAlignment.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LibSupport.cs" Link="mono\LibSupport.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Line.cs" Link="mono\Line.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LineTag.cs" Link="mono\LineTag.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LinkArea.cs" Link="mono\LinkArea.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LinkBehavior.cs" Link="mono\LinkBehavior.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LinkClickedEventArgs.cs" Link="mono\LinkClickedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LinkClickedEventHandler.cs" Link="mono\LinkClickedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LinkConverter.cs" Link="mono\LinkConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LinkLabel.cs" Link="mono\LinkLabel.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LinkLabelLinkClickedEventArgs.cs" Link="mono\LinkLabelLinkClickedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LinkLabelLinkClickedEventHandler.cs" Link="mono\LinkLabelLinkClickedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/LinkState.cs" Link="mono\LinkState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListBindingConverter.cs" Link="mono\ListBindingConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListBindingHelper.cs" Link="mono\ListBindingHelper.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListBox.cs" Link="mono\ListBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListControl.cs" Link="mono\ListControl.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListControlConvertEventArgs.cs" Link="mono\ListControlConvertEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListControlConvertEventHandler.cs" Link="mono\ListControlConvertEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListView.cs" Link="mono\ListView.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewAlignment.cs" Link="mono\ListViewAlignment.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewGroup.cs" Link="mono\ListViewGroup.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewGroupCollection.cs" Link="mono\ListViewGroupCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewHitTestInfo.cs" Link="mono\ListViewHitTestInfo.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewHitTestLocations.cs" Link="mono\ListViewHitTestLocations.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewInsertionMark.cs" Link="mono\ListViewInsertionMark.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewItem.cs" Link="mono\ListViewItem.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewItemConverter.cs" Link="mono\ListViewItemConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewItemMouseHoverEventArgs.cs" Link="mono\ListViewItemMouseHoverEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewItemMouseHoverEventHandler.cs" Link="mono\ListViewItemMouseHoverEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewItemSelectionChangedEventArgs.cs" Link="mono\ListViewItemSelectionChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewItemSelectionChangedEventHandler.cs" Link="mono\ListViewItemSelectionChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewItemStates.cs" Link="mono\ListViewItemStates.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewVirtualItemsSelectionRangeChangedEventArgs.cs" Link="mono\ListViewVirtualItemsSelectionRangeChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ListViewVirtualItemsSelectionRangeChangedEventHandler.cs" Link="mono\ListViewVirtualItemsSelectionRangeChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MainMenu.cs" Link="mono\MainMenu.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MaskFormat.cs" Link="mono\MaskFormat.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MaskInputRejectedEventArgs.cs" Link="mono\MaskInputRejectedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MaskInputRejectedEventHandler.cs" Link="mono\MaskInputRejectedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MdiClient.cs" Link="mono\MdiClient.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MdiControlStrip.cs" Link="mono\MdiControlStrip.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MdiLayout.cs" Link="mono\MdiLayout.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MdiWindowManager.cs" Link="mono\MdiWindowManager.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MeasureItemEventArgs.cs" Link="mono\MeasureItemEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MeasureItemEventHandler.cs" Link="mono\MeasureItemEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Menu.cs" Link="mono\Menu.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MenuAPI.cs" Link="mono\MenuAPI.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MenuGlyph.cs" Link="mono\MenuGlyph.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MenuItem.cs" Link="mono\MenuItem.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MenuMerge.cs" Link="mono\MenuMerge.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MenuStrip.cs" Link="mono\MenuStrip.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MergeAction.cs" Link="mono\MergeAction.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Message.cs" Link="mono\Message.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MessageBox.cs" Link="mono\MessageBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MessageBoxButtons.cs" Link="mono\MessageBoxButtons.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MessageBoxDefaultButton.cs" Link="mono\MessageBoxDefaultButton.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MessageBoxIcon.cs" Link="mono\MessageBoxIcon.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MessageBoxOptions.cs" Link="mono\MessageBoxOptions.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MethodInvoker.cs" Link="mono\MethodInvoker.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MouseButtons.cs" Link="mono\MouseButtons.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MouseEventArgs.cs" Link="mono\MouseEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MouseEventHandler.cs" Link="mono\MouseEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MWFCategoryAttribute.cs" Link="mono\MWFCategoryAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MWFDescriptionAttribute.cs" Link="mono\MWFDescriptionAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/NavigateEventArgs.cs" Link="mono\NavigateEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/NavigateEventHandler.cs" Link="mono\NavigateEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/NodeLabelEditEventArgs.cs" Link="mono\NodeLabelEditEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/NodeLabelEditEventHandler.cs" Link="mono\NodeLabelEditEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/NotifyIcon.cs" Link="mono\NotifyIcon.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/NumericTextBox.cs" Link="mono\NumericTextBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/NumericUpDown.cs" Link="mono\NumericUpDown.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/NumericUpDownAcceleration.cs" Link="mono\NumericUpDownAcceleration.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/NumericUpDownAccelerationCollection.cs" Link="mono\NumericUpDownAccelerationCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/OpacityConverter.cs" Link="mono\OpacityConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/OpenFileDialog.cs" Link="mono\OpenFileDialog.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/OpenTreeNodeEnumerator.cs" Link="mono\OpenTreeNodeEnumerator.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Orientation.cs" Link="mono\Orientation.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/OSFeature.cs" Link="mono\OSFeature.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Padding.cs" Link="mono\Padding.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PaintEventArgs.cs" Link="mono\PaintEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PaintEventHandler.cs" Link="mono\PaintEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Panel.cs" Link="mono\Panel.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PictureBox.cs" Link="mono\PictureBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PictureBoxSizeMode.cs" Link="mono\PictureBoxSizeMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PopupEventArgs.cs" Link="mono\PopupEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PopupEventHandler.cs" Link="mono\PopupEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PowerLineStatus.cs" Link="mono\PowerLineStatus.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PowerState.cs" Link="mono\PowerState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PowerStatus.cs" Link="mono\PowerStatus.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PreProcessControlState.cs" Link="mono\PreProcessControlState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PreviewKeyDownEventArgs.cs" Link="mono\PreviewKeyDownEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PreviewKeyDownEventHandler.cs" Link="mono\PreviewKeyDownEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ProfessionalColors.cs" Link="mono\ProfessionalColors.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ProfessionalColorTable.cs" Link="mono\ProfessionalColorTable.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ProgressBar.cs" Link="mono\ProgressBar.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ProgressBarRenderer.cs" Link="mono\ProgressBarRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ProgressBarStyle.cs" Link="mono\ProgressBarStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PropertyGridCommands.cs" Link="mono\PropertyGridCommands.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PropertyGridTextBox.cs" Link="mono\PropertyGridTextBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PropertyGridView.cs" Link="mono\PropertyGridView.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PropertySort.cs" Link="mono\PropertySort.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PropertyTabChangedEventArgs.cs" Link="mono\PropertyTabChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PropertyTabChangedEventHandler.cs" Link="mono\PropertyTabChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PropertyValueChangedEventArgs.cs" Link="mono\PropertyValueChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PropertyValueChangedEventHandler.cs" Link="mono\PropertyValueChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/QueryAccessibilityHelpEventArgs.cs" Link="mono\QueryAccessibilityHelpEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/QueryAccessibilityHelpEventHandler.cs" Link="mono\QueryAccessibilityHelpEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/QueryContinueDragEventArgs.cs" Link="mono\QueryContinueDragEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/QueryContinueDragEventHandler.cs" Link="mono\QueryContinueDragEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/QuestionEventArgs.cs" Link="mono\QuestionEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/QuestionEventHandler.cs" Link="mono\QuestionEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RadioButton.cs" Link="mono\RadioButton.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RadioButtonRenderer.cs" Link="mono\RadioButtonRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RelatedCurrencyManager.cs" Link="mono\RelatedCurrencyManager.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RelatedImageListAttribute.cs" Link="mono\RelatedImageListAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RetrieveVirtualItemEventArgs.cs" Link="mono\RetrieveVirtualItemEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RetrieveVirtualItemEventHandler.cs" Link="mono\RetrieveVirtualItemEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RichTextBoxFinds.cs" Link="mono\RichTextBoxFinds.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RichTextBoxLanguageOptions.cs" Link="mono\RichTextBoxLanguageOptions.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RichTextBoxScrollBars.cs" Link="mono\RichTextBoxScrollBars.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RichTextBoxSelectionAttribute.cs" Link="mono\RichTextBoxSelectionAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RichTextBoxSelectionTypes.cs" Link="mono\RichTextBoxSelectionTypes.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RichTextBoxStreamType.cs" Link="mono\RichTextBoxStreamType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RichTextBoxWordPunctuations.cs" Link="mono\RichTextBoxWordPunctuations.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RightToLeft.cs" Link="mono\RightToLeft.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RootGridEntry.cs" Link="mono\RootGridEntry.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RowStyle.cs" Link="mono\RowStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SaveFileDialog.cs" Link="mono\SaveFileDialog.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Screen.cs" Link="mono\Screen.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ScreenOrientation.cs" Link="mono\ScreenOrientation.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ScrollBar.cs" Link="mono\ScrollBar.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ScrollBarRenderer.cs" Link="mono\ScrollBarRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ScrollBars.cs" Link="mono\ScrollBars.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ScrollButton.cs" Link="mono\ScrollButton.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ScrollEventArgs.cs" Link="mono\ScrollEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ScrollEventHandler.cs" Link="mono\ScrollEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ScrollEventType.cs" Link="mono\ScrollEventType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ScrollOrientation.cs" Link="mono\ScrollOrientation.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ScrollProperties.cs" Link="mono\ScrollProperties.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SearchDirectionHint.cs" Link="mono\SearchDirectionHint.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SearchForVirtualItemEventArgs.cs" Link="mono\SearchForVirtualItemEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SearchForVirtualItemEventHandler.cs" Link="mono\SearchForVirtualItemEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SecurityIDType.cs" Link="mono\SecurityIDType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SelectedGridItemChangedEventArgs.cs" Link="mono\SelectedGridItemChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SelectedGridItemChangedEventHandler.cs" Link="mono\SelectedGridItemChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SelectionMode.cs" Link="mono\SelectionMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SelectionRange.cs" Link="mono\SelectionRange.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SendKeys.cs" Link="mono\SendKeys.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Shortcut.cs" Link="mono\Shortcut.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SizeGrip.cs" Link="mono\SizeGrip.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SizeGripStyle.cs" Link="mono\SizeGripStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SizeType.cs" Link="mono\SizeType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SortOrder.cs" Link="mono\SortOrder.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SplitContainer.cs" Link="mono\SplitContainer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Splitter.cs" Link="mono\Splitter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SplitterCancelEventArgs.cs" Link="mono\SplitterCancelEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SplitterCancelEventHandler.cs" Link="mono\SplitterCancelEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SplitterEventArgs.cs" Link="mono\SplitterEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SplitterEventHandler.cs" Link="mono\SplitterEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SplitterPanel.cs" Link="mono\SplitterPanel.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/StatusBar.cs" Link="mono\StatusBar.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/StatusBarDrawItemEventArgs.cs" Link="mono\StatusBarDrawItemEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/StatusBarDrawItemEventHandler.cs" Link="mono\StatusBarDrawItemEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/StatusBarPanel.cs" Link="mono\StatusBarPanel.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/StatusBarPanelAutoSize.cs" Link="mono\StatusBarPanelAutoSize.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/StatusBarPanelBorderStyle.cs" Link="mono\StatusBarPanelBorderStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/StatusBarPanelClickEventArgs.cs" Link="mono\StatusBarPanelClickEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/StatusBarPanelClickEventHandler.cs" Link="mono\StatusBarPanelClickEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/StatusBarPanelStyle.cs" Link="mono\StatusBarPanelStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/StatusStrip.cs" Link="mono\StatusStrip.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/StructFormat.cs" Link="mono\StructFormat.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SystemInformation.cs" Link="mono\SystemInformation.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SystemParameter.cs" Link="mono\SystemParameter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TabAlignment.cs" Link="mono\TabAlignment.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TabAppearance.cs" Link="mono\TabAppearance.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TabControlAction.cs" Link="mono\TabControlAction.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TabControlCancelEventArgs.cs" Link="mono\TabControlCancelEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TabControlCancelEventHandler.cs" Link="mono\TabControlCancelEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TabControlEventArgs.cs" Link="mono\TabControlEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TabControlEventHandler.cs" Link="mono\TabControlEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TabDrawMode.cs" Link="mono\TabDrawMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TableLayoutCellPaintEventArgs.cs" Link="mono\TableLayoutCellPaintEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TableLayoutCellPaintEventHandler.cs" Link="mono\TableLayoutCellPaintEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TableLayoutColumnStyleCollection.cs" Link="mono\TableLayoutColumnStyleCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TableLayoutControlCollection.cs" Link="mono\TableLayoutControlCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TableLayoutPanel.cs" Link="mono\TableLayoutPanel.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TableLayoutPanelCellBorderStyle.cs" Link="mono\TableLayoutPanelCellBorderStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TableLayoutPanelCellPosition.cs" Link="mono\TableLayoutPanelCellPosition.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TableLayoutPanelGrowStyle.cs" Link="mono\TableLayoutPanelGrowStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TableLayoutRowStyleCollection.cs" Link="mono\TableLayoutRowStyleCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TableLayoutStyle.cs" Link="mono\TableLayoutStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TableLayoutStyleCollection.cs" Link="mono\TableLayoutStyleCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TabPage.cs" Link="mono\TabPage.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TabRenderer.cs" Link="mono\TabRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TabSizeMode.cs" Link="mono\TabSizeMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TextBoxBase.cs" Link="mono\TextBoxBase.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TextBoxRenderer.cs" Link="mono\TextBoxRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TextBoxTextRenderer.cs" Link="mono\TextBoxTextRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TextDataFormat.cs" Link="mono\TextDataFormat.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TextFormatFlags.cs" Link="mono\TextFormatFlags.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TextImageRelation.cs" Link="mono\TextImageRelation.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TextRenderer.cs" Link="mono\TextRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Theme.cs" Link="mono\Theme.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ThemeEngine.cs" Link="mono\ThemeEngine.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ThemeGtk.cs" Link="mono\ThemeGtk.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ThemeVisualStyles.cs" Link="mono\ThemeVisualStyles.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TickStyle.cs" Link="mono\TickStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Timer.cs" Link="mono\Timer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolBar.cs" Link="mono\ToolBar.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolBarAppearance.cs" Link="mono\ToolBarAppearance.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolBarButton.cs" Link="mono\ToolBarButton.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolBarButtonClickEventArgs.cs" Link="mono\ToolBarButtonClickEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolBarButtonClickEventHandler.cs" Link="mono\ToolBarButtonClickEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolBarButtonStyle.cs" Link="mono\ToolBarButtonStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolBarTextAlign.cs" Link="mono\ToolBarTextAlign.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStrip.cs" Link="mono\ToolStrip.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripArrowRenderEventArgs.cs" Link="mono\ToolStripArrowRenderEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripArrowRenderEventHandler.cs" Link="mono\ToolStripArrowRenderEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripButton.cs" Link="mono\ToolStripButton.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripComboBox.cs" Link="mono\ToolStripComboBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripContainer.cs" Link="mono\ToolStripContainer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripContentPanel.cs" Link="mono\ToolStripContentPanel.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripContentPanelRenderEventArgs.cs" Link="mono\ToolStripContentPanelRenderEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripContentPanelRenderEventHandler.cs" Link="mono\ToolStripContentPanelRenderEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripControlHost.cs" Link="mono\ToolStripControlHost.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripDropDown.cs" Link="mono\ToolStripDropDown.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripDropDownButton.cs" Link="mono\ToolStripDropDownButton.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripDropDownClosedEventArgs.cs" Link="mono\ToolStripDropDownClosedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripDropDownClosedEventHandler.cs" Link="mono\ToolStripDropDownClosedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripDropDownCloseReason.cs" Link="mono\ToolStripDropDownCloseReason.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripDropDownClosingEventArgs.cs" Link="mono\ToolStripDropDownClosingEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripDropDownClosingEventHandler.cs" Link="mono\ToolStripDropDownClosingEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripDropDownDirection.cs" Link="mono\ToolStripDropDownDirection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripDropDownItem.cs" Link="mono\ToolStripDropDownItem.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripDropDownItemAccessibleObject.cs" Link="mono\ToolStripDropDownItemAccessibleObject.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripDropDownMenu.cs" Link="mono\ToolStripDropDownMenu.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripGripDisplayStyle.cs" Link="mono\ToolStripGripDisplayStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripGripRenderEventArgs.cs" Link="mono\ToolStripGripRenderEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripGripRenderEventHandler.cs" Link="mono\ToolStripGripRenderEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripGripStyle.cs" Link="mono\ToolStripGripStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItem.cs" Link="mono\ToolStripItem.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemAlignment.cs" Link="mono\ToolStripItemAlignment.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemClickedEventArgs.cs" Link="mono\ToolStripItemClickedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemClickedEventHandler.cs" Link="mono\ToolStripItemClickedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemCollection.cs" Link="mono\ToolStripItemCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemDisplayStyle.cs" Link="mono\ToolStripItemDisplayStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemEventArgs.cs" Link="mono\ToolStripItemEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemEventHandler.cs" Link="mono\ToolStripItemEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemEventType.cs" Link="mono\ToolStripItemEventType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemImageRenderEventArgs.cs" Link="mono\ToolStripItemImageRenderEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemImageRenderEventHandler.cs" Link="mono\ToolStripItemImageRenderEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemImageScaling.cs" Link="mono\ToolStripItemImageScaling.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemOverflow.cs" Link="mono\ToolStripItemOverflow.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemPlacement.cs" Link="mono\ToolStripItemPlacement.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemRenderEventArgs.cs" Link="mono\ToolStripItemRenderEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemRenderEventHandler.cs" Link="mono\ToolStripItemRenderEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemTextRenderEventArgs.cs" Link="mono\ToolStripItemTextRenderEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripItemTextRenderEventHandler.cs" Link="mono\ToolStripItemTextRenderEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripLabel.cs" Link="mono\ToolStripLabel.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripLayoutStyle.cs" Link="mono\ToolStripLayoutStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripManager.cs" Link="mono\ToolStripManager.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripManagerRenderMode.cs" Link="mono\ToolStripManagerRenderMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripMenuItem.cs" Link="mono\ToolStripMenuItem.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripOverflow.cs" Link="mono\ToolStripOverflow.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripOverflowButton.cs" Link="mono\ToolStripOverflowButton.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripPanel.cs" Link="mono\ToolStripPanel.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripPanelRenderEventArgs.cs" Link="mono\ToolStripPanelRenderEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripPanelRenderEventHandler.cs" Link="mono\ToolStripPanelRenderEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripPanelRow.cs" Link="mono\ToolStripPanelRow.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripProfessionalRenderer.cs" Link="mono\ToolStripProfessionalRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripProgressBar.cs" Link="mono\ToolStripProgressBar.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripRenderer.cs" Link="mono\ToolStripRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripRenderEventArgs.cs" Link="mono\ToolStripRenderEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripRenderEventHandler.cs" Link="mono\ToolStripRenderEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripRenderMode.cs" Link="mono\ToolStripRenderMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripSeparator.cs" Link="mono\ToolStripSeparator.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripSeparatorRenderEventArgs.cs" Link="mono\ToolStripSeparatorRenderEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripSeparatorRenderEventHandler.cs" Link="mono\ToolStripSeparatorRenderEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripSplitButton.cs" Link="mono\ToolStripSplitButton.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripSplitStackLayout.cs" Link="mono\ToolStripSplitStackLayout.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripStatusLabel.cs" Link="mono\ToolStripStatusLabel.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripStatusLabelBorderSides.cs" Link="mono\ToolStripStatusLabelBorderSides.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripSystemRenderer.cs" Link="mono\ToolStripSystemRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripTextBox.cs" Link="mono\ToolStripTextBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolStripTextDirection.cs" Link="mono\ToolStripTextDirection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolTip.cs" Link="mono\ToolTip.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolTipIcon.cs" Link="mono\ToolTipIcon.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ToolWindowManager.cs" Link="mono\ToolWindowManager.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TrackBarRenderer.cs" Link="mono\TrackBarRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeNodeConverter.cs" Link="mono\TreeNodeConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeNodeMouseClickEventArgs.cs" Link="mono\TreeNodeMouseClickEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeNodeMouseClickEventHandler.cs" Link="mono\TreeNodeMouseClickEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeNodeMouseHoverEventArgs.cs" Link="mono\TreeNodeMouseHoverEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeNodeMouseHoverEventHandler.cs" Link="mono\TreeNodeMouseHoverEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeNodeStates.cs" Link="mono\TreeNodeStates.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeView.cs" Link="mono\TreeView.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeViewAction.cs" Link="mono\TreeViewAction.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeViewCancelEventArgs.cs" Link="mono\TreeViewCancelEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeViewCancelEventHandler.cs" Link="mono\TreeViewCancelEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeViewDrawMode.cs" Link="mono\TreeViewDrawMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeViewEventArgs.cs" Link="mono\TreeViewEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeViewEventHandler.cs" Link="mono\TreeViewEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeViewHitTestInfo.cs" Link="mono\TreeViewHitTestInfo.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeViewHitTestLocations.cs" Link="mono\TreeViewHitTestLocations.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeViewImageKeyConverter.cs" Link="mono\TreeViewImageKeyConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TypeValidationEventArgs.cs" Link="mono\TypeValidationEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TypeValidationEventHandler.cs" Link="mono\TypeValidationEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/UICues.cs" Link="mono\UICues.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/UICuesEventArgs.cs" Link="mono\UICuesEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/UICuesEventHandler.cs" Link="mono\UICuesEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/UnhandledExceptionMode.cs" Link="mono\UnhandledExceptionMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/UpDownBase.cs" Link="mono\UpDownBase.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/UpDownEventArgs.cs" Link="mono\UpDownEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/UpDownEventHandler.cs" Link="mono\UpDownEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/UserControl.cs" Link="mono\UserControl.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ValidationConstraints.cs" Link="mono\ValidationConstraints.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/View.cs" Link="mono\View.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/VScrollBar.cs" Link="mono\VScrollBar.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/VScrollProperties.cs" Link="mono\VScrollProperties.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowserBase.cs" Link="mono\WebBrowserBase.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowserDocumentCompletedEventArgs.cs" Link="mono\WebBrowserDocumentCompletedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowserDocumentCompletedEventHandler.cs" Link="mono\WebBrowserDocumentCompletedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowserEncryptionLevel.cs" Link="mono\WebBrowserEncryptionLevel.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowserNavigatedEventArgs.cs" Link="mono\WebBrowserNavigatedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowserNavigatedEventHandler.cs" Link="mono\WebBrowserNavigatedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowserNavigatingEventArgs.cs" Link="mono\WebBrowserNavigatingEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowserNavigatingEventHandler.cs" Link="mono\WebBrowserNavigatingEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowserProgressChangedEventArgs.cs" Link="mono\WebBrowserProgressChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowserProgressChangedEventHandler.cs" Link="mono\WebBrowserProgressChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowserReadyState.cs" Link="mono\WebBrowserReadyState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowserRefreshOption.cs" Link="mono\WebBrowserRefreshOption.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowserSiteBase.cs" Link="mono\WebBrowserSiteBase.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WindowsFormsSynchronizationContext.cs" Link="mono\WindowsFormsSynchronizationContext.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/X11Clipboard.cs" Link="mono\X11Clipboard.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/X11Dnd.cs" Link="mono\X11Dnd.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/XEventQueue.cs" Link="mono\XEventQueue.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/XplatUICarbon.cs" Link="mono\XplatUICarbon.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/XplatUIDriver.cs" Link="mono\XplatUIDriver.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/XplatUIStructs.cs" Link="mono\XplatUIStructs.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/ApplicationHandler.cs" Link="mono\ApplicationHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/ControlHandler.cs" Link="mono\ControlHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/Cursor.cs" Link="mono\Cursor.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/Enums.cs" Link="mono\Enums.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/EventHandler.cs" Link="mono\EventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/EventHandlerBase.cs" Link="mono\EventHandlerBase.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/HIObjectHandler.cs" Link="mono\HIObjectHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/IEventHandler.cs" Link="mono\IEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/KeyboardHandler.cs" Link="mono\KeyboardHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/MouseHandler.cs" Link="mono\MouseHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/Pasteboard.cs" Link="mono\Pasteboard.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/Structs.cs" Link="mono\Structs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/WindowHandler.cs" Link="mono\WindowHandler.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Design/ComponentEditorForm.cs" Link="mono\ComponentEditorForm.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Design/ComponentEditorPage.cs" Link="mono\ComponentEditorPage.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Design/EventsTab.cs" Link="mono\EventsTab.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Design/IUIService.cs" Link="mono\IUIService.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Design/IWindowsFormsEditorService.cs" Link="mono\IWindowsFormsEditorService.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Design/ToolStripItemDesignerAvailability.cs" Link="mono\ToolStripItemDesignerAvailability.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Design/WindowsFormsComponentEditor.cs" Link="mono\WindowsFormsComponentEditor.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Internal/Accessor.cs" Link="mono\Accessor.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Layout/ArrangedElementCollection.cs" Link="mono\ArrangedElementCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Layout/DefaultLayout.cs" Link="mono\DefaultLayout.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Layout/FlowLayout.cs" Link="mono\FlowLayout.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Layout/LayoutEngine.cs" Link="mono\LayoutEngine.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Layout/TableLayout.cs" Link="mono\TableLayout.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Layout/TableLayoutSettingsTypeConverter.cs" Link="mono\TableLayoutSettingsTypeConverter.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/Charcode.cs" Link="mono\Charcode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/Charset.cs" Link="mono\Charset.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/CharsetFlags.cs" Link="mono\CharsetFlags.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/CharsetType.cs" Link="mono\CharsetType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/ClassDelegate.cs" Link="mono\ClassDelegate.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/Color.cs" Link="mono\Color.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/DestinationDelegate.cs" Link="mono\DestinationDelegate.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/Font.cs" Link="mono\Font.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/KeysInit.cs" Link="mono\KeysInit.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/KeyStruct.cs" Link="mono\KeyStruct.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/Major.cs" Link="mono\Major.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/Minor.cs" Link="mono\Minor.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/Picture.cs" Link="mono\Picture.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/RTF.cs" Link="mono\RTF.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/RTFException.cs" Link="mono\RTFException.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/StandardCharCode.cs" Link="mono\StandardCharCode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/StandardCharName.cs" Link="mono\StandardCharName.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/Style.cs" Link="mono\Style.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/StyleElement.cs" Link="mono\StyleElement.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/StyleType.cs" Link="mono\StyleType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/TextMap.cs" Link="mono\TextMap.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.RTF/TokenClass.cs" Link="mono\TokenClass.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/ThemeElementsClearlooks.cs" Link="mono\ThemeElementsClearlooks.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/ThemeElementsDefault.cs" Link="mono\ThemeElementsDefault.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/ThemeElementsGtk.cs" Link="mono\ThemeElementsGtk.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/ThemeElementsNice.cs" Link="mono\ThemeElementsNice.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/ThemeElementsVisualStyles.cs" Link="mono\ThemeElementsVisualStyles.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/Default/ButtonPainter.cs" Link="mono\ButtonPainter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/Default/CheckBoxPainter.cs" Link="mono\CheckBoxPainter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/Default/LabelPainter.cs" Link="mono\LabelPainter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/Default/LinkLabelPainter.cs" Link="mono\LinkLabelPainter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/Default/RadioButtonPainter.cs" Link="mono\RadioButtonPainter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/Default/TabControlPainter.cs" Link="mono\TabControlPainter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/Default/ToolStripPainter.cs" Link="mono\ToolStripPainter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/Nice/TabControlPainter.cs" Link="mono\TabControlPainter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/VisualStyles/CheckBoxPainter.cs" Link="mono\CheckBoxPainter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/VisualStyles/RadioButtonPainter.cs" Link="mono\RadioButtonPainter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/VisualStyles/TabControlPainter.cs" Link="mono\TabControlPainter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/VisualStyles/ToolStripPainter.cs" Link="mono\ToolStripPainter.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/BackgroundType.cs" Link="mono\BackgroundType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/BooleanProperty.cs" Link="mono\BooleanProperty.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/BorderType.cs" Link="mono\BorderType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/CheckBoxState.cs" Link="mono\CheckBoxState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/ColorProperty.cs" Link="mono\ColorProperty.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/ComboBoxState.cs" Link="mono\ComboBoxState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/ContentAlignment.cs" Link="mono\ContentAlignment.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/EdgeEffects.cs" Link="mono\EdgeEffects.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/Edges.cs" Link="mono\Edges.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/EdgeStyle.cs" Link="mono\EdgeStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/EnumProperty.cs" Link="mono\EnumProperty.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/FilenameProperty.cs" Link="mono\FilenameProperty.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/FillType.cs" Link="mono\FillType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/FontProperty.cs" Link="mono\FontProperty.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/GlyphFontSizingType.cs" Link="mono\GlyphFontSizingType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/GlyphType.cs" Link="mono\GlyphType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/GroupBoxState.cs" Link="mono\GroupBoxState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/GtkPlus.cs" Link="mono\GtkPlus.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/HitTestCode.cs" Link="mono\HitTestCode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/HitTestOptions.cs" Link="mono\HitTestOptions.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/HorizontalAlign.cs" Link="mono\HorizontalAlign.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/IconEffect.cs" Link="mono\IconEffect.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/ImageOrientation.cs" Link="mono\ImageOrientation.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/ImageSelectType.cs" Link="mono\ImageSelectType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/IntegerProperty.cs" Link="mono\IntegerProperty.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/IVisualStyles.cs" Link="mono\IVisualStyles.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/MarginProperty.cs" Link="mono\MarginProperty.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/OffsetType.cs" Link="mono\OffsetType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/PointProperty.cs" Link="mono\PointProperty.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/PushButtonState.cs" Link="mono\PushButtonState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/RadioButtonState.cs" Link="mono\RadioButtonState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/ScrollBarArrowButtonState.cs" Link="mono\ScrollBarArrowButtonState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/ScrollBarSizeBoxState.cs" Link="mono\ScrollBarSizeBoxState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/ScrollBarState.cs" Link="mono\ScrollBarState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/SizingType.cs" Link="mono\SizingType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/StringProperty.cs" Link="mono\StringProperty.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/TabItemState.cs" Link="mono\TabItemState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/TextBoxState.cs" Link="mono\TextBoxState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/TextMetrics.cs" Link="mono\TextMetrics.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/TextMetricsCharacterSet.cs" Link="mono\TextMetricsCharacterSet.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/TextMetricsPitchAndFamilyValues.cs" Link="mono\TextMetricsPitchAndFamilyValues.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/TextShadowType.cs" Link="mono\TextShadowType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/ThemeSizeType.cs" Link="mono\ThemeSizeType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/ToolBarState.cs" Link="mono\ToolBarState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/TrackBarThumbState.cs" Link="mono\TrackBarThumbState.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/TrueSizeScalingType.cs" Link="mono\TrueSizeScalingType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/VerticalAlignment.cs" Link="mono\VerticalAlignment.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/VisualStyleElement.cs" Link="mono\VisualStyleElement.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/VisualStyleInformation.cs" Link="mono\VisualStyleInformation.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/VisualStyleRenderer.cs" Link="mono\VisualStyleRenderer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/VisualStylesEngine.cs" Link="mono\VisualStylesEngine.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/VisualStylesGtkPlus.cs" Link="mono\VisualStylesGtkPlus.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/VisualStylesNative.cs" Link="mono\VisualStylesNative.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/VisualStyleState.cs" Link="mono\VisualStyleState.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.WebBrowserDialogs/AlertCheck.cs" Link="mono\AlertCheck.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.WebBrowserDialogs/ConfirmCheck.cs" Link="mono\ConfirmCheck.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.WebBrowserDialogs/Generic.cs" Link="mono\Generic.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.WebBrowserDialogs/Prompt.cs" Link="mono\Prompt.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/IWebBrowser.cs" Link="mono\IWebBrowser.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/EventArgs.cs" Link="mono\EventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/EventHandlers.cs" Link="mono\EventHandlers.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/IAttribute.cs" Link="mono\IAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/IAttributeCollection.cs" Link="mono\IAttributeCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/IDocument.cs" Link="mono\IDocument.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/IDocumentType.cs" Link="mono\IDocumentType.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/IDOMImplementation.cs" Link="mono\IDOMImplementation.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/IElement.cs" Link="mono\IElement.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/IElementCollection.cs" Link="mono\IElementCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/IHistory.cs" Link="mono\IHistory.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/IMediaList.cs" Link="mono\IMediaList.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/INamedNodeMap.cs" Link="mono\INamedNodeMap.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/INavigation.cs" Link="mono\INavigation.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/INode.cs" Link="mono\INode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/INodeList.cs" Link="mono\INodeList.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/IStylesheet.cs" Link="mono\IStylesheet.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/IStylesheetList.cs" Link="mono\IStylesheetList.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/IWindow.cs" Link="mono\IWindow.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/DOM/IWindowCollection.cs" Link="mono\IWindowCollection.cs" />
+
+
+    
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Resources/ResXDataNode.cs" Link="mono\ResXDataNode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Resources/ResXDataNodeHandler.cs" Link="mono\ResXDataNodeHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Resources/ResXFileRef.cs" Link="mono\ResXFileRef.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Resources/ResXResourceReader.cs" Link="mono\ResXResourceReader.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Resources/ResXResourceWriter.cs" Link="mono\ResXResourceWriter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Application.cs" Link="mono\Application.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/AxHost.cs" Link="mono\AxHost.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Binding.cs" Link="mono\Binding.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BindingContext.cs" Link="mono\BindingContext.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/BindingSource.cs" Link="mono\BindingSource.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ComboBox.cs" Link="mono\ComboBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Control.cs" Link="mono\Control.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Cursor.cs" Link="mono\Cursor.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/CursorConverter.cs" Link="mono\CursorConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridTableStyle.cs" Link="mono\DataGridTableStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridView.cs" Link="mono\DataGridView.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewBand.cs" Link="mono\DataGridViewBand.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCell.cs" Link="mono\DataGridViewCell.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewCellPaintingEventArgs.cs" Link="mono\DataGridViewCellPaintingEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewColumnDesignTimeVisibleAttribute.cs" Link="mono\DataGridViewColumnDesignTimeVisibleAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DataGridViewRowPrePaintEventArgs.cs" Link="mono\DataGridViewRowPrePaintEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DateTimePicker.cs" Link="mono\DateTimePicker.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DockingAttribute.cs" Link="mono\DockingAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/DomainUpDown.cs" Link="mono\DomainUpDown.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/FileDialog.cs" Link="mono\FileDialog.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/GridEntry.cs" Link="mono\GridEntry.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ImageIndexConverter.cs" Link="mono\ImageIndexConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ImageKeyConverter.cs" Link="mono\ImageKeyConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ImageList.cs" Link="mono\ImageList.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ImageListStreamer.cs" Link="mono\ImageListStreamer.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/KeyboardLayouts.cs" Link="mono\KeyboardLayouts.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/KeysConverter.cs" Link="mono\KeysConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MaskedTextBox.cs" Link="mono\MaskedTextBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Mime.cs" Link="mono\Mime.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MimeIcon.cs" Link="mono\MimeIcon.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/MonthCalendar.cs" Link="mono\MonthCalendar.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/NativeWindow.cs" Link="mono\NativeWindow.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/OwnerDrawPropertyBag.cs" Link="mono\OwnerDrawPropertyBag.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PaddingConverter.cs" Link="mono\PaddingConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PropertyGrid.cs" Link="mono\PropertyGrid.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/PropertyManager.cs" Link="mono\PropertyManager.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RelatedPropertyManager.cs" Link="mono\RelatedPropertyManager.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/RichTextBox.cs" Link="mono\RichTextBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ScrollableControl.cs" Link="mono\ScrollableControl.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/SelectionRangeConverter.cs" Link="mono\SelectionRangeConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TabControl.cs" Link="mono\TabControl.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TableLayoutSettings.cs" Link="mono\TableLayoutSettings.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TextBox.cs" Link="mono\TextBox.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TextControl.cs" Link="mono\TextControl.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ThemeWin32Classic.cs" Link="mono\ThemeWin32Classic.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/ThreadExceptionDialog.cs" Link="mono\ThreadExceptionDialog.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TrackBar.cs" Link="mono\TrackBar.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeNode.cs" Link="mono\TreeNode.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeNodeCollection.cs" Link="mono\TreeNodeCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/TreeViewImageIndexConverter.cs" Link="mono\TreeViewImageIndexConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/WebBrowser.cs" Link="mono\WebBrowser.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/Win32DnD.cs" Link="mono\Win32DnD.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/X11DesktopColors.cs" Link="mono\X11DesktopColors.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/X11Keyboard.cs" Link="mono\X11Keyboard.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/X11Structs.cs" Link="mono\X11Structs.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/XplatUI.cs" Link="mono\XplatUI.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/XplatUIWin32.cs" Link="mono\XplatUIWin32.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms/XplatUIX11.cs" Link="mono\XplatUIX11.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.CarbonInternal/Dnd.cs" Link="mono\Dnd.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Design/PropertyTab.cs" Link="mono\PropertyTab.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Design/ToolStripItemDesignerAvailabilityAttribute.cs" Link="mono\ToolStripItemDesignerAvailabilityAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Internal/DebugHelper.cs" Link="mono\DebugHelper.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.PropertyGridInternal/PropertiesTab.cs" Link="mono\PropertiesTab.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.Theming/ThemeElements.cs" Link="mono\ThemeElements.cs" />
+    <Compile Include="../../external/mono/mcs/class/Managed.Windows.Forms/System.Windows.Forms.VisualStyles/UXTheme.cs" Link="mono\UXTheme.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/Exception.cs" Link="mono\Exception.cs" />
+    <Compile Include="../../external/mono/mcs/class/Mono.WebBrowser/Mono.WebBrowser/Manager.cs" Link="mono\Manager.cs" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="resources\1-up.png" />
+    <EmbeddedResource Include="resources\16_computer.png" />
+    <EmbeddedResource Include="resources\16_dialog-error.png" />
+    <EmbeddedResource Include="resources\16_dialog-information.png" />
+    <EmbeddedResource Include="resources\16_dialog-warning.png" />
+    <EmbeddedResource Include="resources\16_document-open.png" />
+    <EmbeddedResource Include="resources\16_folder-remote.png" />
+    <EmbeddedResource Include="resources\16_folder.png" />
+    <EmbeddedResource Include="resources\16_printer.png" />
+    <EmbeddedResource Include="resources\16_user-desktop.png" />
+    <EmbeddedResource Include="resources\16_user-home.png" />
+    <EmbeddedResource Include="resources\2-up.png" />
+    <EmbeddedResource Include="resources\22_page-magnifier.png" />
+    <EmbeddedResource Include="resources\3-up.png" />
+    <EmbeddedResource Include="resources\32_computer.png" />
+    <EmbeddedResource Include="resources\32_document-open.png" />
+    <EmbeddedResource Include="resources\32_folder-remote.png" />
+    <EmbeddedResource Include="resources\32_printer.png" />
+    <EmbeddedResource Include="resources\32_user-desktop.png" />
+    <EmbeddedResource Include="resources\32_user-home.png" />
+    <EmbeddedResource Include="resources\4-up.png" />
+    <EmbeddedResource Include="resources\6-up.png" />
+    <EmbeddedResource Include="resources\computer.png" />
+    <EmbeddedResource Include="resources\DnDCopy.cur" />
+    <EmbeddedResource Include="resources\DnDLink.cur" />
+    <EmbeddedResource Include="resources\DnDMove.cur" />
+    <EmbeddedResource Include="resources\DnDNo.cur" />
+    <EmbeddedResource Include="resources\document-open.png" />
+    <EmbeddedResource Include="resources\errorProvider.ico" />
+    <EmbeddedResource Include="resources\EventsTab.bmp" />
+    <EmbeddedResource Include="resources\folder-new.png" />
+    <EmbeddedResource Include="resources\folder-remote.png" />
+    <EmbeddedResource Include="resources\folder.png" />
+    <EmbeddedResource Include="resources\go-previous.png" />
+    <EmbeddedResource Include="resources\go-top.png" />
+    <EmbeddedResource Include="resources\image-missing.png" />
+    <EmbeddedResource Include="resources\image-x-generic.png" />
+    <EmbeddedResource Include="resources\mono.ico" />
+    <EmbeddedResource Include="resources\nav_delete.png" />
+    <EmbeddedResource Include="resources\nav_end.png" />
+    <EmbeddedResource Include="resources\nav_first.png" />
+    <EmbeddedResource Include="resources\nav_next.png" />
+    <EmbeddedResource Include="resources\nav_plus.png" />
+    <EmbeddedResource Include="resources\nav_previous.png" />
+    <EmbeddedResource Include="resources\NESW.cur" />
+    <EmbeddedResource Include="resources\NWSE.cur" />
+    <EmbeddedResource Include="resources\preferences-system-windows.png" />
+    <EmbeddedResource Include="resources\PropertiesTab.bmp" />
+    <EmbeddedResource Include="resources\propertygrid-alphabetical.png" />
+    <EmbeddedResource Include="resources\propertygrid-categorized.png" />
+    <EmbeddedResource Include="resources\propertygrid-propertypages.png" />
+    <EmbeddedResource Include="resources\SplitterNS.cur" />
+    <EmbeddedResource Include="resources\SplitterWE.cur" />
+    <EmbeddedResource Include="resources\text-x-generic.png" />
+    <EmbeddedResource Include="resources\user-desktop.png" />
+    <EmbeddedResource Include="resources\user-home.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\nanovg_dotnet\GlfwDotNet\Glfw\Glfw.csproj" />
+    <ProjectReference Include="..\..\..\nanovg_dotnet\NanoVG_Binding\NanoVG_Binding.csproj" />
+    <ProjectReference Include="..\..\Common\Common.csproj" />
+    <ProjectReference Include="..\..\System.Drawing.New\System.Drawing.New.csproj" />
+  </ItemGroup>
+
+  <Target Name="ChangeAliasesOfStrongNameAssemblies" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
+    <ItemGroup>
+      <ReferencePath Condition="'%(FileName)' == 'System.Drawing.New'">
+        <Aliases>global, DrawingNew</Aliases>
+      </ReferencePath>
+    </ItemGroup>
+  </Target>
+
+</Project>

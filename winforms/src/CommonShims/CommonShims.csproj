@@ -1,0 +1,200 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DefineConstants>$(DefineConstants);NET_2_0;NET_4_0;NET_4_5;DISABLE_REMOTING</DefineConstants>
+    <AssemblyName>CommonShims</AssemblyName>
+    <PackageId>CommonShims</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\external\mono\mcs\build\common\Locale.cs" Link="mono\Locale.cs" />
+    <Compile Include="..\..\external\mono\mcs\build\common\MonoTODOAttribute.cs" Link="mono\MonoTODOAttribute.cs" />
+    <Compile Include="..\..\external\mono\mcs\build\common\SR.cs" Link="mono\SR.cs" />
+
+    <Compile Include="../../external/mono/mcs/build/common/SR.cs" Link="mono\SR.cs" />
+    <Compile Include="../../external/mono/mcs/build/common/Locale.cs" Link="mono\Locale.cs" />
+    <Compile Include="../../external/mono/mcs/build/common/MonoTODOAttribute.cs" Link="mono\MonoTODOAttribute.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/System/ReferenceSources/SR.cs" Link="mono\SR.cs" />
+    <Compile Include="../../external/mono/mcs/class/System/System.Net/DownloadDataCompletedEventArgs.cs" Link="mono\DownloadDataCompletedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/System/System.Net/DownloadDataCompletedEventHandler.cs" Link="mono\DownloadDataCompletedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/System/System/SRDescriptionAttribute.cs" Link="mono\SRDescriptionAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/System/System.Net/DownloadProgressChangedEventArgs.cs" Link="mono\DownloadProgressChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/System/System.Net/DownloadProgressChangedEventHandler.cs" Link="mono\DownloadProgressChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System/TypeCode.cs" Link="mono\TypeCode.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Diagnostics/StackTrace.cs" Link="mono\StackTrace.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Diagnostics/StackFrame.cs" Link="mono\StackFrame.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/Accessibility/Accessibility/IAccessible.cs" Link="mono\IAccessible.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/System.XML/System.Xml/Formatting.cs" Link="mono\Formatting.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/corlib/System/AccessViolationException.cs" Link="mono\AccessViolationException.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System/ApplicationException.cs" Link="mono\ApplicationException.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System/EntryPointNotFoundException.cs" Link="mono\EntryPointNotFoundException.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System/SerializableAttribute.cs" Link="mono\SerializableAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System/PlatformID.cs" Link="mono\PlatformID.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System/SystemException.cs" Link="mono\SystemException.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System/MarshalByRefObject.cs" Link="mono\MarshalByRefObject.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System/NonSerializedAttribute.cs" Link="mono\NonSerializedAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Runtime.InteropServices/HandleRef.cs" Link="mono\HandleRef.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Runtime.Serialization/StreamingContextStates.cs" Link="mono\StreamingContextStates.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security/SuppressUnmanagedCodeSecurityAttribute.cs" Link="mono\SuppressUnmanagedCodeSecurityAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/SecurityPermissionAttribute.cs" Link="mono\SecurityPermissionAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/SecurityPermissionFlag.cs" Link="mono\SecurityPermissionFlag.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/SecurityPermission.cs" Link="mono\SecurityPermission.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/PermissionSetAttribute.cs" Link="mono\PermissionSetAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/PermissionState.cs" Link="mono\PermissionState.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/IBuiltInPermission.cs" Link="mono\IBuiltInPermission.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/IUnrestrictedPermission.cs" Link="mono\IUnrestrictedPermission.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Runtime.Serialization/ISerializable.cs" Link="mono\ISerializable.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Runtime.Serialization/SerializationInfoEnumerator.cs" Link="mono\SerializationInfoEnumerator.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Runtime.Serialization/SerializationEntry.cs" Link="mono\SerializationEntry.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Runtime.Serialization/SerializationBinder.cs" Link="mono\SerializationBinder.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Runtime.Serialization/SerializationInfo.cs" Link="mono\SerializationInfo.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Runtime.Serialization/IFormatterConverter.cs" Link="mono\IFormatterConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Runtime.Serialization/FormatterConverter.cs" Link="mono\FormatterConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Resources/IResourceReader.cs" Link="mono\IResourceReader.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Resources/IResourceWriter.cs" Link="mono\IResourceWriter.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Reflection/IReflect.cs" Link="mono\IReflect.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security/IPermission.cs" Link="mono\IPermission.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security/ISecurityEncodable.cs" Link="mono\ISecurityEncodable.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security/SecurityElement.cs" Link="mono\SecurityElement.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security/XmlSyntaxException.cs" Link="mono\XmlSyntaxException.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Runtime.InteropServices/ExternalException.cs" Link="mono\ExternalException.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/SecurityAttribute.cs" Link="mono\SecurityAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/SecurityAction.cs" Link="mono\SecurityAction.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/CodeAccessSecurityAttribute.cs" Link="mono\CodeAccessSecurityAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/HostProtectionAttribute.cs" Link="mono\HostProtectionAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/HostProtectionResource.cs" Link="mono\HostProtectionResource.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/UIPermissionAttribute.cs" Link="mono\UIPermissionAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/UIPermissionClipboard.cs" Link="mono\UIPermissionClipboard.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Security.Permissions/UIPermissionWindow.cs" Link="mono\UIPermissionWindow.cs" />
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Threading/ThreadAbortException.cs" Link="mono\ThreadAbortException.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/System/System.Runtime.InteropServices.ComTypes/IDataObject.cs" Link="mono\IDataObject.cs" />
+    <Compile Include="../../external/mono/mcs/class/System/System.Threading/ThreadExceptionEventArgs.cs" Link="mono\ThreadExceptionEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/System/System.IO/InternalBufferOverflowException.cs" Link="mono\InternalBufferOverflowException.cs" />
+    <Compile Include="../../external/mono/mcs/class/System/System.Threading/ThreadExceptionEventHandler.cs" Link="mono\ThreadExceptionEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/System/System.Timers/ElapsedEventArgs.cs" Link="mono\ElapsedEventArgs.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/corlib/System.Reflection/ParameterModifier.cs" Link="mono\ParameterModifier.cs" />
+
+    <!--Compile Include="../../external/mono/external/referencesource/mscorlib/system/threading/apartmentstate.cs" Link="mono\apartmentstate.cs" />
+    <Compile Include="../../external/mono/external/referencesource/mscorlib/system/icloneable.cs" Link="mono\icloneable.cs" />
+    <Compile Include="../../external/mono/external/referencesource/mscorlib/system/reflection/binder.cs" Link="mono\binder.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System.Xml/System/Xml/Core/WhitespaceHandling.cs" Link="mono\WhitespaceHandling.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/AmbientValueAttribute.cs" Link="mono\AmbientValueAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ICancelAddNew.cs" Link="mono\ICancelAddNew.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/InvalidEnumArgumentException.cs" Link="mono\InvalidEnumArgumentException.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/Runtime/InteropServices/ComTypes/IEnumSTATDATA.cs" Link="mono\IEnumSTATDATA.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/BindableAttribute.cs" Link="mono\BindableAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/BindableSupport.cs" Link="mono\BindableSupport.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/MaskedTextResultHint.cs" Link="mono\MaskedTextResultHint.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/AddingNewEventArgs.cs" Link="mono\AddingNewEventArgs.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/AddingNewEventHandler.cs" Link="mono\AddingNewEventHandler.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/CancelEventHandler.cs" Link="mono\CancelEventHandler.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/AsyncCompletedEventArgs.cs" Link="mono\AsyncCompletedEventArgs.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/AsyncCompletedEventHandler.cs" Link="mono\AsyncCompletedEventHandler.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ProgressChangedEventArgs.cs" Link="mono\ProgressChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ProgressChangedEventHandler.cs" Link="mono\ProgressChangedEventHandler.cs" />
+    <Compile Include="..\..\external\mono\external\referencesource\System\compmod\system\componentmodel\CollectionChangeEventArgs.cs" Link="mono\CollectionChangeEventArgs.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/CollectionChangeEventHandler.cs" Link="mono\CollectionChangeEventHandler.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ListChangedEventArgs.cs" Link="mono\ListChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ListChangedEventHandler.cs" Link="mono\ListChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ListChangedType.cs" Link="mono\ListChangedType.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ISupportInitialize.cs" Link="mono\ISupportInitialize.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/IListSource.cs" Link="mono\IListSource.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/IExtenderProvider.cs" Link="mono\IExtenderProvider.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ISupportInitializeNotification.cs" Link="mono\ISupportInitializeNotification.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ISynchronizeInvoke.cs" Link="mono\ISynchronizeInvoke.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/AttributeProviderAttribute.cs" Link="mono\AttributeProviderAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/BrowsableAttribute.cs" Link="mono\BrowsableAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/CategoryAttribute.cs" Link="mono\CategoryAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ComplexBindingPropertiesAttribute.cs" Link="mono\ComplexBindingPropertiesAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/DefaultBindingPropertyAttribute.cs" Link="mono\DefaultBindingPropertyAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/DefaultEventAttribute.cs" Link="mono\DefaultEventAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/DefaultPropertyAttribute.cs" Link="mono\DefaultPropertyAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/DescriptionAttribute.cs" Link="mono\DescriptionAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/DesignerAttribute.cs" Link="mono\DesignerAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/DesignerCategoryAttribute.cs" Link="mono\DesignerCategoryAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/DesignerSerializationVisibilityAttribute.cs" Link="mono\DesignerSerializationVisibilityAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/DesignerSerializationVisibility.cs" Link="mono\DesignerSerializationVisibility.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/DesignTimeVisibleAttribute.cs" Link="mono\DesignTimeVisibleAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/EditorAttribute.cs" Link="mono\EditorAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/DisplayNameAttribute.cs" Link="mono\DisplayNameAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ImmutableObjectAttribute.cs" Link="mono\ImmutableObjectAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/InitializationEventAttribute.cs" Link="mono\InitializationEventAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ListBindableAttribute.cs" Link="mono\ListBindableAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/LocalizableAttribute.cs" Link="mono\LocalizableAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/LookupBindingPropertiesAttribute.cs" Link="mono\LookupBindingPropertiesAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/MergablePropertyAttribute.cs" Link="mono\MergablePropertyAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/PasswordPropertyTextAttribute.cs" Link="mono\PasswordPropertyTextAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ProvidePropertyAttribute.cs" Link="mono\ProvidePropertyAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/SettingsBindableAttribute.cs" Link="mono\SettingsBindableAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ToolboxItemFilterAttribute.cs" Link="mono\ToolboxItemFilterAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ToolboxItemFilterType.cs" Link="mono\ToolboxItemFilterType.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/BindingDirection.cs" Link="mono\BindingDirection.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/CollectionChangeAction.cs" Link="mono\CollectionChangeAction.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/Component.cs" Link="mono\Component.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/MaskedTextProvider.cs" Link="mono\MaskedTextProvider.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/EventHandlerList.cs" Link="mono\EventHandlerList.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/BindingList.cs" Link="mono\BindingList.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/IBindingList.cs" Link="mono\IBindingList.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/IRaiseItemChangedEvents.cs" Link="mono\IRaiseItemChangedEvents.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ListSortDirection.cs" Link="mono\ListSortDirection.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/PropertyChangedEventArgs.cs" Link="mono\PropertyChangedEventArgs.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/PropertyChangedEventHandler.cs" Link="mono\PropertyChangedEventHandler.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/INotifyPropertyChanged.cs" Link="mono\INotifyPropertyChanged.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/HandledEventArgs.cs" Link="mono\HandledEventArgs.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/Container.cs" Link="mono\Container.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ContainerFilterService.cs" Link="mono\ContainerFilterService.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/AttributeCollection.cs" Link="mono\AttributeCollection.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/BaseComponentEditor.cs" Link="mono\BaseComponentEditor.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ExpandableObjectConverter.cs" Link="mono\ExpandableObjectConverter.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/EventDescriptor.cs" Link="mono\EventDescriptor.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/MemberDescriptor.cs" Link="mono\MemberDescriptor.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/EventDescriptorCollection.cs" Link="mono\EventDescriptorCollection.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/ArraySubsetEnumerator.cs" Link="mono\ArraySubsetEnumerator.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/DesignOnlyAttribute.cs" Link="mono\DesignOnlyAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/PropertyDescriptorCollection.cs" Link="mono\PropertyDescriptorCollection.cs" />
+
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/IServiceObjectContainer.cs" Link="mono\IServiceObjectContainer.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/ComponentRenameEvent.cs" Link="mono\ComponentRenameEvent.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/ComponentRenameEventHandler.cs" Link="mono\ComponentRenameEventHandler.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/DesignerTransactionCloseEvent.cs" Link="mono\DesignerTransactionCloseEvent.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/DesignerTransactionCloseEventHandler.cs" Link="mono\DesignerTransactionCloseEventHandler.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/ITypeResolutionService.cs" Link="mono\ITypeResolutionService.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/IRootDesigner.cs" Link="mono\IRootDesigner.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/ViewTechnology.cs" Link="mono\ViewTechnology.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/IReferenceService.cs" Link="mono\IReferenceService.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/IDesignerHost.cs" Link="mono\IDesignerHost.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/IDesigner.cs" Link="mono\IDesigner.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/IComponentInitializer.cs" Link="mono\IComponentInitializer.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/PropertyTabAttribute.cs" Link="mono\PropertyTabAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/PropertyTabScope.cs" Link="mono\PropertyTabScope.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/ParenthesizePropertyNameAttribute.cs" Link="mono\ParenthesizePropertyNameAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/NotifyParentPropertyAttribute.cs" Link="mono\NotifyParentPropertyAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/RefreshProperties.cs" Link="mono\RefreshProperties.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/RefreshPropertiesAttribute.cs" Link="mono\RefreshPropertiesAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/ToolboxItemAttribute.cs" Link="mono\ToolboxItemAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/CommandID.cs" Link="mono\CommandID.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/DesignerTransaction.cs" Link="mono\DesignerTransaction.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/DesignerVerbCollection.cs" Link="mono\DesignerVerbCollection.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/DesignerVerb.cs" Link="mono\DesignerVerb.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/MenuCommand.cs" Link="mono\MenuCommand.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/StandardCommands.cs" Link="mono\StandardCommands.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/ServiceCreatorCallback.cs" Link="mono\ServiceCreatorCallback.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/ServiceObjectContainer.cs" Link="mono\ServiceObjectContainer.cs" />
+
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/serialization/DesignerSerializerAttribute.cs" Link="mono\DesignerSerializerAttribute.cs" />
+    <Compile Include="../../external/mono/external/referencesource/System/compmod/system/componentmodel/design/serialization/InstanceDescriptor.cs" Link="mono\InstanceDescriptor.cs" /-->
+    
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="mono\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,205 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DefineConstants>$(DefineConstants);NET_2_0;NET_4_0;NET_4_5</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>System.Drawing</AssemblyName>
+    <PackageId>System.Drawing</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../../external/mono/mcs/build/common/MonoTODOAttribute.cs" Link="mono\MonoTODOAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/build/common/Locale.cs" Link="mono\Locale.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/Brush.cs" Link="mono\Brush.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/Brushes.cs" Link="mono\Brushes.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/BufferedGraphics.cs" Link="mono\BufferedGraphics.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/BufferedGraphicsContext.cs" Link="mono\BufferedGraphicsContext.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/BufferedGraphicsManager.cs" Link="mono\BufferedGraphicsManager.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/CharacterRange.cs" Link="mono\CharacterRange.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/ComIStreamWrapper.cs" Link="mono\ComIStreamWrapper.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/ContentAlignment.cs" Link="mono\ContentAlignment.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/CopyPixelOperation.cs" Link="mono\CopyPixelOperation.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/FontFamily.cs" Link="mono\FontFamily.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/FontStyle.cs" Link="mono\FontStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/gdipEnums.cs" Link="mono\gdipEnums.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/Graphics.cs" Link="mono\Graphics.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/GraphicsUnit.cs" Link="mono\GraphicsUnit.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/IDeviceContext.cs" Link="mono\IDeviceContext.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/KnownColor.cs" Link="mono\KnownColor.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/Pen.cs" Link="mono\Pen.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/Pens.cs" Link="mono\Pens.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/Region.cs" Link="mono\Region.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/RotateFlipType.cs" Link="mono\RotateFlipType.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/SizeF.cs" Link="mono\SizeF.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/SolidBrush.cs" Link="mono\SolidBrush.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/SRDescriptionAttribute.cs" Link="mono\SRDescriptionAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/StringAligment.cs" Link="mono\StringAligment.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/StringDigitSubstitute.cs" Link="mono\StringDigitSubstitute.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/StringFormat.cs" Link="mono\StringFormat.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/StringFormatFlags.cs" Link="mono\StringFormatFlags.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/StringTrimming.cs" Link="mono\StringTrimming.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/StringUnit.cs" Link="mono\StringUnit.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/SystemBrushes.cs" Link="mono\SystemBrushes.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/SystemFonts.cs" Link="mono\SystemFonts.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/SystemIcons.cs" Link="mono\SystemIcons.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/SystemPens.cs" Link="mono\SystemPens.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/TextureBrush.cs" Link="mono\TextureBrush.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/CategoryNameCollection.cs" Link="mono\CategoryNameCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/IPropertyValueUIService.cs" Link="mono\IPropertyValueUIService.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/IToolboxItemProvider.cs" Link="mono\IToolboxItemProvider.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/IToolboxService.cs" Link="mono\IToolboxService.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/IToolboxUser.cs" Link="mono\IToolboxUser.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/PaintValueEventArgs.cs" Link="mono\PaintValueEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/PropertyValueItem.cs" Link="mono\PropertyValueItem.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/PropertyValueUIHandler.cs" Link="mono\PropertyValueUIHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/PropertyValueUIItemInvokeHandler.cs" Link="mono\PropertyValueUIItemInvokeHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/ToolboxComponentsCreatedEventArgs.cs" Link="mono\ToolboxComponentsCreatedEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/ToolboxComponentsCreatedEventHandler.cs" Link="mono\ToolboxComponentsCreatedEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/ToolboxComponentsCreatingEventArgs.cs" Link="mono\ToolboxComponentsCreatingEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/ToolboxComponentsCreatingEventHandler.cs" Link="mono\ToolboxComponentsCreatingEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/ToolboxItemCollection.cs" Link="mono\ToolboxItemCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/ToolboxItemCreatorCallback.cs" Link="mono\ToolboxItemCreatorCallback.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/UITypeEditorEditStyle.cs" Link="mono\UITypeEditorEditStyle.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/AdjustableArrowCap.cs" Link="mono\AdjustableArrowCap.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/Blend.cs" Link="mono\Blend.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/ColorBlend.cs" Link="mono\ColorBlend.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/CombineMode.cs" Link="mono\CombineMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/CompostingMode.cs" Link="mono\CompostingMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/CompostingQuality.cs" Link="mono\CompostingQuality.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/CoordinateSpace.cs" Link="mono\CoordinateSpace.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/CustomLineCap.cs" Link="mono\CustomLineCap.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/DashCap.cs" Link="mono\DashCap.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/DashStyle.cs" Link="mono\DashStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/FillMode.cs" Link="mono\FillMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/FlushIntention.cs" Link="mono\FlushIntention.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/GraphicsContainer.cs" Link="mono\GraphicsContainer.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/GraphicsPath.cs" Link="mono\GraphicsPath.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/GraphicsPathIterator.cs" Link="mono\GraphicsPathIterator.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/GraphicsState.cs" Link="mono\GraphicsState.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/HatchBrush.cs" Link="mono\HatchBrush.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/HatchStyle.cs" Link="mono\HatchStyle.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/InterpolationMode.cs" Link="mono\InterpolationMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/LinearGradientBrush.cs" Link="mono\LinearGradientBrush.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/LinearGradientMode.cs" Link="mono\LinearGradientMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/LineCap.cs" Link="mono\LineCap.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/LineJoin.cs" Link="mono\LineJoin.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/Matrix.cs" Link="mono\Matrix.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/MatrixOrder.cs" Link="mono\MatrixOrder.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/PathData.cs" Link="mono\PathData.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/PathGradientBrush.cs" Link="mono\PathGradientBrush.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/PathPointType.cs" Link="mono\PathPointType.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/PenAlignment.cs" Link="mono\PenAlignment.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/PenType.cs" Link="mono\PenType.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/PixelOffsetMode.cs" Link="mono\PixelOffsetMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/QualityMode.cs" Link="mono\QualityMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/RegionData.cs" Link="mono\RegionData.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/SmoothingMode.cs" Link="mono\SmoothingMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/WarpMode.cs" Link="mono\WarpMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Drawing2D/WrapMode.cs" Link="mono\WrapMode.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/BitmapData.cs" Link="mono\BitmapData.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ColorAdjustType.cs" Link="mono\ColorAdjustType.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ColorChannelFlag.cs" Link="mono\ColorChannelFlag.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ColorMap.cs" Link="mono\ColorMap.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ColorMapType.cs" Link="mono\ColorMapType.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ColorMatrix.cs" Link="mono\ColorMatrix.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ColorMatrixFlag.cs" Link="mono\ColorMatrixFlag.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ColorMode.cs" Link="mono\ColorMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ColorPalette.cs" Link="mono\ColorPalette.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/EmfPlusRecordType.cs" Link="mono\EmfPlusRecordType.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/EmfType.cs" Link="mono\EmfType.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/Encoder.cs" Link="mono\Encoder.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/EncoderParameter.cs" Link="mono\EncoderParameter.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/EncoderParameters.cs" Link="mono\EncoderParameters.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/EncoderParameterValueType.cs" Link="mono\EncoderParameterValueType.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/EncoderValue.cs" Link="mono\EncoderValue.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/FrameDimension.cs" Link="mono\FrameDimension.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ImageAttributes.cs" Link="mono\ImageAttributes.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ImageCodecFlags.cs" Link="mono\ImageCodecFlags.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ImageCodecInfo.cs" Link="mono\ImageCodecInfo.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ImageFlags.cs" Link="mono\ImageFlags.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ImageFormat.cs" Link="mono\ImageFormat.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/ImageLockMode.cs" Link="mono\ImageLockMode.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/Metafile.cs" Link="mono\Metafile.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/MetafileFrameUnit.cs" Link="mono\MetafileFrameUnit.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/MetafileHeader.cs" Link="mono\MetafileHeader.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/MetafileType.cs" Link="mono\MetafileType.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/MetaHeader.cs" Link="mono\MetaHeader.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/PaletteFlags.cs" Link="mono\PaletteFlags.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/PixelFormat.cs" Link="mono\PixelFormat.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/PlayRecordCallback.cs" Link="mono\PlayRecordCallback.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/PropertyItem.cs" Link="mono\PropertyItem.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Imaging/WmfPlaceableFileHeader.cs" Link="mono\WmfPlaceableFileHeader.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/Duplex.cs" Link="mono\Duplex.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/InvalidPrinterException.cs" Link="mono\InvalidPrinterException.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/Margins.cs" Link="mono\Margins.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PageSettings.cs" Link="mono\PageSettings.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PaperKind.cs" Link="mono\PaperKind.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PaperSize.cs" Link="mono\PaperSize.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PaperSource.cs" Link="mono\PaperSource.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PaperSourceKind.cs" Link="mono\PaperSourceKind.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PreviewPageInfo.cs" Link="mono\PreviewPageInfo.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PreviewPrintController.cs" Link="mono\PreviewPrintController.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrintAction.cs" Link="mono\PrintAction.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrintController.cs" Link="mono\PrintController.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrinterResolution.cs" Link="mono\PrinterResolution.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrinterResolutionKind.cs" Link="mono\PrinterResolutionKind.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrinterSettings.cs" Link="mono\PrinterSettings.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrinterUnit.cs" Link="mono\PrinterUnit.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrinterUnitConvert.cs" Link="mono\PrinterUnitConvert.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrintEventArgs.cs" Link="mono\PrintEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrintEventHandler.cs" Link="mono\PrintEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrintingServices.cs" Link="mono\PrintingServices.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrintingServicesUnix.cs" Link="mono\PrintingServicesUnix.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrintingServicesWin32.cs" Link="mono\PrintingServicesWin32.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrintPageEventArgs.cs" Link="mono\PrintPageEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrintPageEventHandler.cs" Link="mono\PrintPageEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrintRange.cs" Link="mono\PrintRange.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/QueryPageSettingsEventArgs.cs" Link="mono\QueryPageSettingsEventArgs.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/QueryPageSettingsEventHandler.cs" Link="mono\QueryPageSettingsEventHandler.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/StandardPrintController.cs" Link="mono\StandardPrintController.cs" />
+
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Text/FontCollection.cs" Link="mono\FontCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Text/GenericFontFamilies.cs" Link="mono\GenericFontFamilies.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Text/HotkeyPrefix.cs" Link="mono\HotkeyPrefix.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Text/InstalledFontCollection.cs" Link="mono\InstalledFontCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Text/PrivateFontCollection.cs" Link="mono\PrivateFontCollection.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Text/TextRenderingHint.cs" Link="mono\TextRenderingHint.cs" />
+
+    
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/Bitmap.cs" Link="mono\Bitmap.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/ColorTranslator.cs" Link="mono\ColorTranslator.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/Font.cs" Link="mono\Font.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/FontConverter.cs" Link="mono\FontConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/gdipFunctions.cs" Link="mono\gdipFunctions.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/gdipStructs.cs" Link="mono\gdipStructs.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/Icon.cs" Link="mono\Icon.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/IconConverter.cs" Link="mono\IconConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/Image.cs" Link="mono\Image.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/ImageAnimator.cs" Link="mono\ImageAnimator.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/ImageConverter.cs" Link="mono\ImageConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/ImageFormatConverter.cs" Link="mono\ImageFormatConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/macFunctions.cs" Link="mono\macFunctions.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/PointConverter.cs" Link="mono\PointConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/RectangleConverter.cs" Link="mono\RectangleConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/SizeConverter.cs" Link="mono\SizeConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/SizeFConverter.cs" Link="mono\SizeFConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing/ToolboxBitmapAttribute.cs" Link="mono\ToolboxBitmapAttribute.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/ToolboxItem.cs" Link="mono\ToolboxItem.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Design/UITypeEditor.cs" Link="mono\UITypeEditor.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/MarginsConverter.cs" Link="mono\MarginsConverter.cs" />
+    <Compile Include="../../external/mono/mcs/class/System.Drawing/System.Drawing.Printing/PrintDocument.cs" Link="mono\PrintDocument.cs" />
+
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj" />
+  </ItemGroup>
+
+</Project>
