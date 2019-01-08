@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\libgdiplus\src\adjustablearrowcap.c" />
+    <ClCompile Include="..\..\libgdiplus\src\bitmap.c" />
+    <ClCompile Include="..\..\libgdiplus\src\bmpcodec.c" />
+    <ClCompile Include="..\..\libgdiplus\src\brush.c" />
+    <ClCompile Include="..\..\libgdiplus\src\carbon-private.c" />
+    <ClCompile Include="..\..\libgdiplus\src\customlinecap.c" />
+    <ClCompile Include="..\..\libgdiplus\src\dstream.c" />
+    <ClCompile Include="..\..\libgdiplus\src\emfcodec.c" />
+    <ClCompile Include="..\..\libgdiplus\src\emfplus.c" />
+    <ClCompile Include="..\..\libgdiplus\src\font.c" />
+    <ClCompile Include="..\..\libgdiplus\src\gdi32.c" />
+    <ClCompile Include="..\..\libgdiplus\src\general.c" />
+    <ClCompile Include="..\..\libgdiplus\src\gifcodec.c" />
+    <ClCompile Include="..\..\libgdiplus\src\graphics-cairo.c" />
+    <ClCompile Include="..\..\libgdiplus\src\graphics-metafile.c" />
+    <ClCompile Include="..\..\libgdiplus\src\graphics-path.c" />
+    <ClCompile Include="..\..\libgdiplus\src\graphics-pathiterator.c" />
+    <ClCompile Include="..\..\libgdiplus\src\graphics.c" />
+    <ClCompile Include="..\..\libgdiplus\src\hatchbrush.c" />
+    <ClCompile Include="..\..\libgdiplus\src\icocodec.c" />
+    <ClCompile Include="..\..\libgdiplus\src\image.c" />
+    <ClCompile Include="..\..\libgdiplus\src\imageattributes.c" />
+    <ClCompile Include="..\..\libgdiplus\src\jpegcodec.c" />
+    <ClCompile Include="..\..\libgdiplus\src\lineargradientbrush.c" />
+    <ClCompile Include="..\..\libgdiplus\src\matrix.c" />
+    <ClCompile Include="..\..\libgdiplus\src\metafile.c" />
+    <ClCompile Include="..\..\libgdiplus\src\pathgradientbrush.c" />
+    <ClCompile Include="..\..\libgdiplus\src\pen.c" />
+    <ClCompile Include="..\..\libgdiplus\src\pngcodec.c" />
+    <ClCompile Include="..\..\libgdiplus\src\print.c" />
+    <ClCompile Include="..\..\libgdiplus\src\region-bitmap.c" />
+    <ClCompile Include="..\..\libgdiplus\src\region-path-tree.c" />
+    <ClCompile Include="..\..\libgdiplus\src\region.c" />
+    <ClCompile Include="..\..\libgdiplus\src\solidbrush.c" />
+    <ClCompile Include="..\..\libgdiplus\src\stringformat.c" />
+    <ClCompile Include="..\..\libgdiplus\src\text-cairo.c" />
+    <ClCompile Include="..\..\libgdiplus\src\text-metafile.c" />
+    <ClCompile Include="..\..\libgdiplus\src\text-pango.c" />
+    <ClCompile Include="..\..\libgdiplus\src\text.c" />
+    <ClCompile Include="..\..\libgdiplus\src\texturebrush.c" />
+    <ClCompile Include="..\..\libgdiplus\src\tiffcodec.c" />
+    <ClCompile Include="..\..\libgdiplus\src\win32-private.c" />
+    <ClCompile Include="..\..\libgdiplus\src\wmfcodec.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cairo\cairo.vcxproj">
+      <Project>{b3730487-d742-401c-9f29-bdca72ef2603}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\fontconfig\fontconfig.vcxproj">
+      <Project>{ac4f5a41-d446-4265-b6c2-a22fff35f360}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\microwindows\microwindows.vcxproj">
+      <Project>{336c5232-b0da-45d8-a371-9aa11bc7e93d}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{B119C8D8-F8BE-415D-8985-5DD8EE90780E}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>libgdiplus</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;MW;HAVE_FCFINI;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.;..\..\microwindows\src\include;..\..\cairo\src</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
