@@ -1079,8 +1079,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\nanovg_dotnet\GlfwDotNet\Glfw\Glfw.csproj" />
-    <ProjectReference Include="..\..\..\nanovg_dotnet\NanoVG_Binding\NanoVG_Binding.csproj" />
     <ProjectReference Include="..\..\Common\Common.csproj" />
     <ProjectReference Include="..\..\System.Drawing.New\System.Drawing.New.csproj" />
   </ItemGroup>

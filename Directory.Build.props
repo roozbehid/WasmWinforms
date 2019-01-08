@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <OutDir>$(SolutionDir)Output\bin\$(Platform)\$(Configuration)\</OutDir>
-    <OutDirNoSlash>$(SolutionDir)Output\bin\$(Platform)\$(Configuration)</OutDirNoSlash>
-    <IntDir>$(SolutionDir)Output\obj\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
+    <PlatformModified>$(Platform)</PlatformModified>
+    <PlatformModified Condition="'$(Platform)'=='Win32'">x86</PlatformModified>
+    <OutDir>$(SolutionDir)Output\bin\$(PlatformModified)\$(Configuration)\</OutDir>
+    <OutDirNoSlash>$(SolutionDir)Output\bin\$(PlatformModified)\$(Configuration)</OutDirNoSlash>
+    <IntDir>$(SolutionDir)Output\obj\$(PlatformModified)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
     <IntermediateOutputPath>$(IntDir)</IntermediateOutputPath>
   </PropertyGroup>
 <ItemDefinitionGroup>
     <Link>
-        <AdditionalLibraryDirectories>$(SolutionDir)Output\bin\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+        <AdditionalLibraryDirectories>$(SolutionDir)Output\bin\$(PlatformModified)\$(Configuration)\</AdditionalLibraryDirectories>
     </Link>
 </ItemDefinitionGroup>  
 </Project>
