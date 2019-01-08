@@ -1,0 +1,30 @@
+#ifndef __MONO_UTILS_DL_H__
+#define __MONO_UTILS_DL_H__
+
+#include "mono/utils/mono-compiler.h"
+#include "mono/utils/mono-dl-fallback.h"
+
+#ifdef TARGET_WIN32
+#define MONO_SOLIB_EXT ".dll"
+#elif defined(__ppc__) && defined(TARGET_MACH)
+#define MONO_SOLIB_EXT ".dylib"
+#elif defined(TARGET_MACH) && defined(TARGET_X86) && !defined(__native_client_codegen__)
+#define MONO_SOLIB_EXT ".dylib"
+#elif defined(TARGET_MACH) && defined(TARGET_AMD64) && !defined(__native_client_codegen__)
+#define MONO_SOLIB_EXT ".dylib"
+#else
+#define MONO_SOLIB_EXT ".so"
+#endif
+
+typedef struct _MonoDl MonoDl;
+
+MonoDl*     mono_dl_open       (const char *name, int flags, char **error_msg) MONO_LLVM_INTERNAL;
+char*       mono_dl_symbol     (MonoDl *module, const char *name, void **symbol) MONO_LLVM_INTERNAL;
+void        mono_dl_close      (MonoDl *module) MONO_LLVM_INTERNAL;
+
+char*       mono_dl_build_path (const char *directory, const char *name, void **iter) MONO_INTERNAL;
+
+MonoDl*     mono_dl_open_runtime_lib (const char *lib_name, int flags, char **error_msg) MONO_INTERNAL;
+
+#endif /* __MONO_UTILS_DL_H__ */
+

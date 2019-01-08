@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WinFormSimple1Core": {
+      "commandName": "Project",
+      "commandLineArgs": "",
+      "nativeDebugging": true
+
+    }
+  }
+}
