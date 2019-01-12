@@ -3,9 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Platforms>AnyCPU;x86;x64</Platforms>
+    <Configurations>Debug;Release;WasmDbg</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;NET_4_5</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|AnyCPU'">
     <DefineConstants>TRACE;NET_4_5</DefineConstants>
   </PropertyGroup>
 
@@ -13,7 +18,15 @@
     <DefineConstants>TRACE;NET_4_5</DefineConstants>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|x64'">
+    <DefineConstants>TRACE;NET_4_5</DefineConstants>
+  </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <DefineConstants>TRACE;NET_4_5</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|x86'">
     <DefineConstants>TRACE;NET_4_5</DefineConstants>
   </PropertyGroup>
 

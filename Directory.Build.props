@@ -8,9 +8,25 @@
     <IntDir>$(SolutionDir)Output\obj\$(PlatformModified)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
     <IntermediateOutputPath>$(IntDir)</IntermediateOutputPath>
   </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration.Contains('Wasm'))">
+    <GCCToolCompilerExe>emcc</GCCToolCompilerExe>
+    <GCCToolLinkerExe>emcc</GCCToolLinkerExe>
+    <GCCToolArchiverExe>emar</GCCToolArchiverExe>
+    <GCCBuild_PreRunApp>call c:\Utils\emsdk\emsdk_env.bat 1>nul</GCCBuild_PreRunApp>
+  </PropertyGroup>
+  
+  
 <ItemDefinitionGroup>
     <Link>
         <AdditionalLibraryDirectories>$(SolutionDir)Output\bin\$(PlatformModified)\$(Configuration)\</AdditionalLibraryDirectories>
+        <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
+    <ClCompile>
+     <SuppressStartupBanner>false</SuppressStartupBanner>
+    </ClCompile>
+    <Lib>
+     <SuppressStartupBanner>false</SuppressStartupBanner>
+    </Lib>
 </ItemDefinitionGroup>  
 </Project>
