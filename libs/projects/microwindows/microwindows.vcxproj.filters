@@ -13,9 +13,6 @@
     <Filter Include="mwin">
       <UniqueIdentifier>{ccf7c554-5beb-45d5-bb73-3c6b1f05aeea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="uxtheme">
-      <UniqueIdentifier>{4e3ce4f0-3ff5-4efd-b98a-10d03d0c0060}</UniqueIdentifier>
-    </Filter>
     <Filter Include="mwin\winlib">
       <UniqueIdentifier>{438855ed-a52d-4979-b45b-3bbfdec0133b}</UniqueIdentifier>
     </Filter>
@@ -60,16 +57,7 @@
     <ClCompile Include="..\..\microwindows\src\drivers\genmem.c">
       <Filter>drivers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\microwindows\src\drivers\kbd_sdl1.c">
-      <Filter>drivers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\microwindows\src\drivers\mou_sdl1.c">
-      <Filter>drivers</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\microwindows\src\drivers\rasterops.c">
-      <Filter>drivers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\microwindows\src\drivers\scr_sdl1.c">
       <Filter>drivers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\microwindows\src\engine\convblit_8888.c">
@@ -142,9 +130,6 @@
       <Filter>engine</Filter>
     </ClCompile>
     <ClCompile Include="..\..\microwindows\src\engine\font_dbcs.c">
-      <Filter>engine</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\microwindows\src\engine\font_eucjp.c">
       <Filter>engine</Filter>
     </ClCompile>
     <ClCompile Include="..\..\microwindows\src\engine\font_fnt.c">
@@ -270,9 +255,6 @@
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\newedit.c">
       <Filter>mwin\winlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\microwindows\src\mwin\winlib\newlistbox.c">
-      <Filter>mwin\winlib</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\progbar.c">
       <Filter>mwin\winlib</Filter>
     </ClCompile>
@@ -288,11 +270,17 @@
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\windlg.c">
       <Filter>mwin\winlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\microwindows\src\uxtheme\draw.c">
-      <Filter>uxtheme</Filter>
+    <ClCompile Include="..\..\microwindows\src\drivers\kbd_sdl2.c">
+      <Filter>drivers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\microwindows\src\uxtheme\property.c">
-      <Filter>uxtheme</Filter>
+    <ClCompile Include="..\..\microwindows\src\drivers\mou_sdl2.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\microwindows\src\drivers\scr_sdl2.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\microwindows\src\mwin\winlib\listbox.c">
+      <Filter>mwin\winlib</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -17,6 +17,14 @@
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="WasmDbg|Win32">
+      <Configuration>WasmDbg</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="WasmDbg|x64">
+      <Configuration>WasmDbg</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\microwindows\src\drivers\fb.c" />
@@ -32,10 +40,10 @@
     <ClCompile Include="..\..\microwindows\src\drivers\fbportrait_right.c" />
     <ClCompile Include="..\..\microwindows\src\drivers\genfont.c" />
     <ClCompile Include="..\..\microwindows\src\drivers\genmem.c" />
-    <ClCompile Include="..\..\microwindows\src\drivers\kbd_sdl1.c" />
-    <ClCompile Include="..\..\microwindows\src\drivers\mou_sdl1.c" />
+    <ClCompile Include="..\..\microwindows\src\drivers\kbd_sdl2.c" />
+    <ClCompile Include="..\..\microwindows\src\drivers\mou_sdl2.c" />
     <ClCompile Include="..\..\microwindows\src\drivers\rasterops.c" />
-    <ClCompile Include="..\..\microwindows\src\drivers\scr_sdl1.c" />
+    <ClCompile Include="..\..\microwindows\src\drivers\scr_sdl2.c" />
     <ClCompile Include="..\..\microwindows\src\engine\convblit_8888.c" />
     <ClCompile Include="..\..\microwindows\src\engine\convblit_frameb.c" />
     <ClCompile Include="..\..\microwindows\src\engine\convblit_mask.c" />
@@ -60,7 +68,6 @@
     <ClCompile Include="..\..\microwindows\src\engine\devstipple.c" />
     <ClCompile Include="..\..\microwindows\src\engine\devtimer.c" />
     <ClCompile Include="..\..\microwindows\src\engine\font_dbcs.c" />
-    <ClCompile Include="..\..\microwindows\src\engine\font_eucjp.c" />
     <ClCompile Include="..\..\microwindows\src\engine\font_fnt.c" />
     <ClCompile Include="..\..\microwindows\src\engine\font_freetype2.c" />
     <ClCompile Include="..\..\microwindows\src\engine\font_hzk.c" />
@@ -93,11 +100,11 @@
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\fastfill.c" />
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\graph3d.c" />
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\insetr.c" />
+    <ClCompile Include="..\..\microwindows\src\mwin\winlib\listbox.c" />
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\medit.c" />
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\msgbox.c" />
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\mwuser.c" />
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\newedit.c" />
-    <ClCompile Include="..\..\microwindows\src\mwin\winlib\newlistbox.c" />
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\progbar.c" />
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\ptinsid.c" />
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\scrlbar.c" />
@@ -108,10 +115,16 @@
     <ClCompile Include="..\..\microwindows\src\mwin\winrgn.c" />
     <ClCompile Include="..\..\microwindows\src\mwin\winsbar.c" />
     <ClCompile Include="..\..\microwindows\src\mwin\winuser.c" />
-    <ClCompile Include="..\..\microwindows\src\uxtheme\draw.c" />
-    <ClCompile Include="..\..\microwindows\src\uxtheme\property.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <VCTargetsPath Condition="'$(DesignTimeBuild)'!='true' AND $(Configuration.Contains('Wasm'))">./</VCTargetsPath>
+    <MSBuildProjectExtensionsPath Condition="'$(DesignTimeBuild)'!='true' AND $(Configuration.Contains('Wasm'))">./</MSBuildProjectExtensionsPath>
+    <GCCBuild_UseWSL>false</GCCBuild_UseWSL>
+    <GCCToolCompilerStyle Condition="$(Configuration.Contains('Wasm'))">llvm</GCCToolCompilerStyle>
+    <VCTargetsPath Condition="'$(DesignTimeBuild)'!='true' AND $(Configuration.Contains('GCC'))">./</VCTargetsPath>
+    <MSBuildProjectExtensionsPath Condition="'$(DesignTimeBuild)'!='true' AND $(Configuration.Contains('GCC'))">./</MSBuildProjectExtensionsPath>
+    <VCTargetsPath Condition="'$(DesignTimeBuild)'!='true' AND $(Configuration.Contains('Linux'))">./</VCTargetsPath>
+    <MSBuildProjectExtensionsPath Condition="'$(DesignTimeBuild)'!='true' AND $(Configuration.Contains('Linux'))">./</MSBuildProjectExtensionsPath>
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{336C5232-B0DA-45D8-A371-9AA11BC7E93D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -121,6 +134,12 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
@@ -139,6 +158,12 @@
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -146,7 +171,7 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" Condition="'$(VCTargetsPath)' != '.' AND '$(VCTargetsPath)' != '.\' AND '$(VCTargetsPath)' != './'" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
@@ -154,10 +179,16 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -167,7 +198,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -189,7 +226,34 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>EMSCRIPTEN=1;UPDATEREGIONS=1;ERASEMOVE=1;NOMAIN;_SDL1_2_=1;SCREEN_WIDTH=800;SCREEN_HEIGHT=800;_CRT_SECURE_NO_WARNINGS;_DEBUG;_USRDLL;HAVE_FILEIO=1;MW_FEATURE_IMAGES=1;MW_FEATURE_TIMERS=1;HAVE_SIGNAL=0;HAVE_FPRINTF=0;NONETWORK=1;HAVE_MMAP=0;NANOWM=1;HAVE_BMP_SUPPORT=1;SCREEN_DEPTH=32;SCREEN_PIXTYPE=MWPF_TRUECOLOR8888;DHAVE_XPM_SUPPORT=1;HAVE_PNG_SUPPORT=1;HAVE_FNT_SUPPORT=1;HAVE_FREETYPE_2_SUPPORT=1;FREETYPE_FONT_DIR="fonts/truetype";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\..\microwindows\src\include</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Wno-ignored-attributes -Wno-deprecated-declarations -s USE_SDL=2 -s USE_ZLIB=1 -s USE_FREETYPE=1  -s USE_LIBPNG=1 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
@@ -238,7 +302,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" Condition="'$(VCTargetsPath)' != '.' AND '$(VCTargetsPath)' != '.\' AND '$(VCTargetsPath)' != './'" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
