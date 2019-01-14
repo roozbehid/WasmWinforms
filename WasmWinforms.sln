@@ -36,6 +36,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mono-wasm", "mono-wasm", "{1D7BCB48-855E-449E-8C14-64DA44882618}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mono-wasm", "mono-wasm\mono-wasm.vcxproj", "{1F7C226E-22EB-4F45-89C7-ABD521178A21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -229,6 +233,22 @@ Global
 		{A4EBC14A-4F29-475A-B46B-7593590BFD95}.WasmDbg|x64.Build.0 = WasmDbg|Any CPU
 		{A4EBC14A-4F29-475A-B46B-7593590BFD95}.WasmDbg|x86.ActiveCfg = WasmDbg|x86
 		{A4EBC14A-4F29-475A-B46B-7593590BFD95}.WasmDbg|x86.Build.0 = WasmDbg|x86
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.Debug|x64.ActiveCfg = Debug|x64
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.Debug|x64.Build.0 = Debug|x64
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.Debug|x86.ActiveCfg = Debug|Win32
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.Debug|x86.Build.0 = Debug|Win32
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.Release|Any CPU.ActiveCfg = Release|Win32
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.Release|x64.ActiveCfg = Release|x64
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.Release|x64.Build.0 = Release|x64
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.Release|x86.ActiveCfg = Release|Win32
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.Release|x86.Build.0 = Release|Win32
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.WasmDbg|Any CPU.ActiveCfg = Release|x64
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.WasmDbg|Any CPU.Build.0 = Release|x64
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.WasmDbg|x64.ActiveCfg = Release|x64
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.WasmDbg|x64.Build.0 = Release|x64
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.WasmDbg|x86.ActiveCfg = WasmDbg|Win32
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21}.WasmDbg|x86.Build.0 = WasmDbg|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -245,6 +265,7 @@ Global
 		{54C2A0C7-CC76-4809-94AE-4A534DD7B072} = {127EA24E-740B-450C-A41A-1DDFDFCAB93D}
 		{0DB22D32-0E42-4A85-8BD1-C03A1DB61F08} = {2148F9E0-73B7-403F-9215-A052E5DD425B}
 		{A4EBC14A-4F29-475A-B46B-7593590BFD95} = {2148F9E0-73B7-403F-9215-A052E5DD425B}
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21} = {1D7BCB48-855E-449E-8C14-64DA44882618}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {399BD10A-768A-46D7-9748-E003EEBFF13C}

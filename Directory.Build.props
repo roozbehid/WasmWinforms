@@ -19,7 +19,7 @@
   
 <ItemDefinitionGroup>
     <Link>
-        <AdditionalLibraryDirectories>$(SolutionDir)Output\bin\$(PlatformModified)\$(Configuration)\</AdditionalLibraryDirectories>
+        <AdditionalLibraryDirectories>$(SolutionDir)Output\bin\$(PlatformModified)\$(Configuration)</AdditionalLibraryDirectories>
         <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
     <ClCompile>

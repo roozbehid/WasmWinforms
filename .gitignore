@@ -267,3 +267,6 @@ __pycache__/
 *.rpw
 *.cg_info
 MrcUtils.mak
+*.binlog
+/mono-wasm/incoming
+/mono-wasm/incoming-old
