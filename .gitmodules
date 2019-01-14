@@ -51,3 +51,6 @@
 [submodule "reference-assemblies"]
 	path = winforms/external/mono/external/reference-assemblies
 	url = git://github.com/mono/reference-assemblies.git
+[submodule "external/mono"]
+	path = external/mono
+	url = https://github.com/mono/mono.git
