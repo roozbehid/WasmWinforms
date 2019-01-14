@@ -71,23 +71,6 @@
     <ClCompile Include="..\..\libgdiplus\src\win32-private.c" />
     <ClCompile Include="..\..\libgdiplus\src\wmfcodec.c" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\cairo\cairo.vcxproj">
-      <Project>{b3730487-d742-401c-9f29-bdca72ef2603}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\fontconfig\fontconfig.vcxproj">
-      <Project>{ac4f5a41-d446-4265-b6c2-a22fff35f360}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\libexpat\libexpat.vcxproj">
-      <Project>{ed9d8242-f782-45da-acf0-f3a8773bfa13}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\microwindows\microwindows.vcxproj">
-      <Project>{336c5232-b0da-45d8-a371-9aa11bc7e93d}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\pixman\pixman.vcxproj">
-      <Project>{7123a522-d07f-4f81-88b0-5793f377e58c}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCTargetsPath Condition="'$(DesignTimeBuild)'!='true' AND $(Configuration.Contains('Wasm'))">./</VCTargetsPath>
     <MSBuildProjectExtensionsPath Condition="'$(DesignTimeBuild)'!='true' AND $(Configuration.Contains('Wasm'))">./</MSBuildProjectExtensionsPath>
@@ -111,7 +94,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -203,14 +186,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>MW;_WINDLL;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>.;..\..\microwindows\src\include;..\cairo;..\cairo\cairo;..\..\fontconfig;..\..\libexpat\expat\lib</AdditionalIncludeDirectories>
       <AdditionalOptions>-s BINARYEN_TRAP_MODE=clamp -s USE_FREETYPE=1  -Wno-ignored-attributes %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>nanox.lib;fontconfig.lib;cairo.lib;shcore.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
