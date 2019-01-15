@@ -54,3 +54,6 @@
 [submodule "external/mono"]
 	path = external/mono
 	url = https://github.com/mono/mono.git
+[submodule "WasmWinforms.Build.Tasks/linker"]
+	path = WasmWinforms.Build.Tasks/linker
+	url = https://github.com/mono/linker.git
