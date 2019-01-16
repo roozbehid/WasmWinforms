@@ -8,6 +8,7 @@ if (!(Test-Path "incoming\remove-to-redownload.txt")){
     $main_url = "https://jenkins.mono-project.com/job/test-mono-mainline-wasm/label=$build_server/$build_id/Azure/processDownloadRequest/$build_id/$build_server/sdks/wasm/mono-wasm-$build_hash.zip"
     Invoke-RestMethod -Method GET -Uri $main_url -OutFile "mono-wasm.zip" 
     Expand-Archive -Path mono-wasm.zip -DestinationPath incoming -Force
+    Copy-Item .\modified_incoming\*.* .\incoming\ -r -Force
     New-Item -path incoming\remove-to-redownload.txt -type file
     Remove-Item -Path mono-wasm.zip
 }

@@ -14,10 +14,8 @@ using Mono.Linker.Steps;
 
 namespace WasmWinforms.Build.Tasks
 {
-    public class BuildTask : Task
+    public class BuildWasmTask : Task
     {
-        const string SdkUrl = "https://xamjenkinsartifact.azureedge.net/test-mono-mainline-wasm/916/ubuntu-1804-amd64/sdks/wasm/mono-wasm-f25f9e5f2b5.zip";
-
         const string AssemblyExtension = ".bin";
 
         [Required]
@@ -25,6 +23,8 @@ namespace WasmWinforms.Build.Tasks
         [Required]
         public string OutputPath { get; set; }
         public string ReferencePath { get; set; }
+        [Required]
+        public string NugetContentPath { get; set; }
 
         bool ok = false;
 
@@ -33,6 +33,8 @@ namespace WasmWinforms.Build.Tasks
             try
             {
                 ok = true;
+                Log.LogMessage("-----BuildWasm Started------");
+
                 InstallSdk();
                 GetBcl();
                 CreateDist();
@@ -57,28 +59,7 @@ namespace WasmWinforms.Build.Tasks
 
         void InstallSdk()
         {
-            var sdkName = Path.GetFileNameWithoutExtension(new Uri(SdkUrl).AbsolutePath.Replace('/', Path.DirectorySeparatorChar));
-            Log.LogMessage("SDK: " + sdkName);
-            string tmpDir = Path.GetTempPath();
-            sdkPath = Path.Combine(tmpDir, sdkName);
-            Log.LogMessage("SDK Path: " + sdkPath);
-            if (Directory.Exists(sdkPath)
-                && Directory.Exists(Path.Combine(sdkPath, "release")))
-                return;
-
-            var client = new WebClient();
-            var zipPath = sdkPath + ".zip";
-            Log.LogMessage($"Downloading {sdkName} to {zipPath}");
-            if (File.Exists(zipPath))
-                File.Delete(zipPath);
-            client.DownloadFile(SdkUrl, zipPath);
-
-            var sdkTempPath = Path.Combine(tmpDir, Guid.NewGuid().ToString());
-            ZipFile.ExtractToDirectory(zipPath, sdkTempPath);
-            if (Directory.Exists(sdkPath))
-                Directory.Delete(sdkPath, true);
-            Directory.Move(sdkTempPath, sdkPath);
-            Log.LogMessage($"Extracted {sdkName} to {sdkPath}");
+            sdkPath = NugetContentPath;
         }
 
         string bclPath;
@@ -86,7 +67,7 @@ namespace WasmWinforms.Build.Tasks
 
         void GetBcl()
         {
-            bclPath = Path.Combine(sdkPath, "bcl");
+            bclPath = Path.Combine(sdkPath, "wasm-bcl","wasm");
             var reals = Directory.GetFiles(bclPath, "*.dll");
             var facades = Directory.GetFiles(Path.Combine(bclPath, "Facades"), "*.dll");
             var allFiles = reals.Concat(facades);
@@ -332,9 +313,9 @@ namespace WasmWinforms.Build.Tasks
 
         class MarkStepWithUnresolvedLogging : MarkStep
         {
-            BuildDistTask task;
+            BuildWasmTask task;
 
-            public MarkStepWithUnresolvedLogging(BuildDistTask task)
+            public MarkStepWithUnresolvedLogging(BuildWasmTask task)
             {
                 this.task = task;
             }
@@ -444,9 +425,9 @@ namespace WasmWinforms.Build.Tasks
 
         class LinkerAssemblyResolver : Mono.Linker.AssemblyResolver
         {
-            BuildDistTask task;
+            BuildWasmTask task;
 
-            public LinkerAssemblyResolver(BuildDistTask buildDistTask)
+            public LinkerAssemblyResolver(BuildWasmTask buildDistTask)
             {
                 task = buildDistTask;
             }
