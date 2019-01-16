@@ -1,0 +1,26 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>WasmWinforms.Build.Tasks</id>
+    <version>1.0.0.16</version>
+    <title>WasmWinforms</title>
+    <authors>roozbehid</authors>
+    <owners>roozbehid</owners>
+    <licenseUrl>https://github.com/roozbehid/WasmWinforms/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/roozbehid/WasmWinforms</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>WebAssembly support for Winforms apps</description>
+    <tags>Winforms UI CrossPlatform WebAssembly Wasm</tags>
+  </metadata>
+  <files>
+    <file src="WasmWinforms.Build.Tasks.targets" target="build/netstandard2.0/WasmWinforms.Build.Tasks.targets" />
+    <file src="WasmWinforms.Build.Tasks.dll" target="build/netstandard2.0/WasmWinforms.Build.Tasks.dll" />
+    <file src="WasmWinforms.Build.Tasks.pdb" target="build/netstandard2.0/WasmWinforms.Build.Tasks.pdb" />
+    <file src="sdk\**\*.*" target="content\sdk\" />
+    <file src="mono.js" target="content\sdk\release\mono.js" />
+    <file src="mono.wasm" target="content\sdk\release\mono.wasm" />
+    <file src="..\Debug\System.Windows.Forms.dll" target="lib\netstandard2.0\System.Windows.Forms.dll" />
+    <file src="..\Debug\System.Drawing.New.dll" target="lib\netstandard2.0\System.Drawing.New.dll" />
+    <file src="..\Debug\Common.dll" target="lib\netstandard2.0\Common.dll" />
+  </files>
+</package>
