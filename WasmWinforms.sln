@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Drawing.New", "winfo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libWinforms", "libWinforms", "{127EA24E-740B-450C-A41A-1DDFDFCAB93D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "winforms\Common\Common.csproj", "{99071C45-5A7F-4B30-9101-477F06977B2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WasmWinforms.Common", "winforms\Common\WasmWinforms.Common.csproj", "{99071C45-5A7F-4B30-9101-477F06977B2B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Windows.Forms", "winforms\src\System.Windows.Forms\System.Windows.Forms.csproj", "{54C2A0C7-CC76-4809-94AE-4A534DD7B072}"
 EndProject
@@ -43,6 +43,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "buildTask", "buildTask", "{506F205A-EF62-43E2-A356-34B05EE0F832}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WasmWinforms.Build.Tasks", "WasmWinforms.Build.Tasks\WasmWinforms.Build.Tasks.csproj", "{EFE3748F-AC46-43DC-8C48-7A44B0E6093D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21} = {1F7C226E-22EB-4F45-89C7-ABD521178A21}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormSimple1CoreNuget", "winforms\WinFormSimple1CoreNuget\WinFormSimple1CoreNuget.csproj", "{59A0FA1F-F2CF-4231-9070-6403637994ED}"
 EndProject

@@ -1092,7 +1092,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Common.csproj" />
+    <ProjectReference Include="..\..\Common\WasmWinforms.Common.csproj" />
     <ProjectReference Include="..\..\System.Drawing.New\System.Drawing.New.csproj" />
   </ItemGroup>
 
