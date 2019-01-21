@@ -304,7 +304,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
+      <Optimization>Full</Optimization>
       <PreprocessorDefinitions>UPDATEREGIONS;ERASEMOVE;EXPORTS;NOMAIN;_SDL1_2_;HAVE_BMP_SUPPORT;SCREEN_WIDTH=800;SCREEN_HEIGHT=800;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;NANOX_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\..\microwindows\src\include</AdditionalIncludeDirectories>
@@ -331,7 +331,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WasmRel|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
+      <Optimization>Full</Optimization>
       <PreprocessorDefinitions>EMSCRIPTEN=1;UPDATEREGIONS=1;ERASEMOVE=1;NOMAIN;_SDL1_2_=1;SCREEN_WIDTH=800;SCREEN_HEIGHT=800;_CRT_SECURE_NO_WARNINGS;_DEBUG;_USRDLL;HAVE_FILEIO=1;MW_FEATURE_IMAGES=1;MW_FEATURE_TIMERS=1;HAVE_SIGNAL=0;HAVE_FPRINTF=0;NONETWORK=1;HAVE_MMAP=0;NANOWM=1;HAVE_BMP_SUPPORT=1;SCREEN_DEPTH=32;SCREEN_PIXTYPE=MWPF_TRUECOLOR8888;DHAVE_XPM_SUPPORT=1;HAVE_PNG_SUPPORT=1;HAVE_FNT_SUPPORT=1;HAVE_FREETYPE_2_SUPPORT=1;FREETYPE_FONT_DIR="fonts/truetype";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\..\microwindows\src\include</AdditionalIncludeDirectories>
