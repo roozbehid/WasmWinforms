@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>WasmWinforms.Build.Tasks</id>
-    <version>1.0.0.16</version>
+    <version>1.0.0.21</version>
     <title>WasmWinforms</title>
     <authors>roozbehid</authors>
     <owners>roozbehid</owners>
@@ -15,7 +15,9 @@
   <files>
     <file src="WasmWinforms.Build.Tasks.targets" target="build/netstandard2.0/WasmWinforms.Build.Tasks.targets" />
     <file src="WasmWinforms.Build.Tasks.dll" target="build/netstandard2.0/WasmWinforms.Build.Tasks.dll" />
-    <file src="WasmWinforms.Build.Tasks.pdb" target="build/netstandard2.0/WasmWinforms.Build.Tasks.pdb" />
+    <file src="WasmWinforms.Build.Tasks.dll" target="build/netstandard2.0/WasmWinforms.Build.Tasks.dll" />
+    <file src="System.Reflection.Metadata.dll" target="build/netstandard2.0/System.Reflection.Metadata.dll" />
+    <file src="System.Collections.Immutable.dll" target="build/netstandard2.0/System.Collections.Immutable.dll" />
     <file src="sdk\**\*.*" target="content\sdk\" />
     <file src="mono.js" target="content\sdk\release\mono.js" />
     <file src="mono.wasm" target="content\sdk\release\mono.wasm" />
