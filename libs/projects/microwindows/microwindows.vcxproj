@@ -25,6 +25,14 @@
       <Configuration>WasmDbg</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="WasmRel|Win32">
+      <Configuration>WasmRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="WasmRel|x64">
+      <Configuration>WasmRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\microwindows\src\drivers\fb.c" />
@@ -116,6 +124,56 @@
     <ClCompile Include="..\..\microwindows\src\mwin\winsbar.c" />
     <ClCompile Include="..\..\microwindows\src\mwin\winuser.c" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\microwindows\src\include\convblit.h" />
+    <ClInclude Include="..\..\microwindows\src\include\device.h" />
+    <ClInclude Include="..\..\microwindows\src\include\genfont.h" />
+    <ClInclude Include="..\..\microwindows\src\include\graph3d.h" />
+    <ClInclude Include="..\..\microwindows\src\include\guiddef.h" />
+    <ClInclude Include="..\..\microwindows\src\include\initguid.h" />
+    <ClInclude Include="..\..\microwindows\src\include\intl.h" />
+    <ClInclude Include="..\..\microwindows\src\include\lock.h" />
+    <ClInclude Include="..\..\microwindows\src\include\mwobjects.h" />
+    <ClInclude Include="..\..\microwindows\src\include\mwsystem.h" />
+    <ClInclude Include="..\..\microwindows\src\include\mwtypes.h" />
+    <ClInclude Include="..\..\microwindows\src\include\nano-X.h" />
+    <ClInclude Include="..\..\microwindows\src\include\nanowm.h" />
+    <ClInclude Include="..\..\microwindows\src\include\nxcolors.h" />
+    <ClInclude Include="..\..\microwindows\src\include\nxdraw.h" />
+    <ClInclude Include="..\..\microwindows\src\include\objbase.h" />
+    <ClInclude Include="..\..\microwindows\src\include\poppack.h" />
+    <ClInclude Include="..\..\microwindows\src\include\pshpack1.h" />
+    <ClInclude Include="..\..\microwindows\src\include\pshpack2.h" />
+    <ClInclude Include="..\..\microwindows\src\include\pshpack4.h" />
+    <ClInclude Include="..\..\microwindows\src\include\pshpack8.h" />
+    <ClInclude Include="..\..\microwindows\src\include\schemadef.h" />
+    <ClInclude Include="..\..\microwindows\src\include\shlapi.h" />
+    <ClInclude Include="..\..\microwindows\src\include\swap.h" />
+    <ClInclude Include="..\..\microwindows\src\include\tmschema.h" />
+    <ClInclude Include="..\..\microwindows\src\include\unistd_win.h" />
+    <ClInclude Include="..\..\microwindows\src\include\vfwmsgs.h" />
+    <ClInclude Include="..\..\microwindows\src\include\vsstyle.h" />
+    <ClInclude Include="..\..\microwindows\src\include\vssym32.h" />
+    <ClInclude Include="..\..\microwindows\src\include\winbase.h" />
+    <ClInclude Include="..\..\microwindows\src\include\winctl.h" />
+    <ClInclude Include="..\..\microwindows\src\include\windef.h" />
+    <ClInclude Include="..\..\microwindows\src\include\windlg.h" />
+    <ClInclude Include="..\..\microwindows\src\include\windows.h" />
+    <ClInclude Include="..\..\microwindows\src\include\windowsx.h" />
+    <ClInclude Include="..\..\microwindows\src\include\winerror.h" />
+    <ClInclude Include="..\..\microwindows\src\include\winfont.h" />
+    <ClInclude Include="..\..\microwindows\src\include\wingdi.h" />
+    <ClInclude Include="..\..\microwindows\src\include\winkbd.h" />
+    <ClInclude Include="..\..\microwindows\src\include\winnls.h" />
+    <ClInclude Include="..\..\microwindows\src\include\winreg.h" />
+    <ClInclude Include="..\..\microwindows\src\include\winres.h" />
+    <ClInclude Include="..\..\microwindows\src\include\wintern.h" />
+    <ClInclude Include="..\..\microwindows\src\include\wintools.h" />
+    <ClInclude Include="..\..\microwindows\src\include\winuser.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\microwindows\src\include\memfix.sh" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCTargetsPath Condition="'$(DesignTimeBuild)'!='true' AND $(Configuration.Contains('Wasm'))">./</VCTargetsPath>
     <MSBuildProjectExtensionsPath Condition="'$(DesignTimeBuild)'!='true' AND $(Configuration.Contains('Wasm'))">./</MSBuildProjectExtensionsPath>
@@ -151,6 +209,12 @@
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmRel|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
@@ -164,6 +228,12 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmRel|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
@@ -183,6 +253,9 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='WasmRel|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -190,6 +263,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='WasmRel|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -207,6 +283,9 @@
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmRel|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -249,6 +328,20 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WasmRel|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>EMSCRIPTEN=1;UPDATEREGIONS=1;ERASEMOVE=1;NOMAIN;_SDL1_2_=1;SCREEN_WIDTH=800;SCREEN_HEIGHT=800;_CRT_SECURE_NO_WARNINGS;_DEBUG;_USRDLL;HAVE_FILEIO=1;MW_FEATURE_IMAGES=1;MW_FEATURE_TIMERS=1;HAVE_SIGNAL=0;HAVE_FPRINTF=0;NONETWORK=1;HAVE_MMAP=0;NANOWM=1;HAVE_BMP_SUPPORT=1;SCREEN_DEPTH=32;SCREEN_PIXTYPE=MWPF_TRUECOLOR8888;DHAVE_XPM_SUPPORT=1;HAVE_PNG_SUPPORT=1;HAVE_FNT_SUPPORT=1;HAVE_FREETYPE_2_SUPPORT=1;FREETYPE_FONT_DIR="fonts/truetype";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\..\microwindows\src\include</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Wno-ignored-attributes -Wno-deprecated-declarations -s USE_SDL=2 -s USE_ZLIB=1 -s USE_FREETYPE=1  -s USE_LIBPNG=1 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -276,6 +369,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WasmRel|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>

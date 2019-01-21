@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <Platforms>AnyCPU;x86</Platforms>
-    <Configurations>Debug;WasmDbg;Release</Configurations>
+    <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -18,10 +18,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <DefineConstants>TRACE</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|x86'">
-    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>false</Optimize>
   </PropertyGroup>
   
   <ItemGroup>

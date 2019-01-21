@@ -5,7 +5,7 @@
     <DefineConstants>TRACE;NET_2_0;NET_4_0;NET_4_5</DefineConstants>
     <Platforms>AnyCPU;x86;x64</Platforms>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Configurations>Debug;WasmDbg;Release</Configurations>
+    <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
@@ -13,10 +13,6 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|x86'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 

@@ -16,6 +16,9 @@
     <Filter Include="mwin\winlib">
       <UniqueIdentifier>{438855ed-a52d-4979-b45b-3bbfdec0133b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{2d7f6f13-d0fe-4437-b816-57456ccd8cd8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\microwindows\src\drivers\fb.c">
@@ -282,5 +285,147 @@
     <ClCompile Include="..\..\microwindows\src\drivers\scr_sdl.c">
       <Filter>drivers</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\microwindows\src\include\convblit.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\device.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\genfont.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\graph3d.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\guiddef.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\initguid.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\intl.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\lock.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\mwobjects.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\mwsystem.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\mwtypes.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\nanowm.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\nano-X.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\nxcolors.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\nxdraw.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\objbase.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\poppack.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\pshpack1.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\pshpack2.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\pshpack4.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\pshpack8.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\schemadef.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\shlapi.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\swap.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\tmschema.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\unistd_win.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\vfwmsgs.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\vsstyle.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\vssym32.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\winbase.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\winctl.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\windef.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\windlg.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\windows.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\windowsx.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\winerror.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\winfont.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\wingdi.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\winkbd.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\winnls.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\winreg.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\winres.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\wintern.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\wintools.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\microwindows\src\include\winuser.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\microwindows\src\include\memfix.sh">
+      <Filter>include</Filter>
+    </None>
   </ItemGroup>
 </Project>

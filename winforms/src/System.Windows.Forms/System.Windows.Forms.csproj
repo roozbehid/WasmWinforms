@@ -7,7 +7,11 @@
     <AssemblyName>System.Windows.Forms</AssemblyName>
     <PackageId>System.Windows.Forms</PackageId>
     <Platforms>AnyCPU;x86;x64</Platforms>
-    <Configurations>Debug;WasmDbg;Release</Configurations>
+    <Configurations>Debug;Release</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <Optimize>true</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
