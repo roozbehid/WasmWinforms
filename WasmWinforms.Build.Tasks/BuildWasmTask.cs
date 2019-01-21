@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
+using System.Reflection.Metadata;
+using System.Reflection.PortableExecutable;
 
 namespace WasmWinforms.Build.Tasks
 {
@@ -37,6 +39,7 @@ namespace WasmWinforms.Build.Tasks
                 GetBcl();
                 CreateDist();
                 DeleteOldAssemblies();
+                GenerateHTMLFile();
                 RunPackager();
                 return ok;
             }
@@ -89,6 +92,60 @@ namespace WasmWinforms.Build.Tasks
                 File.Delete(dll);
             }
         }
+
+        void GenerateHTMLFile()
+        {
+            string AssName = "";
+            string ClassName = "Program";
+            string BaseName = "Main";
+
+            using (Stream str = File.OpenRead(Assembly))
+            using (PEReader reader = new PEReader(str))
+            {
+                var metadata = reader.GetMetadataReader();
+                var assembly = metadata.GetAssemblyDefinition();
+                var methods = metadata.MethodDefinitions;
+                foreach (var method in methods)
+                    if (metadata.GetString(metadata.GetMethodDefinition(method.ToDebugInformationHandle().ToDefinitionHandle()).Name) == BaseName)
+                    {
+                        ClassName = metadata.GetString(metadata.GetTypeDefinition(metadata.GetMethodDefinition(method.ToDebugInformationHandle().ToDefinitionHandle()).GetDeclaringType()).Name);
+                        AssName = metadata.GetString(metadata.GetTypeDefinition(metadata.GetMethodDefinition(method.ToDebugInformationHandle().ToDefinitionHandle()).GetDeclaringType()).Namespace);
+                    }
+            }
+            
+                string content = $@"
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=""utf-8"" />
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1"" />
+</head>
+<body>
+    <div id=""ooui-body"" class=""container-fluid"">
+        <p id=""loading""><i class=""fa fa-refresh fa-spin"" style=""font-size:14px;margin-right:0.5em;""></i> Loading...</p>
+    </div>
+     <div >
+      <canvas id=""canvas""></canvas>
+    </div>
+    <textarea id=""output"" rows=""8""></textarea>
+    <script type=""text/javascript"">
+        
+        var App = {{
+			init: function () {{
+                Module.canvas = document.getElementById('canvas');
+				// initialize geolocation sample
+				BINDING.call_static_method(""[{Path.GetFileNameWithoutExtension(Assembly)}] {AssName}.{ClassName}:Main"", []);
+			}}
+		}}; 
+    </script>
+        <script type=""text/javascript"" src=""runtime.js""></script>
+        <script async type=""text/javascript"" src=""mono.js""></script>
+        <script async type=""text/javascript"" src=""mono-config.js""></script>
+</body>
+</html>
+";
+            File.WriteAllText(Path.Combine(managedPath, "index.html"), content);
+        } 
 
         void RunPackager()
         {
