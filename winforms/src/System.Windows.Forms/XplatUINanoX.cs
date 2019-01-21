@@ -41,15 +41,33 @@ using System.Runtime.CompilerServices;
 /// Win32 Version
 namespace System.Windows.Forms
 {
-    internal class XplatUINanoX : XplatUIDriver
+    // All these stupidity is because with optimizations ON, at runtime it checks for these internalCalls which does not exist
+    // when using Win32, and causes exception. So I had to use delegates!
+    internal class InternalCalls
     {
+        public delegate uint SetWindowLongDelegate(IntPtr hwnd, XplatUINanoX.WindowLong index, uint value);
+        public delegate bool RegisterClassDelegate(ref XplatUINanoX.WNDCLASS wndClass);
         //I didnt use regular dllimport because somehow marshaling does something to pointers passed into C side of code in WebAssembly
         //So I had to use methodimpl!
         [MethodImpl(MethodImplOptions.InternalCall)]
-        private extern static uint WasmSetWindowLong(IntPtr hwnd, WindowLong index, uint value);
+        public extern static uint WasmSetWindowLong(IntPtr hwnd, XplatUINanoX.WindowLong index, uint value);
         [MethodImpl(MethodImplOptions.InternalCall)]
-        private extern static bool WasmRegisterClass(ref WNDCLASS wndClass);
+        public extern static bool WasmRegisterClass(ref XplatUINanoX.WNDCLASS wndClass);
 
+        public SetWindowLongDelegate GetSetWindowLogDelegate()
+        {
+            return new SetWindowLongDelegate(WasmSetWindowLong);
+        }
+
+        public RegisterClassDelegate GetRegisterClassDelegate()
+        {
+            return new RegisterClassDelegate(WasmRegisterClass);
+        }
+
+    }
+
+    internal class XplatUINanoX : XplatUIDriver
+    {
         [DllImport("nanox.dll", EntryPoint = "SetWindowLong", CallingConvention = CallingConvention.StdCall)]
         //[MethodImpl(MethodImplOptions.InternalCall)]
         private extern static uint Win32SetWindowLong(IntPtr hwnd, WindowLong index, uint value);
@@ -62,12 +80,18 @@ namespace System.Windows.Forms
         {
             int platform = (int)Environment.OSVersion.Platform;
             if (platform == 4 || platform == 128 || platform == 6)
-                return WasmSetWindowLong(hwnd, index, value);
+            {
+                Console.WriteLine("Calling WasmSetWindowLong");
+                InternalCalls icalls = new InternalCalls();
+                return icalls.GetSetWindowLogDelegate()(hwnd, index, value);
+            }
             else
                 return Win32SetWindowLong(hwnd, index, value);
+
+            return 0;
         }
 
-
+        [MethodImplAttribute(MethodImplOptions.NoOptimization | MethodImplOptions.NoInlining)]
         private static bool RegisterClass(ref WNDCLASS wndClass)
         {
             Console.WriteLine("inside RegisterClass");
@@ -75,13 +99,16 @@ namespace System.Windows.Forms
             if (platform == 4 || platform == 128 || platform == 6)
             {
                 Console.WriteLine("Calling WasmRegisterClass");
-                return WasmRegisterClass(ref wndClass);
+                InternalCalls icalls = new InternalCalls();
+                return icalls.GetRegisterClassDelegate()(ref wndClass);
             }
             else
             {
                 Console.WriteLine("Calling Win32RegisterClass");
                 return Win32RegisterClass(ref wndClass);
             }
+
+            return false;
 
         }
 
@@ -114,7 +141,7 @@ namespace System.Windows.Forms
 
         #region Private Structs
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        private struct WNDCLASS
+        public struct WNDCLASS
         {
             internal IntPtr dummy_next;
             internal IntPtr dummy_prev;
@@ -497,7 +524,7 @@ namespace System.Windows.Forms
         }
 
         [Flags]
-        private enum WindowLong
+        public enum WindowLong
         {
             GWL_WNDPROC = -4,
             GWL_HINSTANCE = -6,
@@ -3886,8 +3913,11 @@ namespace System.Windows.Forms
         #endregion    // Public Static Methods
 
         #region Win32 Imports
-        [DllImport("nanox.dll", EntryPoint = "GetLastError", CallingConvention = CallingConvention.StdCall)]
-        private extern static uint Win32GetLastError();
+        //[DllImport("nanox.dll", EntryPoint = "GetLastError", CallingConvention = CallingConvention.StdCall)]
+        private static uint Win32GetLastError()
+        {
+            return 1;
+        }
 
         [DllImport("nanox.dll", EntryPoint = "CreateWindowEx", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32CreateWindowEx(int dwExStyle, string lpClassName, string lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lParam);
@@ -3980,7 +4010,7 @@ namespace System.Windows.Forms
         [DllImport("nanox.dll", EntryPoint = "ReleaseDC", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
-        [DllImport("nanox.dll", EntryPoint = "MessageBoxW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport("nanox.dll", EntryPoint = "MessageBox", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32MessageBox(IntPtr hParent, string pText, string pCaption, uint uType);
 
         [DllImport("nanox.dll", EntryPoint = "InvalidateRect", CallingConvention = CallingConvention.StdCall)]

@@ -611,8 +611,8 @@ mono_wasm_load_runtime (const char *managed_path, int enable_debugging)
 	mono_add_internal_call ("WebAssembly.JSInterop.InternalCalls::InvokeJSMarshalled", mono_wasm_invoke_js_marshalled);
 	mono_add_internal_call ("WebAssembly.JSInterop.InternalCalls::InvokeJSUnmarshalled", mono_wasm_invoke_js_unmarshalled);
 
-	mono_add_internal_call ("System.Windows.Forms.XplatUINanoX::WasmRegisterClass", WasmRegisterClass);
-	mono_add_internal_call ("System.Windows.Forms.XplatUINanoX::WasmSetWindowLong", WasmSetWindowLong);
+	mono_add_internal_call ("System.Windows.Forms.InternalCalls::WasmRegisterClass", WasmRegisterClass);
+	mono_add_internal_call ("System.Windows.Forms.InternalCalls::WasmSetWindowLong", WasmSetWindowLong);
 
 	mono_dl_register_library ("libnanox.dll", nanox_library_mappings);
 	mono_dl_register_library ("libgdiplus.dll", libgdi_library_mappings);
