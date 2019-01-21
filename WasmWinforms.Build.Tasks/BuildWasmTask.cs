@@ -34,7 +34,7 @@ namespace WasmWinforms.Build.Tasks
             {
                 ok = true;
                 Log.LogMessage("-----BuildWasm Started------");
-                System.Diagnostics.Debugger.Launch();
+                //System.Diagnostics.Debugger.Launch();
                 InstallSdk();
                 GetBcl();
                 CreateDist();
