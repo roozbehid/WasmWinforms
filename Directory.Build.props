@@ -15,7 +15,7 @@
     <GCCToolCompilerExe>emcc</GCCToolCompilerExe>
     <GCCToolLinkerExe>emcc</GCCToolLinkerExe>
     <GCCToolArchiverExe>emar</GCCToolArchiverExe>
-    <GCCBuild_PreRunApp>call c:\Utils\emsdk\emsdk_env.bat 1>nul</GCCBuild_PreRunApp>
+    <GCCBuild_PreRunApp></GCCBuild_PreRunApp>
   </PropertyGroup>
   
   
