@@ -501,12 +501,12 @@ dl_mapping_open (const char *file, int flags, char **err, void *user_data)
 		current = current->next;
 		if (current == NULL)
 			{
-				printf(" not matched \n");
+				printf("%s could not be found in my dl_mapping \n",file);
 				return NULL;
 			}
 	}
 
-	printf(" matched \n");
+	printf("%s matched and found!\n", file);
 	mappings = current->dll_mapping;
 
 	*err = g_strdup (mappings == NULL ? "File not registered" : "");
@@ -522,11 +522,11 @@ dl_mapping_symbol (void *handle, const char *symbol, char **err, void *user_data
 	for (;mappings->name; mappings++){
 		if (strcmp (symbol, mappings->name) == 0){
 			*err = g_strdup ("");
-			printf("matched\n");
+			printf("proc name %s matched\n",symbol);
 			return mappings->addr;
 		}
 	}
-	printf("not matched\n");
+	printf("proc name %s not matched\n", symbol);
 	*err = g_strdup ("Symbol not found");
 	return NULL;
 }
