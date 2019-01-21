@@ -3,7 +3,9 @@
   <PropertyGroup>
     <PlatformModified>$(Platform)</PlatformModified>
     <PlatformModified Condition="'$(Platform)'=='Win32'">x86</PlatformModified>
+    <PlatformModified Condition="'$(Platform)'=='AnyCPU'">x86</PlatformModified>
     <OutDir>$(SolutionDir)Output\bin\$(PlatformModified)\$(Configuration)\</OutDir>
+    <OutputPath>$(OutDir)</OutputPath>
     <OutDirNoSlash>$(SolutionDir)Output\bin\$(PlatformModified)\$(Configuration)</OutDirNoSlash>
     <IntDir>$(SolutionDir)Output\obj\$(PlatformModified)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
     <IntermediateOutputPath>$(IntDir)</IntermediateOutputPath>
