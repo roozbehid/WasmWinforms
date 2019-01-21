@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "WinFormSimple1CoreNuget": {
+      "commandName": "Executable",
+      "executablePath": "c:\\Program Files (x86)\\dotnet\\dotnet.exe",
+      "commandLineArgs": "WinFormSimple1CoreNuget.dll"
+    }
+  }
+}

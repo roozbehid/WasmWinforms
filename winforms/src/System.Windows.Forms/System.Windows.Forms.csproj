@@ -7,8 +7,12 @@
     <AssemblyName>System.Windows.Forms</AssemblyName>
     <PackageId>System.Windows.Forms</PackageId>
     <Platforms>AnyCPU;x86;x64</Platforms>
-    <Configurations>Debug;Release;WasmDbg</Configurations>
+    <Configurations>Debug;WasmDbg;Release</Configurations>
   </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="resources\keyboards.resx" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="resources\1-up.png" />
@@ -1073,6 +1077,10 @@
     <EmbeddedResource Include="resources\text-x-generic.png" />
     <EmbeddedResource Include="resources\user-desktop.png" />
     <EmbeddedResource Include="resources\user-home.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="resources\keyboards.resx" />
   </ItemGroup>
 
   <ItemGroup>

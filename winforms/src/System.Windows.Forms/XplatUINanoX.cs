@@ -70,11 +70,18 @@ namespace System.Windows.Forms
 
         private static bool RegisterClass(ref WNDCLASS wndClass)
         {
+            Console.WriteLine("inside RegisterClass");
             int platform = (int)Environment.OSVersion.Platform;
             if (platform == 4 || platform == 128 || platform == 6)
+            {
+                Console.WriteLine("Calling WasmRegisterClass");
                 return WasmRegisterClass(ref wndClass);
+            }
             else
+            {
+                Console.WriteLine("Calling Win32RegisterClass");
                 return Win32RegisterClass(ref wndClass);
+            }
 
         }
 

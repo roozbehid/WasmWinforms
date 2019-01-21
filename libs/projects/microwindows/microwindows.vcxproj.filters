@@ -270,17 +270,17 @@
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\windlg.c">
       <Filter>mwin\winlib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\microwindows\src\drivers\kbd_sdl2.c">
-      <Filter>drivers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\microwindows\src\drivers\mou_sdl2.c">
-      <Filter>drivers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\microwindows\src\drivers\scr_sdl2.c">
-      <Filter>drivers</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\microwindows\src\mwin\winlib\listbox.c">
       <Filter>mwin\winlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\microwindows\src\drivers\kbd_sdl.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\microwindows\src\drivers\mou_sdl.c">
+      <Filter>drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\microwindows\src\drivers\scr_sdl.c">
+      <Filter>drivers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

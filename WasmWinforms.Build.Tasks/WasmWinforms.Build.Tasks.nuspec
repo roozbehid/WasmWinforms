@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>WasmWinforms.Build.Tasks</id>
-    <version>1.0.0.21</version>
+    <version>1.0.0.23</version>
     <title>WasmWinforms</title>
     <authors>roozbehid</authors>
     <owners>roozbehid</owners>
     <licenseUrl>https://github.com/roozbehid/WasmWinforms/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/roozbehid/WasmWinforms</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>WebAssembly support for Winforms apps</description>
+    <description>WebAssembly support for Winforms apps. ONLY use with NetCore or NetStandard apps!</description>
     <tags>Winforms UI CrossPlatform WebAssembly Wasm</tags>
   </metadata>
   <files>
