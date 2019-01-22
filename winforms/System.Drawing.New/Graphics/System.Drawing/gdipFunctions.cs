@@ -128,9 +128,9 @@ namespace System.Drawing
 			GdiplusStartupInput input = GdiplusStartupInput.MakeGdiplusStartupInput();
 			GdiplusStartupOutput output = GdiplusStartupOutput.MakeGdiplusStartupOutput();
 			try {
-                Console.WriteLine("before Win32GdiplusStartup");
-				GdiplusStartup (ref GdiPlusToken, ref input, ref output);
-                Console.WriteLine("after Win32GdiplusStartup");
+                Console.WriteLine("before GdiplusStartup");
+                GdiplusStartup (ref GdiPlusToken, ref input, ref output);
+                Console.WriteLine("GdiplusStartup finished successfully!");
             }
 			catch (TypeInitializationException) {
 				Console.Error.WriteLine (
