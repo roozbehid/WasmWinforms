@@ -206,6 +206,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>.;..\..\pixman\pixman</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4244;4146;4996</DisableSpecificWarnings>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

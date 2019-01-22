@@ -218,6 +218,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;MW;HAVE_FCFINI;_WINDLL;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>.;..\..\microwindows\src\include;..\cairo;..\cairo\cairo;..\..\fontconfig;..\..\libexpat\expat\lib</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

@@ -308,6 +308,7 @@
       <PreprocessorDefinitions>UPDATEREGIONS;ERASEMOVE;EXPORTS;NOMAIN;_SDL1_2_;HAVE_BMP_SUPPORT;SCREEN_WIDTH=800;SCREEN_HEIGHT=800;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;NANOX_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\..\microwindows\src\include</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
