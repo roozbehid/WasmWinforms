@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\WinFormSimple1\Form1.cs" Link="Form1.cs" />
-    <Compile Include="..\WinFormSimple1\Form1.Designer.cs" Link="Form1.Designer.cs" />
-    <Compile Include="..\WinFormSimple1\Program.cs" Link="Program.cs" />
+    <Compile Include="..\WinFormSimple1Core\Form1.cs" Link="Form1.cs" />
+    <Compile Include="..\WinFormSimple1Core\Form1.Designer.cs" Link="Form1.Designer.cs" />
+    <Compile Include="..\WinFormSimple1Core\Program.cs" Link="Program.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="..\WinFormSimple1\Form1.resx" Link="Form1.resx" />
+    <EmbeddedResource Include="..\WinFormSimple1Core\Form1.resx" Link="Form1.resx" />
   </ItemGroup>
 
   <ItemGroup>
