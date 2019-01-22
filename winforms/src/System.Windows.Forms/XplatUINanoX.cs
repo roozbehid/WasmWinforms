@@ -961,6 +961,13 @@ namespace System.Windows.Forms
         private XplatUINanoX()
         {
             Console.WriteLine("NanoX constructor");
+
+            string fontconfig_path = Environment.GetEnvironmentVariable("FONTCONFIG_PATH");
+            if (String.IsNullOrWhiteSpace(fontconfig_path))
+            {
+                Environment.SetEnvironmentVariable("FONTCONFIG_PATH",Path.Combine(Environment.CurrentDirectory,"etc"));
+            }
+
             // Handle singleton stuff first
             ref_count = 0;
 
