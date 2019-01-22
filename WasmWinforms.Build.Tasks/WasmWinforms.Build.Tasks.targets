@@ -1,5 +1,8 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)..\..\content\sdk\.fonts\**"  CopyToOutputDirectory="PreserveNewest" LinkBase=".fonts\"  />
+  </ItemGroup>
+  
   <UsingTask TaskName="WasmWinforms.Build.Tasks.BuildWasmTask" AssemblyFile="$(MSBuildThisFileDirectory)WasmWinforms.Build.Tasks.dll" />
 
   <Target Name="BuildWasm" AfterTargets="AfterBuild" Condition="'$(_BuildDistAlreadyExecuted)'!='true'">

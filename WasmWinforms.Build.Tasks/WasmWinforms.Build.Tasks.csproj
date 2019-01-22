@@ -9,6 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="..\mono-wasm\etc\.fonts\arial.ttf" Link="sdk\.fonts\arial.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\mono-wasm\etc\.fonts\tahoma.ttf" Link="sdk\.fonts\tahoma.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Build" Version="15.3.409" />
     <PackageReference Include="Microsoft.Build.Framework" Version="15.3.409" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.3.409" />
@@ -17,6 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\mono-wasm\etc\.fonts\8514fix.fon" Link="sdk\.fonts\8514fix.fon">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="..\mono-wasm\incoming\framework\WebAssembly.Bindings.dll" Link="sdk\framework\WebAssembly.Bindings.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -54,6 +66,7 @@
 
   <ItemGroup>
     <Folder Include="sdk\framework\" />
+    <Folder Include="sdk\.fonts\" />
     <Folder Include="sdk\wasm-bcl\wasm\Facades\" />
   </ItemGroup>
 
