@@ -75,7 +75,7 @@ namespace System.Windows.Forms
         [DllImport("nanox.dll", EntryPoint = "RegisterClass", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         //[MethodImpl(MethodImplOptions.InternalCall)]
         private extern static bool Win32RegisterClass(ref WNDCLASS wndClass);
-
+        [MethodImplAttribute(MethodImplOptions.NoOptimization | MethodImplOptions.NoInlining)]
         private static uint SetWindowLong(IntPtr hwnd, WindowLong index, uint value)
         {
             int platform = (int)Environment.OSVersion.Platform;
