@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="..\WinFormSimple1\Form1.resx" Link="Form1.resx" />
+    <None Include="..\WinFormSimple1\Form1.resx" Link="Form1.resx" />
   </ItemGroup>
   
   <ItemGroup>
