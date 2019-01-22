@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>WasmWinforms.Build.Tasks</id>
-    <version>1.0.0.25</version>
+    <version>1.0.0.27</version>
     <title>WasmWinforms</title>
     <authors>roozbehid</authors>
     <owners>roozbehid</owners>
@@ -19,19 +19,19 @@
     <file src="System.Reflection.Metadata.dll" target="build/netstandard2.0/System.Reflection.Metadata.dll" />
     <file src="System.Collections.Immutable.dll" target="build/netstandard2.0/System.Collections.Immutable.dll" />
     <file src="sdk\**\*.*" target="content\sdk\" />
-    <file src="mono.js" target="content\sdk\release\mono.js" />
-    <file src="mono.wasm" target="content\sdk\release\mono.wasm" />
-    <file src="..\Release\System.Windows.Forms.dll" target="lib\netstandard2.0\System.Windows.Forms.dll" />
-    <file src="..\Release\System.Drawing.New.dll" target="lib\netstandard2.0\System.Drawing.New.dll" />
-    <file src="..\Release\WasmWinforms.Common.dll" target="lib\netstandard2.0\WasmWinforms.Common.dll" />
-    <file src="..\Release\zlib1.dll" target="lib\netstandard2.0\zlib1.dll" />
-    <file src="..\Release\SDL.dll" target="lib\netstandard2.0\SDL.dll" />
-    <file src="..\Release\libgdiplus.dll" target="lib\netstandard2.0\libgdiplus.dll" />
-    <file src="..\Release\nanox.dll" target="lib\netstandard2.0\nanox.dll" />
-    <file src="..\Release\libpng16.dll" target="lib\netstandard2.0\libpng16.dll" />
-    <file src="..\Release\freetype.dll" target="lib\netstandard2.0\freetype.dll" />
-    <file src="..\Release\libiconv.dll" target="lib\netstandard2.0\libiconv.dll" />
-    <file src="..\Release\libcharset.dll" target="lib\netstandard2.0\libcharset.dll" />
-    <file src="..\Release\libbz2.dll" target="lib\netstandard2.0\libbz2.dll" />
+    <file src="..\WasmRel\mono.js" target="content\sdk\release\mono.js" />
+    <file src="..\WasmRel\mono.wasm" target="content\sdk\release\mono.wasm" />
+    <file src="System.Windows.Forms.dll" target="lib\netstandard2.0\System.Windows.Forms.dll" />
+    <file src="System.Drawing.New.dll" target="lib\netstandard2.0\System.Drawing.New.dll" />
+    <file src="WasmWinforms.Common.dll" target="lib\netstandard2.0\WasmWinforms.Common.dll" />
+    <file src="zlib1.dll" target="lib\netstandard2.0\zlib1.dll" />
+    <file src="SDL.dll" target="lib\netstandard2.0\SDL.dll" />
+    <file src="libgdiplus.dll" target="lib\netstandard2.0\libgdiplus.dll" />
+    <file src="nanox.dll" target="lib\netstandard2.0\nanox.dll" />
+    <file src="libpng16.dll" target="lib\netstandard2.0\libpng16.dll" />
+    <file src="freetype.dll" target="lib\netstandard2.0\freetype.dll" />
+    <file src="libiconv.dll" target="lib\netstandard2.0\libiconv.dll" />
+    <file src="libcharset.dll" target="lib\netstandard2.0\libcharset.dll" />
+    <file src="libbz2.dll" target="lib\netstandard2.0\libbz2.dll" />
   </files>
 </package>

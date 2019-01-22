@@ -12,6 +12,11 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libexpat", "libs\projects\libexpat\libexpat.vcxproj", "{ED9D8242-F782-45DA-ACF0-F3A8773BFA13}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libgdiplus", "libs\projects\libgdiplus\libgdiplus.vcxproj", "{B119C8D8-F8BE-415D-8985-5DD8EE90780E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7123A522-D07F-4F81-88B0-5793F377E58C} = {7123A522-D07F-4F81-88B0-5793F377E58C}
+		{AC4F5A41-D446-4265-B6C2-A22FFF35F360} = {AC4F5A41-D446-4265-B6C2-A22FFF35F360}
+		{B3730487-D742-401C-9F29-BDCA72EF2603} = {B3730487-D742-401C-9F29-BDCA72EF2603}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nanox", "libs\projects\microwindows\microwindows.vcxproj", "{336C5232-B0DA-45D8-A371-9AA11BC7E93D}"
 EndProject
