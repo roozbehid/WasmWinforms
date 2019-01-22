@@ -1,8 +1,4 @@
 jobs:
 - job: Windows
-  pool:
-    vmImage: 'vs2017-win2016'
   steps:
   - script: echo This script runs before the template's steps, only on Windows.
-  - template: templates/npm-steps.yml  # Template reference
-  - script: echo This step runs after the template's steps.
