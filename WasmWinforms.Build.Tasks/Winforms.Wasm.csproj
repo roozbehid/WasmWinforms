@@ -29,6 +29,108 @@
     <None Include="..\mono-wasm\etc\.fonts\8514fix.fon" Link="sdk\.fonts\8514fix.fon">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="..\mono-wasm\etc\conf.d\10-autohint.conf" Link="sdk\etc\conf.d\10-autohint.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\10-hinting-full.conf" Link="sdk\etc\conf.d\10-hinting-full.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\10-hinting-medium.conf" Link="sdk\etc\conf.d\10-hinting-medium.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\10-hinting-none.conf" Link="sdk\etc\conf.d\10-hinting-none.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\10-hinting-slight.conf" Link="sdk\etc\conf.d\10-hinting-slight.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\10-no-sub-pixel.conf" Link="sdk\etc\conf.d\10-no-sub-pixel.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\10-scale-bitmap-fonts.conf" Link="sdk\etc\conf.d\10-scale-bitmap-fonts.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\10-sub-pixel-bgr.conf" Link="sdk\etc\conf.d\10-sub-pixel-bgr.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\10-sub-pixel-rgb.conf" Link="sdk\etc\conf.d\10-sub-pixel-rgb.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\10-sub-pixel-vbgr.conf" Link="sdk\etc\conf.d\10-sub-pixel-vbgr.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\10-sub-pixel-vrgb.conf" Link="sdk\etc\conf.d\10-sub-pixel-vrgb.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\10-unhinted.conf" Link="sdk\etc\conf.d\10-unhinted.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\11-lcdfilter-default.conf" Link="sdk\etc\conf.d\11-lcdfilter-default.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\11-lcdfilter-legacy.conf" Link="sdk\etc\conf.d\11-lcdfilter-legacy.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\11-lcdfilter-light.conf" Link="sdk\etc\conf.d\11-lcdfilter-light.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\20-unhint-small-vera.conf" Link="sdk\etc\conf.d\20-unhint-small-vera.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\25-unhint-nonlatin.conf" Link="sdk\etc\conf.d\25-unhint-nonlatin.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\30-metric-aliases.conf" Link="sdk\etc\conf.d\30-metric-aliases.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\30-urw-aliases.conf" Link="sdk\etc\conf.d\30-urw-aliases.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\40-nonlatin.conf" Link="sdk\etc\conf.d\40-nonlatin.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\45-latin.conf" Link="sdk\etc\conf.d\45-latin.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\49-sansserif.conf" Link="sdk\etc\conf.d\49-sansserif.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\50-user.conf" Link="sdk\etc\conf.d\50-user.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\51-local.conf" Link="sdk\etc\conf.d\51-local.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\60-latin.conf" Link="sdk\etc\conf.d\60-latin.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\65-fonts-persian.conf" Link="sdk\etc\conf.d\65-fonts-persian.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\65-khmer.conf" Link="sdk\etc\conf.d\65-khmer.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\65-nonlatin.conf" Link="sdk\etc\conf.d\65-nonlatin.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\69-unifont.conf" Link="sdk\etc\conf.d\69-unifont.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\70-no-bitmaps.conf" Link="sdk\etc\conf.d\70-no-bitmaps.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\70-yes-bitmaps.conf" Link="sdk\etc\conf.d\70-yes-bitmaps.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\80-delicious.conf" Link="sdk\etc\conf.d\80-delicious.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\conf.d\90-synthetic.conf" Link="sdk\etc\conf.d\90-synthetic.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\mono-wasm\etc\fonts.conf" Link="sdk\etc\fonts.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="..\mono-wasm\incoming\framework\WebAssembly.Bindings.dll" Link="sdk\framework\WebAssembly.Bindings.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -56,15 +158,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="WasmWinforms.Build.Tasks.nuspec">
+    <None Update="Winforms.Wasm.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="WasmWinforms.Build.Tasks.targets">
+    <None Update="Winforms.Wasm.targets">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="sdk\etc\conf.d\" />
     <Folder Include="sdk\framework\" />
     <Folder Include="sdk\.fonts\" />
     <Folder Include="sdk\wasm-bcl\wasm\Facades\" />

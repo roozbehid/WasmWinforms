@@ -12,7 +12,7 @@ using Microsoft.Build.Utilities;
 using System.Reflection.Metadata;
 using System.Reflection.PortableExecutable;
 
-namespace WasmWinforms.Build.Tasks
+namespace Winforms.Wasm
 {
     public class BuildWasmTask : Task
     {
