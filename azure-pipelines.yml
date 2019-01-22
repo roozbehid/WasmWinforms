@@ -1,4 +1,21 @@
-jobs:
-- job: Windows
-  steps:
-  - script: echo This script runs before the template's steps, only on Windows.
+# Build ASP.NET Core project using Azure Pipelines
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core?view=vsts
+
+pool:
+  vmImage: 'Ubuntu 16.04'
+  
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: |
+    dotnet build --configuration $(buildConfiguration)
+    dotnet test dotnetcore-tests --configuration $(buildConfiguration) --logger trx
+    dotnet publish --configuration $(buildConfiguration) --output $BUILD_ARTIFACTSTAGINGDIRECTORY
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testRunner: VSTest
+    testResultsFiles: '**/*.trx'
+
+- task: PublishBuildArtifacts@1
