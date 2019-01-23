@@ -128,9 +128,6 @@
     <None Include="..\mono-wasm\etc\conf.d\90-synthetic.conf" Link="sdk\etc\conf.d\90-synthetic.conf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\mono-wasm\etc\fonts.conf" Link="sdk\etc\fonts.conf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="..\mono-wasm\incoming\framework\WebAssembly.Bindings.dll" Link="sdk\framework\WebAssembly.Bindings.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -158,6 +155,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="sdk\etc\fonts.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Winforms.Wasm.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
