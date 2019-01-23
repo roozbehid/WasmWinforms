@@ -28,3 +28,5 @@ Please note that compiling mono-wasm should only be done in WasmRel or WasmDbg t
 File issues and submit pull request so it will be faster/less buggy!
 There are many many bugs and this project/product is not at all recommended for production. It is pre-alpha phase!
 
+# We have many better UI frameworks for browsers and web, why use Winforms?!
+Well that is a really good question. I dont know. It was fun doing this thing. Maybe call it some useless technology...
