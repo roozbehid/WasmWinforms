@@ -48,7 +48,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mono-wasm", "mono-wasm\mono
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "buildTask", "buildTask", "{506F205A-EF62-43E2-A356-34B05EE0F832}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Winforms.Wasm", "WasmWinforms.Build.Tasks\Winforms.Wasm.csproj", "{EFE3748F-AC46-43DC-8C48-7A44B0E6093D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Winforms.Wasm", "Winforms.Wasm\Winforms.Wasm.csproj", "{EFE3748F-AC46-43DC-8C48-7A44B0E6093D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormSimple1CoreNuget", "winforms\WinFormSimple1CoreNuget\WinFormSimple1CoreNuget.csproj", "{59A0FA1F-F2CF-4231-9070-6403637994ED}"
 EndProject
