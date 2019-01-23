@@ -9,9 +9,11 @@ WasmWinforms is a nuget package that you can install and use your EXACT same cod
 
 # How to use
 - Create a Winforms application from Visual Studio. Note that winforms are full .Net applications.
-- Create an empty .Net Core App and add files from full .net application into it. For example, by default those files will be Form1.cs,Form1.Designer.cs, Form1.resx, Program.cs
-- Install latest version of WasmWinforms.Build.Tasks.
-- Build your project. You can actually run your project and it will be using the exact same code to run it on your windows. The actual html will be generated in "dist" folder in your output!
+- Create an empty .Net Core App and add files from full .net application into it. For example, add Form1.cs,Form1.Designer.cs, Form1.resx, Program.cs .You can add those files as links too.
+- Install latest version of Winforms.Wasm nuget from nuget.org.
+- Build your project. 
+- You can debug Win32 (32bit version) of your code in Visual Studio. (Make sure you have 32bit version of dotnet installed! (it should be in Program Files (x86)\dotnet\dotnet.exe)
+- Looking at your OUTPUT DIRECTORy\dist\ you will find your index.html to run!
 
 # How it works
 This project uses mono to run your C# IL code. Also coming with this distribution are System.Drawing and System.Windows.Forms. Winforms implementation required many other c libraries that I also ported all of them into WebAssembly. You can find out about them looking into their submodules!
