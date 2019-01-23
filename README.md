@@ -3,7 +3,9 @@ Winforms now work in your browser!
 WasmWinforms is a nuget package that you can install and use your EXACT same code designed for winforms and you get can run it on your browser
 
 # Try it online
-Head over to https://webassembly.z19.web.core.windows.net/ to see a demo!
+- https://webassembly.z19.web.core.windows.net/ some random controls doing nothing!
+- https://webassembly.z19.web.core.windows.net/Calculator/ demo from https://code.msdn.microsoft.com/windowsdesktop/Simple-Calculator-54ec8e4a
+
 
 # How to use
 - Create a Winforms application from Visual Studio. Note that winforms are full .Net applications.

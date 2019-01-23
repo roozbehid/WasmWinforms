@@ -39,6 +39,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B745C4B8-103C-4672-94EA-210C22C2C8EE}"
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mono-wasm", "mono-wasm", "{1D7BCB48-855E-449E-8C14-64DA44882618}"
@@ -50,8 +51,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Winforms.Wasm", "WasmWinforms.Build.Tasks\Winforms.Wasm.csproj", "{EFE3748F-AC46-43DC-8C48-7A44B0E6093D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormSimple1CoreNuget", "winforms\WinFormSimple1CoreNuget\WinFormSimple1CoreNuget.csproj", "{59A0FA1F-F2CF-4231-9070-6403637994ED}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCalculatorCore", "..\SampleCalculator\C#\SimpleCalculatorCore\SimpleCalculatorCore.csproj", "{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -261,22 +260,6 @@ Global
 		{59A0FA1F-F2CF-4231-9070-6403637994ED}.WasmRel|Any CPU.Build.0 = Release|Any CPU
 		{59A0FA1F-F2CF-4231-9070-6403637994ED}.WasmRel|x86.ActiveCfg = Release|Any CPU
 		{59A0FA1F-F2CF-4231-9070-6403637994ED}.WasmRel|x86.Build.0 = Release|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.Debug|x86.ActiveCfg = Debug|x86
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.Debug|x86.Build.0 = Debug|x86
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.Release|x86.ActiveCfg = Release|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.Release|x86.Build.0 = Release|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.WasmDbg|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.WasmDbg|Any CPU.Build.0 = Debug|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.WasmDbg|x86.ActiveCfg = Debug|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.WasmDbg|x86.Build.0 = Debug|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.WasmRel|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.WasmRel|Any CPU.Build.0 = Debug|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.WasmRel|x86.ActiveCfg = Debug|Any CPU
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442}.WasmRel|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -296,7 +279,6 @@ Global
 		{1F7C226E-22EB-4F45-89C7-ABD521178A21} = {1D7BCB48-855E-449E-8C14-64DA44882618}
 		{EFE3748F-AC46-43DC-8C48-7A44B0E6093D} = {506F205A-EF62-43E2-A356-34B05EE0F832}
 		{59A0FA1F-F2CF-4231-9070-6403637994ED} = {2148F9E0-73B7-403F-9215-A052E5DD425B}
-		{A9D3B47A-C3AD-4D28-A71A-44C6C4D40442} = {2148F9E0-73B7-403F-9215-A052E5DD425B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {399BD10A-768A-46D7-9748-E003EEBFF13C}
