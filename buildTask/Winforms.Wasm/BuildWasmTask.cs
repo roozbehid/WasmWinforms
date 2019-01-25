@@ -146,41 +146,76 @@ namespace Winforms.Wasm
 </html>
 ";
             File.WriteAllText(Path.Combine(managedPath, "index.html"), content);
-        } 
+        }
+
+        public static bool isLinux()
+        {
+            int platform = (int)Environment.OSVersion.Platform;
+            if (platform == 4 || platform == 128 || platform == 6)
+                return true;
+            else
+                return false;
+        }
 
         void RunPackager()
         {
-            string options = $"packager.dll --copy=always --out=\"{managedPath.TrimEnd('\\')}\" --search-path=\"{OutDir.TrimEnd('\\')}\" {Assembly}";
-            ProcessStartInfo startInfo = new ProcessStartInfo(Path.Combine(sdkPath, "dotnet"), options);
-            startInfo.UseShellExecute = false;
-            startInfo.RedirectStandardError = true;
-            //startInfo.RedirectStandardInput = true;
-            startInfo.RedirectStandardOutput = true;
-            startInfo.StandardErrorEncoding = System.Text.Encoding.UTF8;
-            startInfo.StandardOutputEncoding = System.Text.Encoding.UTF8;
+            try
+            {
+                var enviromentPath = System.Environment.GetEnvironmentVariable("PATH");
+                if (!isLinux())
+                    enviromentPath = enviromentPath + ";" + Environment.GetEnvironmentVariable("SystemRoot") + @"\sysnative";
+                string app = "dotnet";
+                //Console.WriteLine(enviromentPath);
+                var paths = enviromentPath.Split(isLinux() ? ':' : ';');
+                List<string> pathEXT = new List<string>();
+                if (!isLinux())
+                    pathEXT = System.Environment.GetEnvironmentVariable("PATHEXT").Split(';').ToList();
+
+                if ((app.IndexOf(".") > 0) || isLinux())
+                    pathEXT.Insert(0, "");
+
+                var dotnetPath = (from ext in pathEXT
+                                  from path in paths
+                                  where File.Exists(Path.Combine(path, app + ext))
+                                  select Path.Combine(path, app + ext)).FirstOrDefault();
+
+                string options = $"\"{Path.Combine(sdkPath,"packager.dll")}\" --copy=always --out=\"{managedPath.TrimEnd('\\')}\" --search-path=\"{OutDir.TrimEnd('\\')}\" {Assembly}";
+                ProcessStartInfo startInfo = new ProcessStartInfo(dotnetPath, options);
+                startInfo.UseShellExecute = false;
+                startInfo.RedirectStandardError = true;
+                //startInfo.RedirectStandardInput = true;
+                startInfo.RedirectStandardOutput = true;
+                startInfo.StandardErrorEncoding = System.Text.Encoding.UTF8;
+                startInfo.StandardOutputEncoding = System.Text.Encoding.UTF8;
 
 
-            var process = new Process { StartInfo = startInfo };
-            process.Start();
+                var process = new Process { StartInfo = startInfo };
+                process.Start();
 
-            string cv_error = null;
-            Thread et = new Thread(() => { cv_error = process.StandardError.ReadToEnd(); });
-            et.Start();
+                string cv_error = null;
+                Thread et = new Thread(() => { cv_error = process.StandardError.ReadToEnd(); });
+                et.Start();
 
-            string cv_out = null;
-            Thread ot = new Thread(() => { cv_out = process.StandardOutput.ReadToEnd(); });
-            ot.Start();
+                string cv_out = null;
+                Thread ot = new Thread(() => { cv_out = process.StandardOutput.ReadToEnd(); });
+                ot.Start();
 
-            process.WaitForExit();
-            et.Join();
-            string output = cv_error;// process.StandardError.ReadToEnd();
-            ok = (process.ExitCode == 0);
-            if (!ok)
-                Log.LogError(cv_error);
-            else
-                Log.LogMessage(cv_out);
+                process.WaitForExit();
+                et.Join();
+                string output = cv_error;// process.StandardError.ReadToEnd();
+                ok = (process.ExitCode == 0);
+                if (!ok)
+                    Log.LogError(cv_error);
+                else
+                    Log.LogMessage(cv_out);
 
-            process.Close();
+                process.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error while executing packager."+ex.Message);
+                Log.LogError("Error while executing packager."+ex.Message);
+            }
         }
 
     }
