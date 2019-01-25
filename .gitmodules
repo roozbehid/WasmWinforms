@@ -1,21 +1,21 @@
 [submodule "libs/cairo"]
 	path = libs/cairo
-	url = git@github.com:roozbehid/cairo.git
+	url = https://github.com/roozbehid/cairo.git
 [submodule "libs/fontconfig"]
 	path = libs/fontconfig
-	url = git@github.com:roozbehid/fontconfig.git
+	url = https://github.com/roozbehid/fontconfig.git
 [submodule "libs/libexpat"]
 	path = libs/libexpat
-	url = git@github.com:roozbehid/libexpat.git
+	url = https://github.com/roozbehid/libexpat.git
 [submodule "libs/libgdiplus"]
 	path = libs/libgdiplus
-	url = git@github.com:roozbehid/libgdiplus.git
+	url = https://github.com/roozbehid/libgdiplus.git
 [submodule "libs/pixman"]
 	path = libs/pixman
-	url = git@github.com:roozbehid/pixman.git
+	url = https://github.com/roozbehid/pixman.git
 [submodule "libs/microwindows"]
 	path = libs/microwindows
-	url = git@github.com:roozbehid/microwindows.git
+	url = https://github.com/roozbehid/microwindows.git
 [submodule "aspnetwebstack"]
 	path = winforms/external/mono/external/aspnetwebstack
 	url = git://github.com/mono/aspnetwebstack.git

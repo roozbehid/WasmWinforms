@@ -1,7 +1,9 @@
 image: Visual Studio 2017
 platform: x86
 configuration: Release
-  
+shallow_clone: true
+clone_depth: 10
+
 init:
  - tzutil /s "Mountain Standard Time"
  - ps: '[System.TimeZoneInfo]::ClearCachedData()'
