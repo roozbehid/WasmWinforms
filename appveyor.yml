@@ -1,0 +1,63 @@
+image: Visual Studio 2017
+platform: x86
+configuration: Release
+  
+init:
+ - tzutil /s "Mountain Standard Time"
+ - ps: '[System.TimeZoneInfo]::ClearCachedData()'
+ - ps: $env:my_fulldate = Get-Date -Format g
+ - ps: if(-not $env:APPVEYOR_PULL_REQUEST_NUMBER) { $env:is_not_pr = "true"; } else {$env:is_not_pr = "false";}
+
+#install:
+#  - ps: Invoke-UpdateSubmodules
+  
+build_script:
+  - ps: dotnet build /p:Configuration=Release /p:Platform=x86
+  - ps: dotnet build /p:Configuration=WasmRel /p:Platform=x86
+  
+  
+#
+# ------ End of shared configs -------------------
+#
+
+# ------ Individual configs start from here ------
+ 
+# ------------------------------------------------
+# configuration for prod branch
+# Will enforce it
+for:
+-
+  version: 1.0.julian.{build}
+  
+#this section is added to previous section
+
+  branches:
+    only:
+      - prod    
+      
+      
+# ------------------------------------------------
+# configuration for master branch
+# This is master branch
+# publishes to AppveyorAgent and Github Releases
+-
+  version: 0.8.julian.{build}
+
+  branches:
+    only:
+      - master
+      
+
+# ------------------------------------------------
+# "fall back" configuration for all other branches
+# no "branches" section defined 
+# nothing is published from feature branches
+-
+  version: 0.1.0.julian-{build}-branch
+  
+  skip_branch_with_pr: true
+  
+  deploy: off
+  build : off
+
+

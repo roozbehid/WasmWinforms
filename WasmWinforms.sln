@@ -38,6 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormSimple1Core", "winfo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B745C4B8-103C-4672-94EA-210C22C2C8EE}"
 	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
 		Directory.Build.props = Directory.Build.props
 		README.md = README.md
 	EndProjectSection
@@ -52,7 +53,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormSimple1CoreNuget", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Winforms.Wasm", "buildTask\Winforms.Wasm\Winforms.Wasm.csproj", "{F9E02EA9-601C-4D30-9081-337A66E0BF7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "packager", "buildTask\packager\packager.csproj", "{7096B5D9-24F3-48FA-944C-E687A279A28E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "packager", "buildTask\packager\packager.csproj", "{7096B5D9-24F3-48FA-944C-E687A279A28E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

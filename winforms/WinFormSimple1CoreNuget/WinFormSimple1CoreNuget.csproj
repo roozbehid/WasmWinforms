@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WasmWinforms.Build.Tasks" Version="1.0.0.30" />
+    <PackageReference Include="Winforms.Wasm" Version="1.0.0.37" />
   </ItemGroup>
 
 </Project>
