@@ -8,8 +8,11 @@ init:
  - ps: $env:my_fulldate = Get-Date -Format g
  - ps: if(-not $env:APPVEYOR_PULL_REQUEST_NUMBER) { $env:is_not_pr = "true"; } else {$env:is_not_pr = "false";}
 
-#install:
-#  - ps: Invoke-UpdateSubmodules
+install:
+  - ps: Import-Module .\Scripts\Appveyor.ps1
+  - ps: Invoke-UpdateAppveyorVersion
+  - ps: Invoke-UpdateAssemblyVersion
+  - git submodule update --init --recursive
   
 build_script:
   - ps: dotnet build /p:Configuration=Release /p:Platform=x86

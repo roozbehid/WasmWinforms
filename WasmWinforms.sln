@@ -52,8 +52,17 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormSimple1CoreNuget", "winforms\WinFormSimple1CoreNuget\WinFormSimple1CoreNuget.csproj", "{59A0FA1F-F2CF-4231-9070-6403637994ED}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Winforms.Wasm", "buildTask\Winforms.Wasm\Winforms.Wasm.csproj", "{F9E02EA9-601C-4D30-9081-337A66E0BF7F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21} = {1F7C226E-22EB-4F45-89C7-ABD521178A21}
+		{7096B5D9-24F3-48FA-944C-E687A279A28E} = {7096B5D9-24F3-48FA-944C-E687A279A28E}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "packager", "buildTask\packager\packager.csproj", "{7096B5D9-24F3-48FA-944C-E687A279A28E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{34647627-6B40-40F7-9C8E-C3CCA0826F50}"
+	ProjectSection(SolutionItems) = preProject
+		Scripts\Appveyor.ps1 = Scripts\Appveyor.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -282,6 +291,7 @@ Global
 		{59A0FA1F-F2CF-4231-9070-6403637994ED} = {2148F9E0-73B7-403F-9215-A052E5DD425B}
 		{F9E02EA9-601C-4D30-9081-337A66E0BF7F} = {506F205A-EF62-43E2-A356-34B05EE0F832}
 		{7096B5D9-24F3-48FA-944C-E687A279A28E} = {506F205A-EF62-43E2-A356-34B05EE0F832}
+		{34647627-6B40-40F7-9C8E-C3CCA0826F50} = {B745C4B8-103C-4672-94EA-210C22C2C8EE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {399BD10A-768A-46D7-9748-E003EEBFF13C}
