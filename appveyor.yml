@@ -9,6 +9,7 @@ init:
  - ps: if(-not $env:APPVEYOR_PULL_REQUEST_NUMBER) { $env:is_not_pr = "true"; } else {$env:is_not_pr = "false";}
 
 install:
+  - PowerShell -ExecutionPolicy Unrestricted
   - ps: Import-Module .\Scripts\Appveyor.ps1
   - ps: Invoke-UpdateAppveyorVersion
   - ps: Invoke-UpdateAssemblyVersion

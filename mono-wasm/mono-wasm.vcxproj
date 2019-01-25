@@ -106,7 +106,7 @@
       </Message>
     </PreLinkEvent>
     <PreBuildEvent>
-      <Command>powershell -f $(MSBuildProjectDirectory)\download-monowasm-artifacts.ps1</Command>
+      <Command>powershell -f "$(MSBuildProjectDirectory)\download-monowasm-artifacts.ps1"</Command>
     </PreBuildEvent>
     <PreBuildEvent>
       <Message>Downloading SDK</Message>
@@ -139,7 +139,7 @@
       </Message>
     </PreLinkEvent>
     <PreBuildEvent>
-      <Command>powershell -f $(MSBuildProjectDirectory)\download-monowasm-artifacts.ps1</Command>
+      <Command>powershell -f "$(MSBuildProjectDirectory)\download-monowasm-artifacts.ps1"</Command>
     </PreBuildEvent>
     <PreBuildEvent>
       <Message>Downloading SDK</Message>
