@@ -12,11 +12,13 @@ install:
   - ps: Import-Module .\Scripts\Appveyor.ps1
   - ps: Invoke-UpdateAppveyorVersion
   - ps: Invoke-UpdateAssemblyVersion
-  - git submodule update --init --recursive
+  - git submodule init
+  - git submodule update
   
 build_script:
-  - ps: dotnet build /p:Configuration=Release /p:Platform=x86
   - ps: dotnet build /p:Configuration=WasmRel /p:Platform=x86
+  - ps: dotnet build /p:Configuration=Release /p:Platform=x86
+
   
   
 #

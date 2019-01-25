@@ -38,6 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormSimple1Core", "winfo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B745C4B8-103C-4672-94EA-210C22C2C8EE}"
 	ProjectSection(SolutionItems) = preProject
+		.gitmodules = .gitmodules
 		appveyor.yml = appveyor.yml
 		Directory.Build.props = Directory.Build.props
 		README.md = README.md
@@ -58,6 +59,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Winforms.Wasm", "buildTask\
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "packager", "buildTask\packager\packager.csproj", "{7096B5D9-24F3-48FA-944C-E687A279A28E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1F7C226E-22EB-4F45-89C7-ABD521178A21} = {1F7C226E-22EB-4F45-89C7-ABD521178A21}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{34647627-6B40-40F7-9C8E-C3CCA0826F50}"
 	ProjectSection(SolutionItems) = preProject
