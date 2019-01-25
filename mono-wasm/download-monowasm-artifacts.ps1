@@ -1,5 +1,7 @@
 if (!(Test-Path "incoming\remove-to-redownload.txt")){
-    Remove-Item .\incoming -Force -Recurse
+    if (Test-Path "incoming"){
+        Remove-Item .\incoming -Force -Recurse
+    }
     $progressPreference = 'silentlyContinue'
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     $build_id = "1452"

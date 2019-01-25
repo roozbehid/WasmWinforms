@@ -22,6 +22,7 @@ install:
   - cd %APPVEYOR_BUILD_FOLDER%
   
 build_script:
+  - nuget restore WasmWinforms.sln
   - ps: msbuild WasmWinforms.sln /p:Configuration=WasmRel /p:Platform=x86 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
   - ps: msbuild WasmWinforms.sln /p:Configuration=Release /p:Platform=x86 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
