@@ -23,7 +23,7 @@ Winforms implementation requires many C libraries that I was also ported into We
 This project uses another amazing ( :D ) project of mine: [GCCBuild](https://github.com/roozbehid/dotnet-vcxproj) which enables you to use any compiler to compile Visual Studio C/C++ projects in any OS.
 Meaning you can have Visual Studio C/C++ project files and use them to compile both for Windows/Linux and also WebAssembly. You need to have Emscripten installed, activated and already accessible from your path.
 First from Visual Studio build for Release-x86 then build for WasmRel-x86. This way you have all libraries compiled for Win32 and also WebAssembly.
-Using Win32 compiled libraries are way easier to debug and run your applcation.
+Using Win32 compiled libraries are way easier to debug and run your application.
 
 Please note that compiling mono-wasm should only be done in WasmRel or WasmDbg targets and it would take a minute or two to complete!
 
