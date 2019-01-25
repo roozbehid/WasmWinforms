@@ -18,6 +18,7 @@ install:
   - cd c:\emsdk
   - emsdk install latest
   - emsdk activate latest
+  - emsdk_env.bat
   - cd %APPVEYOR_BUILD_FOLDER%
   
 build_script:
