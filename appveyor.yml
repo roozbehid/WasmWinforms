@@ -1,8 +1,6 @@
 image: Visual Studio 2017
 platform: x86
 configuration: Release
-shallow_clone: true
-clone_depth: 10
 
 init:
  - tzutil /s "Mountain Standard Time"
@@ -14,7 +12,7 @@ install:
   - ps: Import-Module .\Scripts\Appveyor.ps1
   - ps: Invoke-UpdateAppveyorVersion
   - ps: Invoke-UpdateAssemblyVersion
-  - git submodule update --init --recursive
+  - git submodule update --depth 1 --init --recursive
   
 build_script:
   - ps: dotnet build /p:Configuration=Release /p:Platform=x86
