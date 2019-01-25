@@ -41,11 +41,12 @@ namespace Winforms.Wasm
                 DeleteOldAssemblies();
                 GenerateHTMLFile();
                 RunPackager();
+                Log.LogMessage("-----BuildWasm Ended Successfully------");
                 return ok;
             }
             catch (Exception ex)
             {
-                //Console.WriteLine (ex);
+                Log.LogMessage(ex.Message);
                 Log.LogErrorFromException(ex);
                 return false;
             }
@@ -149,8 +150,8 @@ namespace Winforms.Wasm
 
         void RunPackager()
         {
-            string options = $"--copy=always --out=\"{managedPath.TrimEnd('\\')}\" --search-path=\"{OutDir.TrimEnd('\\')}\" {Assembly}";
-            ProcessStartInfo startInfo = new ProcessStartInfo(Path.Combine(sdkPath, "packager.exe"), options);
+            string options = $"packager.dll --copy=always --out=\"{managedPath.TrimEnd('\\')}\" --search-path=\"{OutDir.TrimEnd('\\')}\" {Assembly}";
+            ProcessStartInfo startInfo = new ProcessStartInfo(Path.Combine(sdkPath, "dotnet"), options);
             startInfo.UseShellExecute = false;
             startInfo.RedirectStandardError = true;
             //startInfo.RedirectStandardInput = true;

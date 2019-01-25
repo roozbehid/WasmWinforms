@@ -1,0 +1,878 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Configurations>Debug;Release</Configurations>
+    <DebugType>pdbonly</DebugType>
+    <DefineConstants>NET_CORE</DefineConstants>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build" Version="15.1.1012" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="15.1.1012" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.1.1012" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="15.1.1012" />
+    <PackageReference Include="System.Reflection.Metadata" Version="1.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Winforms.Wasm.nuspec">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Winforms.Wasm.targets">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\mono-wasm\etc\.fonts\8514fix.fon" Link="sdk\.fonts\8514fix.fon">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\10-autohint.conf" Link="sdk\etc\conf.d\10-autohint.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\10-hinting-full.conf" Link="sdk\etc\conf.d\10-hinting-full.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\10-hinting-medium.conf" Link="sdk\etc\conf.d\10-hinting-medium.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\10-hinting-none.conf" Link="sdk\etc\conf.d\10-hinting-none.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\10-hinting-slight.conf" Link="sdk\etc\conf.d\10-hinting-slight.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\10-no-sub-pixel.conf" Link="sdk\etc\conf.d\10-no-sub-pixel.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\10-scale-bitmap-fonts.conf" Link="sdk\etc\conf.d\10-scale-bitmap-fonts.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\10-sub-pixel-bgr.conf" Link="sdk\etc\conf.d\10-sub-pixel-bgr.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\10-sub-pixel-rgb.conf" Link="sdk\etc\conf.d\10-sub-pixel-rgb.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\10-sub-pixel-vbgr.conf" Link="sdk\etc\conf.d\10-sub-pixel-vbgr.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\10-sub-pixel-vrgb.conf" Link="sdk\etc\conf.d\10-sub-pixel-vrgb.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\10-unhinted.conf" Link="sdk\etc\conf.d\10-unhinted.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\11-lcdfilter-default.conf" Link="sdk\etc\conf.d\11-lcdfilter-default.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\11-lcdfilter-legacy.conf" Link="sdk\etc\conf.d\11-lcdfilter-legacy.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\11-lcdfilter-light.conf" Link="sdk\etc\conf.d\11-lcdfilter-light.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\20-unhint-small-vera.conf" Link="sdk\etc\conf.d\20-unhint-small-vera.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\25-unhint-nonlatin.conf" Link="sdk\etc\conf.d\25-unhint-nonlatin.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\30-metric-aliases.conf" Link="sdk\etc\conf.d\30-metric-aliases.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\30-urw-aliases.conf" Link="sdk\etc\conf.d\30-urw-aliases.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\40-nonlatin.conf" Link="sdk\etc\conf.d\40-nonlatin.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\45-latin.conf" Link="sdk\etc\conf.d\45-latin.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\49-sansserif.conf" Link="sdk\etc\conf.d\49-sansserif.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\50-user.conf" Link="sdk\etc\conf.d\50-user.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\51-local.conf" Link="sdk\etc\conf.d\51-local.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\60-latin.conf" Link="sdk\etc\conf.d\60-latin.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\65-fonts-persian.conf" Link="sdk\etc\conf.d\65-fonts-persian.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\65-khmer.conf" Link="sdk\etc\conf.d\65-khmer.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\65-nonlatin.conf" Link="sdk\etc\conf.d\65-nonlatin.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\69-unifont.conf" Link="sdk\etc\conf.d\69-unifont.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\70-no-bitmaps.conf" Link="sdk\etc\conf.d\70-no-bitmaps.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\70-yes-bitmaps.conf" Link="sdk\etc\conf.d\70-yes-bitmaps.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\80-delicious.conf" Link="sdk\etc\conf.d\80-delicious.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\conf.d\90-synthetic.conf" Link="sdk\etc\conf.d\90-synthetic.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\framework\WebAssembly.Bindings.dll" Link="sdk\framework\WebAssembly.Bindings.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\framework\WebAssembly.Bindings.pdb" Link="sdk\framework\WebAssembly.Bindings.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\framework\WebAssembly.Net.Http.dll" Link="sdk\framework\WebAssembly.Net.Http.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\framework\WebAssembly.Net.Http.pdb" Link="sdk\framework\WebAssembly.Net.Http.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\Mono.Cecil.dll" Link="sdk\Mono.Cecil.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\server.py" Link="sdk\server.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Consts.cs" Link="sdk\wasm-bcl\wasm\Consts.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="sdk\etc\fonts.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Winforms.Wasm.nuspec">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Winforms.Wasm.targets">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="sdk\etc\conf.d\" />
+    <Folder Include="sdk\framework\" />
+    <Folder Include="sdk\.fonts\" />
+    <Folder Include="sdk\wasm-bcl\wasm\Facades\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\Microsoft.Win32.Primitives.dll" Link="sdk\wasm-bcl\wasm\Facades\Microsoft.Win32.Primitives.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\Microsoft.Win32.Registry.AccessControl.dll" Link="sdk\wasm-bcl\wasm\Facades\Microsoft.Win32.Registry.AccessControl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\Microsoft.Win32.Registry.AccessControl.pdb" Link="sdk\wasm-bcl\wasm\Facades\Microsoft.Win32.Registry.AccessControl.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\Microsoft.Win32.Registry.dll" Link="sdk\wasm-bcl\wasm\Facades\Microsoft.Win32.Registry.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\netstandard.dll" Link="sdk\wasm-bcl\wasm\Facades\netstandard.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.AppContext.dll" Link="sdk\wasm-bcl\wasm\Facades\System.AppContext.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Buffers.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Buffers.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Collections.Concurrent.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Collections.Concurrent.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Collections.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Collections.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Collections.NonGeneric.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Collections.NonGeneric.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Collections.Specialized.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Collections.Specialized.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ComponentModel.Annotations.dll" Link="sdk\wasm-bcl\wasm\Facades\System.ComponentModel.Annotations.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ComponentModel.dll" Link="sdk\wasm-bcl\wasm\Facades\System.ComponentModel.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ComponentModel.EventBasedAsync.dll" Link="sdk\wasm-bcl\wasm\Facades\System.ComponentModel.EventBasedAsync.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ComponentModel.Primitives.dll" Link="sdk\wasm-bcl\wasm\Facades\System.ComponentModel.Primitives.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ComponentModel.TypeConverter.dll" Link="sdk\wasm-bcl\wasm\Facades\System.ComponentModel.TypeConverter.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Console.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Console.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Data.Common.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Data.Common.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Data.SqlClient.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Data.SqlClient.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Diagnostics.Contracts.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Diagnostics.Contracts.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Diagnostics.Debug.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Diagnostics.Debug.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Diagnostics.FileVersionInfo.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Diagnostics.FileVersionInfo.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Diagnostics.Process.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Diagnostics.Process.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Diagnostics.StackTrace.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Diagnostics.StackTrace.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Diagnostics.TextWriterTraceListener.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Diagnostics.TextWriterTraceListener.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Diagnostics.Tools.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Diagnostics.Tools.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Diagnostics.TraceEvent.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Diagnostics.TraceEvent.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Diagnostics.TraceSource.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Diagnostics.TraceSource.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Diagnostics.Tracing.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Diagnostics.Tracing.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Drawing.Common.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Drawing.Common.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Drawing.Primitives.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Drawing.Primitives.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Dynamic.Runtime.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Dynamic.Runtime.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Globalization.Calendars.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Globalization.Calendars.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Globalization.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Globalization.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Globalization.Extensions.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Globalization.Extensions.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.IO.Compression.ZipFile.dll" Link="sdk\wasm-bcl\wasm\Facades\System.IO.Compression.ZipFile.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.IO.dll" Link="sdk\wasm-bcl\wasm\Facades\System.IO.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.IO.FileSystem.AccessControl.dll" Link="sdk\wasm-bcl\wasm\Facades\System.IO.FileSystem.AccessControl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.IO.FileSystem.AccessControl.pdb" Link="sdk\wasm-bcl\wasm\Facades\System.IO.FileSystem.AccessControl.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.IO.FileSystem.dll" Link="sdk\wasm-bcl\wasm\Facades\System.IO.FileSystem.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.IO.FileSystem.DriveInfo.dll" Link="sdk\wasm-bcl\wasm\Facades\System.IO.FileSystem.DriveInfo.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.IO.FileSystem.Primitives.dll" Link="sdk\wasm-bcl\wasm\Facades\System.IO.FileSystem.Primitives.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.IO.FileSystem.Watcher.dll" Link="sdk\wasm-bcl\wasm\Facades\System.IO.FileSystem.Watcher.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.IO.IsolatedStorage.dll" Link="sdk\wasm-bcl\wasm\Facades\System.IO.IsolatedStorage.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.IO.MemoryMappedFiles.dll" Link="sdk\wasm-bcl\wasm\Facades\System.IO.MemoryMappedFiles.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.IO.Pipes.dll" Link="sdk\wasm-bcl\wasm\Facades\System.IO.Pipes.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.IO.UnmanagedMemoryStream.dll" Link="sdk\wasm-bcl\wasm\Facades\System.IO.UnmanagedMemoryStream.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Linq.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Linq.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Linq.Expressions.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Linq.Expressions.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Linq.Parallel.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Linq.Parallel.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Linq.Queryable.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Linq.Queryable.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Memory.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Memory.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.AuthenticationManager.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.AuthenticationManager.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.Cache.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.Cache.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.HttpListener.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.HttpListener.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.Mail.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.Mail.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.NameResolution.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.NameResolution.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.NetworkInformation.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.NetworkInformation.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.Ping.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.Ping.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.Primitives.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.Primitives.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.Requests.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.Requests.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.Security.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.Security.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.ServicePoint.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.ServicePoint.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.Sockets.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.Sockets.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.Utilities.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.Utilities.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.WebHeaderCollection.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.WebHeaderCollection.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.WebSockets.Client.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.WebSockets.Client.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Net.WebSockets.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Net.WebSockets.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ObjectModel.dll" Link="sdk\wasm-bcl\wasm\Facades\System.ObjectModel.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Reflection.DispatchProxy.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Reflection.DispatchProxy.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Reflection.DispatchProxy.pdb" Link="sdk\wasm-bcl\wasm\Facades\System.Reflection.DispatchProxy.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Reflection.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Reflection.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Reflection.Emit.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Reflection.Emit.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Reflection.Emit.ILGeneration.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Reflection.Emit.ILGeneration.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Reflection.Emit.Lightweight.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Reflection.Emit.Lightweight.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Reflection.Extensions.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Reflection.Extensions.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Reflection.Primitives.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Reflection.Primitives.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Reflection.TypeExtensions.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Reflection.TypeExtensions.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Reflection.TypeExtensions.pdb" Link="sdk\wasm-bcl\wasm\Facades\System.Reflection.TypeExtensions.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Resources.Reader.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Resources.Reader.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Resources.ReaderWriter.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Resources.ReaderWriter.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Resources.ResourceManager.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Resources.ResourceManager.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Resources.Writer.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Resources.Writer.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.CompilerServices.VisualC.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.CompilerServices.VisualC.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.Extensions.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.Extensions.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.Handles.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.Handles.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.InteropServices.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.InteropServices.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.InteropServices.RuntimeInformation.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.InteropServices.RuntimeInformation.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.InteropServices.WindowsRuntime.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.InteropServices.WindowsRuntime.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.Loader.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.Loader.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.Loader.pdb" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.Loader.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.Numerics.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.Numerics.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.Serialization.Formatters.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.Serialization.Formatters.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.Serialization.Json.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.Serialization.Json.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.Serialization.Primitives.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.Serialization.Primitives.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Runtime.Serialization.Xml.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Runtime.Serialization.Xml.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.AccessControl.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.AccessControl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Claims.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Claims.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.Algorithms.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.Algorithms.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.Cng.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.Cng.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.Csp.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.Csp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.DeriveBytes.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.DeriveBytes.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.Encoding.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.Encoding.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.Encryption.Aes.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.Encryption.Aes.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.Encryption.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.Encryption.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.Encryption.ECDiffieHellman.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.Encryption.ECDiffieHellman.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.Encryption.ECDsa.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.Encryption.ECDsa.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.Hashing.Algorithms.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.Hashing.Algorithms.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.Hashing.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.Hashing.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.OpenSsl.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.OpenSsl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.OpenSsl.pdb" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.OpenSsl.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.Pkcs.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.Pkcs.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.Primitives.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.Primitives.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.ProtectedData.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.ProtectedData.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.RandomNumberGenerator.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.RandomNumberGenerator.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.RSA.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.RSA.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Cryptography.X509Certificates.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Cryptography.X509Certificates.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Principal.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Principal.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.Principal.Windows.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.Principal.Windows.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Security.SecureString.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Security.SecureString.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ServiceModel.Duplex.dll" Link="sdk\wasm-bcl\wasm\Facades\System.ServiceModel.Duplex.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ServiceModel.Http.dll" Link="sdk\wasm-bcl\wasm\Facades\System.ServiceModel.Http.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ServiceModel.NetTcp.dll" Link="sdk\wasm-bcl\wasm\Facades\System.ServiceModel.NetTcp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ServiceModel.Primitives.dll" Link="sdk\wasm-bcl\wasm\Facades\System.ServiceModel.Primitives.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ServiceModel.Security.dll" Link="sdk\wasm-bcl\wasm\Facades\System.ServiceModel.Security.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ServiceProcess.ServiceController.dll" Link="sdk\wasm-bcl\wasm\Facades\System.ServiceProcess.ServiceController.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ServiceProcess.ServiceController.pdb" Link="sdk\wasm-bcl\wasm\Facades\System.ServiceProcess.ServiceController.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Text.Encoding.CodePages.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Text.Encoding.CodePages.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Text.Encoding.CodePages.pdb" Link="sdk\wasm-bcl\wasm\Facades\System.Text.Encoding.CodePages.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Text.Encoding.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Text.Encoding.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Text.Encoding.Extensions.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Text.Encoding.Extensions.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Text.RegularExpressions.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Text.RegularExpressions.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Threading.AccessControl.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Threading.AccessControl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Threading.AccessControl.pdb" Link="sdk\wasm-bcl\wasm\Facades\System.Threading.AccessControl.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Threading.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Threading.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Threading.Overlapped.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Threading.Overlapped.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Threading.Tasks.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Threading.Tasks.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Threading.Tasks.Extensions.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Threading.Tasks.Extensions.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Threading.Tasks.Parallel.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Threading.Tasks.Parallel.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Threading.Thread.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Threading.Thread.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Threading.ThreadPool.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Threading.ThreadPool.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Threading.Timer.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Threading.Timer.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.ValueTuple.dll" Link="sdk\wasm-bcl\wasm\Facades\System.ValueTuple.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Xml.ReaderWriter.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Xml.ReaderWriter.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Xml.XDocument.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Xml.XDocument.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Xml.XmlDocument.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Xml.XmlDocument.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Xml.XmlSerializer.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Xml.XmlSerializer.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Xml.XPath.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Xml.XPath.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Xml.XPath.XDocument.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Xml.XPath.XDocument.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Xml.XPath.XmlDocument.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Xml.XPath.XmlDocument.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Xml.XPath.XmlDocument.pdb" Link="sdk\wasm-bcl\wasm\Facades\System.Xml.XPath.XmlDocument.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Facades\System.Xml.Xsl.Primitives.dll" Link="sdk\wasm-bcl\wasm\Facades\System.Xml.Xsl.Primitives.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\I18N.CJK.dll" Link="sdk\wasm-bcl\wasm\I18N.CJK.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\I18N.CJK.pdb" Link="sdk\wasm-bcl\wasm\I18N.CJK.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\I18N.dll" Link="sdk\wasm-bcl\wasm\I18N.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\I18N.MidEast.dll" Link="sdk\wasm-bcl\wasm\I18N.MidEast.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\I18N.MidEast.pdb" Link="sdk\wasm-bcl\wasm\I18N.MidEast.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\I18N.Other.dll" Link="sdk\wasm-bcl\wasm\I18N.Other.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\I18N.Other.pdb" Link="sdk\wasm-bcl\wasm\I18N.Other.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\I18N.pdb" Link="sdk\wasm-bcl\wasm\I18N.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\I18N.Rare.dll" Link="sdk\wasm-bcl\wasm\I18N.Rare.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\I18N.Rare.pdb" Link="sdk\wasm-bcl\wasm\I18N.Rare.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\I18N.West.dll" Link="sdk\wasm-bcl\wasm\I18N.West.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\I18N.West.pdb" Link="sdk\wasm-bcl\wasm\I18N.West.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Microsoft.CSharp.dll" Link="sdk\wasm-bcl\wasm\Microsoft.CSharp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Microsoft.CSharp.pdb" Link="sdk\wasm-bcl\wasm\Microsoft.CSharp.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Mono.Data.Sqlite.dll" Link="sdk\wasm-bcl\wasm\Mono.Data.Sqlite.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Mono.Data.Sqlite.pdb" Link="sdk\wasm-bcl\wasm\Mono.Data.Sqlite.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Mono.Data.Tds.dll" Link="sdk\wasm-bcl\wasm\Mono.Data.Tds.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Mono.Data.Tds.pdb" Link="sdk\wasm-bcl\wasm\Mono.Data.Tds.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Mono.Security.dll" Link="sdk\wasm-bcl\wasm\Mono.Security.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\Mono.Security.pdb" Link="sdk\wasm-bcl\wasm\Mono.Security.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\mscorlib.dll" Link="sdk\wasm-bcl\wasm\mscorlib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\mscorlib.pdb" Link="sdk\wasm-bcl\wasm\mscorlib.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\nunit-lite-console.exe" Link="sdk\wasm-bcl\wasm\nunit-lite-console.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\nunit-lite-console.pdb" Link="sdk\wasm-bcl\wasm\nunit-lite-console.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\nunitlite.dll" Link="sdk\wasm-bcl\wasm\nunitlite.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\nunitlite.pdb" Link="sdk\wasm-bcl\wasm\nunitlite.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.ComponentModel.Composition.dll" Link="sdk\wasm-bcl\wasm\System.ComponentModel.Composition.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.ComponentModel.Composition.pdb" Link="sdk\wasm-bcl\wasm\System.ComponentModel.Composition.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.ComponentModel.DataAnnotations.dll" Link="sdk\wasm-bcl\wasm\System.ComponentModel.DataAnnotations.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.ComponentModel.DataAnnotations.pdb" Link="sdk\wasm-bcl\wasm\System.ComponentModel.DataAnnotations.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Core.dll" Link="sdk\wasm-bcl\wasm\System.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Core.pdb" Link="sdk\wasm-bcl\wasm\System.Core.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Data.dll" Link="sdk\wasm-bcl\wasm\System.Data.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Data.pdb" Link="sdk\wasm-bcl\wasm\System.Data.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Data.Services.Client.dll" Link="sdk\wasm-bcl\wasm\System.Data.Services.Client.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Data.Services.Client.pdb" Link="sdk\wasm-bcl\wasm\System.Data.Services.Client.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.dll" Link="sdk\wasm-bcl\wasm\System.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Drawing.dll" Link="sdk\wasm-bcl\wasm\System.Drawing.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Drawing.pdb" Link="sdk\wasm-bcl\wasm\System.Drawing.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.IdentityModel.dll" Link="sdk\wasm-bcl\wasm\System.IdentityModel.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.IdentityModel.pdb" Link="sdk\wasm-bcl\wasm\System.IdentityModel.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.IO.Compression.dll" Link="sdk\wasm-bcl\wasm\System.IO.Compression.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.IO.Compression.FileSystem.dll" Link="sdk\wasm-bcl\wasm\System.IO.Compression.FileSystem.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.IO.Compression.FileSystem.pdb" Link="sdk\wasm-bcl\wasm\System.IO.Compression.FileSystem.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.IO.Compression.pdb" Link="sdk\wasm-bcl\wasm\System.IO.Compression.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Json.dll" Link="sdk\wasm-bcl\wasm\System.Json.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Json.pdb" Link="sdk\wasm-bcl\wasm\System.Json.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Net.dll" Link="sdk\wasm-bcl\wasm\System.Net.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Net.Http.dll" Link="sdk\wasm-bcl\wasm\System.Net.Http.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Net.Http.pdb" Link="sdk\wasm-bcl\wasm\System.Net.Http.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Net.Http.WinHttpHandler.dll" Link="sdk\wasm-bcl\wasm\System.Net.Http.WinHttpHandler.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Net.Http.WinHttpHandler.pdb" Link="sdk\wasm-bcl\wasm\System.Net.Http.WinHttpHandler.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Net.pdb" Link="sdk\wasm-bcl\wasm\System.Net.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Numerics.dll" Link="sdk\wasm-bcl\wasm\System.Numerics.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Numerics.pdb" Link="sdk\wasm-bcl\wasm\System.Numerics.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Numerics.Vectors.dll" Link="sdk\wasm-bcl\wasm\System.Numerics.Vectors.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Numerics.Vectors.pdb" Link="sdk\wasm-bcl\wasm\System.Numerics.Vectors.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.pdb" Link="sdk\wasm-bcl\wasm\System.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Reflection.Context.dll" Link="sdk\wasm-bcl\wasm\System.Reflection.Context.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Reflection.Context.pdb" Link="sdk\wasm-bcl\wasm\System.Reflection.Context.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Runtime.CompilerServices.Unsafe.dll" Link="sdk\wasm-bcl\wasm\System.Runtime.CompilerServices.Unsafe.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Runtime.Serialization.dll" Link="sdk\wasm-bcl\wasm\System.Runtime.Serialization.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Runtime.Serialization.pdb" Link="sdk\wasm-bcl\wasm\System.Runtime.Serialization.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Security.dll" Link="sdk\wasm-bcl\wasm\System.Security.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Security.pdb" Link="sdk\wasm-bcl\wasm\System.Security.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.ServiceModel.dll" Link="sdk\wasm-bcl\wasm\System.ServiceModel.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.ServiceModel.Internals.dll" Link="sdk\wasm-bcl\wasm\System.ServiceModel.Internals.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.ServiceModel.Internals.pdb" Link="sdk\wasm-bcl\wasm\System.ServiceModel.Internals.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.ServiceModel.pdb" Link="sdk\wasm-bcl\wasm\System.ServiceModel.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.ServiceModel.Web.dll" Link="sdk\wasm-bcl\wasm\System.ServiceModel.Web.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.ServiceModel.Web.pdb" Link="sdk\wasm-bcl\wasm\System.ServiceModel.Web.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Transactions.dll" Link="sdk\wasm-bcl\wasm\System.Transactions.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Transactions.pdb" Link="sdk\wasm-bcl\wasm\System.Transactions.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Web.Services.dll" Link="sdk\wasm-bcl\wasm\System.Web.Services.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Web.Services.pdb" Link="sdk\wasm-bcl\wasm\System.Web.Services.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Windows.dll" Link="sdk\wasm-bcl\wasm\System.Windows.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Xml.dll" Link="sdk\wasm-bcl\wasm\System.Xml.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Xml.Linq.dll" Link="sdk\wasm-bcl\wasm\System.Xml.Linq.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Xml.Linq.pdb" Link="sdk\wasm-bcl\wasm\System.Xml.Linq.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Xml.pdb" Link="sdk\wasm-bcl\wasm\System.Xml.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\mono-wasm\incoming\wasm-bcl\wasm\System.Xml.Serialization.dll" Link="sdk\wasm-bcl\wasm\System.Xml.Serialization.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

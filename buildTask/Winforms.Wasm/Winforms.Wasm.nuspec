@@ -19,6 +19,7 @@
     <file src="System.Reflection.Metadata.dll" target="build/netstandard2.0/System.Reflection.Metadata.dll" />
     <file src="System.Collections.Immutable.dll" target="build/netstandard2.0/System.Collections.Immutable.dll" />
     <file src="sdk\**\*.*" target="content\sdk\" />
+    <file src="packager.dll" target="content\sdk\packager.dll" />
     <file src="..\WasmRel\mono.js" target="content\sdk\release\mono.js" />
     <file src="..\WasmRel\mono.wasm" target="content\sdk\release\mono.wasm" />
     <file src="System.Windows.Forms.dll" target="lib\netstandard2.0\System.Windows.Forms.dll" />
