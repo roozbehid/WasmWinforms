@@ -12,7 +12,7 @@ install:
   - cd C:\Tools\vcpkg
   - git pull
   - .\bootstrap-vcpkg.bat
-  - vcpkg install sdl1:x86-windows zlib:x86-windows freetype:x86-windows libjpg:x86-windows libpng:x86-windows
+  - vcpkg install sdl1:x86-windows zlib:x86-windows freetype:x86-windows libjpeg:x86-windows libpng:x86-windows
   - cd %APPVEYOR_BUILD_FOLDER%
   - ps: Import-Module .\Scripts\Appveyor.ps1
   - ps: Invoke-UpdateAppveyorVersion
