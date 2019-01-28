@@ -22,21 +22,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\WinFormSimple1\Form1.cs" Link="Form1.cs" />
-    <Compile Include="..\WinFormSimple1\Form1.Designer.cs" Link="Form1.Designer.cs" />
-    <Compile Include="..\WinFormSimple1\Program.cs" Link="Program.cs" />
+    <Compile Include="..\WinFormSample-FullNet\Form1.cs" Link="Form1.cs" />
+    <Compile Include="..\WinFormSample-FullNet\Form1.Designer.cs" Link="Form1.Designer.cs" />
+    <Compile Include="..\WinFormSample-FullNet\Program.cs" Link="Program.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\WinFormSimple1\Form1.resx" Link="Form1.resx" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <ProjectReference Include="..\src\System.Windows.Forms\System.Windows.Forms.csproj" />
+    <None Include="..\WinFormSample-FullNet\Form1.resx" Link="Form1.resx" />
   </ItemGroup>
   
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\winforms\src\System.Windows.Forms\System.Windows.Forms.csproj" />
   </ItemGroup>
   
 
