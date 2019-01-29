@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <Platforms>AnyCPU;x86</Platforms>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Prefer32Bit>true</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <Prefer32Bit>true</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RunCommand Condition="'$(PlatformTarget)' == 'x86'">$(MSBuildProgramFiles32)\dotnet\dotnet</RunCommand>
+    <RunCommand Condition="'$(PlatformTarget)' == 'x64'">$(ProgramW6432)\dotnet\dotnet</RunCommand>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\SimpleCalculator-FullNet\Form1.cs" Link="Form1.cs" />
+    <Compile Include="..\SimpleCalculator-FullNet\Form1.Designer.cs" Link="Form1.Designer.cs" />
+    <Compile Include="..\SimpleCalculator-FullNet\Program.cs" Link="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\SimpleCalculator-FullNet\Form1.resx" Link="Form1.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\winforms\src\System.Windows.Forms\System.Windows.Forms.csproj" />
+  </ItemGroup>
+
+</Project>
