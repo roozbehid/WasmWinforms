@@ -1655,7 +1655,8 @@ namespace System.Windows.Forms
         {
             get
             {
-                return Win32GetDoubleClickTime();
+                //return Win32GetDoubleClickTime();
+                return 500;
             }
         }
 
