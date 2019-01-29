@@ -29,6 +29,27 @@
     <None Include="..\..\mono-wasm\etc\.fonts\8514fix.fon" Link="sdk\.fonts\8514fix.fon">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="..\..\mono-wasm\etc\.fonts\arial.ttf" Link="sdk\.fonts\arial.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\.fonts\arialbd.ttf" Link="sdk\.fonts\arialbd.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\.fonts\tahoma.ttf" Link="sdk\.fonts\tahoma.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\.fonts\8514fix.fon" Link=".fonts\8514fix.fon">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\.fonts\arial.ttf" Link=".fonts\arial.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\.fonts\arialbd.ttf" Link=".fonts\arialbd.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\mono-wasm\etc\.fonts\tahoma.ttf" Link=".fonts\tahoma.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="..\..\mono-wasm\etc\conf.d\10-autohint.conf" Link="sdk\etc\conf.d\10-autohint.conf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
