@@ -35,7 +35,7 @@ build_script:
   - ps: msbuild WasmWinforms.sln /p:Configuration=Release /p:Platform=x86 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
   - ps: nuget pack $env:APPVEYOR_BUILD_FOLDER\Output\bin\x86\Release\Winforms.Wasm.nuspec -properties version=$env:APPVEYOR_BUILD_VERSION 
 
- artifacts:
+artifacts:
  - path: Output\**\*.nupkg
    name: nuget package
   
