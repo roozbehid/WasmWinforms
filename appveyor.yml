@@ -33,7 +33,8 @@ build_script:
   - nuget restore WasmWinforms.sln
   - ps: msbuild WasmWinforms.sln /p:Configuration=WasmRel /p:Platform=x86 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
   - ps: msbuild WasmWinforms.sln /p:Configuration=Release /p:Platform=x86 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-  - ps: nuget pack $env:APPVEYOR_BUILD_FOLDER\Output\bin\x86\Release\Winforms.Wasm.nuspec -properties version=$env:APPVEYOR_BUILD_VERSION 
+  - dir %APPVEYOR_BUILD_FOLDER%\Output\bin\x86\Release
+  - nuget pack %APPVEYOR_BUILD_FOLDER%\Output\bin\x86\Release\Winforms.Wasm.nuspec -properties version=%APPVEYOR_BUILD_VERSION%
 
 artifacts:
  - path: Output\**\*.nupkg
