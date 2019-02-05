@@ -26,13 +26,18 @@ install:
   - emsdk activate latest
   - emsdk_env.bat
   - cd %APPVEYOR_BUILD_FOLDER%
-  
+
+cache: c:\tools\vcpkg\installed\
+
 build_script:
   - nuget restore WasmWinforms.sln
   - ps: msbuild WasmWinforms.sln /p:Configuration=WasmRel /p:Platform=x86 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
   - ps: msbuild WasmWinforms.sln /p:Configuration=Release /p:Platform=x86 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - ps: nuget pack $env:APPVEYOR_BUILD_FOLDER\Output\bin\x86\Release\Winforms.Wasm.nuspec -properties version=$env:APPVEYOR_BUILD_VERSION 
 
-  
+ artifacts:
+ - path: Output\**\*.nupkg
+   name: nuget package
   
 #
 # ------ End of shared configs -------------------
@@ -48,6 +53,13 @@ for:
   version: 1.0.julian.{build}
   
 #this section is added to previous section
+  deploy:
+   - provider: NuGet
+     server: https://www.nuget.org
+     api_key:
+       secure: Pzomenosg6JoLjvRbvOeQ4WcoOEMC5+NFfEgeYNScPCu4q8dG7z5uJlFVQF9E5DK
+     skip_symbols: true
+     artifact: nuget package
 
   branches:
     only:

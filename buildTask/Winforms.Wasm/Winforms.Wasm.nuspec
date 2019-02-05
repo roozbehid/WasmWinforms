@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Winforms.Wasm</id>
-    <version>1.0.0.38</version>
+    <version>$version$</version>
     <title>WasmWinforms</title>
     <authors>Roozbeh Gh</authors>
     <owners>Roozbeh Gh</owners>
