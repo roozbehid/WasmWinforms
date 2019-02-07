@@ -37,7 +37,7 @@ build_script:
   - nuget pack %APPVEYOR_BUILD_FOLDER%\Output\bin\x86\Release\Winforms.Wasm.nuspec -properties version=%APPVEYOR_BUILD_VERSION%
 
 artifacts:
- - path: '**\*.nupkg'
+ - path: '*.nupkg'
    name: nuget package
   
 #
