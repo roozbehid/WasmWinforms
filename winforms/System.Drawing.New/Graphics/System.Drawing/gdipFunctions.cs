@@ -302,9 +302,9 @@ namespace System.Drawing
         ///const string gdipluslibname = "gdiplus.dll";
         const string gdipluslibname = "libgdiplus.dll";
         ///const string wingdilibname = "gdi32.dll";
-        const string wingdilibname = "nanox.dll";
+        const string wingdilibname = "mwin.dll";
         //const string user32dll = "user32.dll";
-        const string user32dll = "nanox.dll";
+        const string user32dll = "mwin.dll";
 
         // Memory functions
         [DllImport(gdipluslibname)]
