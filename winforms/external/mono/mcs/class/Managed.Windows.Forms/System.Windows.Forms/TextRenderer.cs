@@ -523,25 +523,26 @@ namespace System.Windows.Forms
 		[DllImport("gdi32")]
 		static extern bool SelectClipRgn(IntPtr hdc, IntPtr hrgn);
 #else
-        [DllImport("nanox.dll", CharSet = CharSet.Ansi, EntryPoint = "DrawTextA")]
+        const string mwin_dll = "mwin.dll";
+        [DllImport(mwin_dll, CharSet = CharSet.Ansi, EntryPoint = "DrawTextA")]
         static extern int Win32DrawText(IntPtr hdc, string lpStr, int nCount, ref XplatUIWin32.RECT lpRect, int wFormat);
 
-        [DllImport("nanox.dll")]
+        [DllImport(mwin_dll)]
         static extern int SetTextColor(IntPtr hdc, int crColor);
 
-        [DllImport("nanox.dll")]
+        [DllImport(mwin_dll)]
         static extern IntPtr SelectObject(IntPtr hDC, IntPtr hObject);
 
-        [DllImport("nanox.dll")]
+        [DllImport(mwin_dll)]
         static extern int SetBkColor(IntPtr hdc, int crColor);
 
-        [DllImport("nanox.dll")]
+        [DllImport(mwin_dll)]
         static extern int SetBkMode(IntPtr hdc, int iBkMode);
 
-        [DllImport("nanox.dll")]
+        [DllImport(mwin_dll)]
         static extern bool DeleteObject(IntPtr objectHandle);
 
-        [DllImport("nanox.dll")]
+        [DllImport(mwin_dll)]
         static extern bool SelectClipRgn(IntPtr hdc, IntPtr hrgn);
 #endif
         #endregion
