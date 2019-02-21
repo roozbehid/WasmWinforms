@@ -68,11 +68,12 @@ namespace System.Windows.Forms
 
     internal class XplatUINanoX : XplatUIDriver
     {
-        [DllImport("nanox.dll", EntryPoint = "SetWindowLong", CallingConvention = CallingConvention.StdCall)]
+        const string mwin_dll = "mwin.dll";
+        [DllImport(mwin_dll, EntryPoint = "SetWindowLong", CallingConvention = CallingConvention.StdCall)]
         //[MethodImpl(MethodImplOptions.InternalCall)]
         private extern static uint Win32SetWindowLong(IntPtr hwnd, WindowLong index, uint value);
 
-        [DllImport("nanox.dll", EntryPoint = "RegisterClass", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "RegisterClass", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         //[MethodImpl(MethodImplOptions.InternalCall)]
         private extern static bool Win32RegisterClass(ref WNDCLASS wndClass);
         [MethodImplAttribute(MethodImplOptions.NoOptimization | MethodImplOptions.NoInlining)]
@@ -148,6 +149,7 @@ namespace System.Windows.Forms
             internal int style;
             //[MarshalAs(UnmanagedType.FunctionPtr)]
             internal WndProc lpfnWndProc;
+            internal WndProc lpfnWndProcBridge;
             internal int cbClsExtra;
             internal int cbWndExtra;
             internal IntPtr hInstance;
@@ -954,7 +956,7 @@ namespace System.Windows.Forms
 
         #region Constructor & Destructor
 
-        [DllImport("nanox.dll", EntryPoint = "invoke_WinMain_Start", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+        [DllImport(mwin_dll, EntryPoint = "invoke_WinMain_Start", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
         private extern static int invoke_WinMain_Start(int ac, IntPtr av);
 
 
@@ -983,9 +985,9 @@ namespace System.Windows.Forms
 
             wnd_proc = new WndProc(InternalWndProc);
 
-            Console.WriteLine("before inoke main");
+            Console.WriteLine("before invoke main");
             invoke_WinMain_Start(0, IntPtr.Zero);
-            Console.WriteLine("after inoke main");
+            Console.WriteLine("after invoke main");
 
             Console.WriteLine("before invoke CreateWindowEx");
             FosterParent = Win32CreateWindowEx((int)WindowExStyles.WS_EX_TOOLWINDOW, "static", "Foster Parent Window", (int)WindowStyles.WS_OVERLAPPEDWINDOW, 0, 0, 0, 0, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
@@ -1026,6 +1028,7 @@ namespace System.Windows.Forms
 
                 wndClass.style = classStyle;
                 wndClass.lpfnWndProc = wnd_proc;
+                wndClass.lpfnWndProcBridge = null;
                 wndClass.cbClsExtra = 0;
                 wndClass.cbWndExtra = 0;
                 wndClass.hbrBackground = Win32CreateSolidBrush(Win32GetSysColor((int)GetSysColorIndex.COLOR_WINDOW));
@@ -3921,405 +3924,405 @@ namespace System.Windows.Forms
         #endregion    // Public Static Methods
 
         #region Win32 Imports
-        //[DllImport("nanox.dll", EntryPoint = "GetLastError", CallingConvention = CallingConvention.StdCall)]
+        //[DllImport(mwin_dll, EntryPoint = "GetLastError", CallingConvention = CallingConvention.StdCall)]
         private static uint Win32GetLastError()
         {
             return 1;
         }
 
-        [DllImport("nanox.dll", EntryPoint = "CreateWindowEx", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "CreateWindowEx", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32CreateWindowEx(int dwExStyle, string lpClassName, string lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lParam);
 
 
-        [DllImport("nanox.dll", EntryPoint = "DestroyWindow", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "DestroyWindow", CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32DestroyWindow(IntPtr hWnd);
 
-        [DllImport("nanox.dll", EntryPoint = "PeekMessage", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "PeekMessage", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32PeekMessage(ref MSG msg, IntPtr hWnd, int wFilterMin, int wFilterMax, uint flags);
 
-        [DllImport("nanox.dll", EntryPoint = "GetMessage", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetMessage", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32GetMessage(ref MSG msg, IntPtr hWnd, int wFilterMin, int wFilterMax);
 
-        [DllImport("nanox.dll", EntryPoint = "TranslateMessage", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "TranslateMessage", CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32TranslateMessage(ref MSG msg);
 
-        [DllImport("nanox.dll", EntryPoint = "DispatchMessage", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "DispatchMessage", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32DispatchMessage(ref MSG msg);
 
-        [DllImport("nanox.dll", EntryPoint = "MoveWindow", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "MoveWindow", CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32MoveWindow(IntPtr hWnd, int x, int y, int width, int height, bool repaint);
 
-        [DllImport("nanox.dll", EntryPoint = "SetWindowPos", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetWindowPos", CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, SetWindowPosFlags Flags);
 
-        [DllImport("nanox.dll", EntryPoint = "SetWindowPos", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetWindowPos", CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32SetWindowPos(IntPtr hWnd, SetWindowPosZOrder pos, int x, int y, int cx, int cy, SetWindowPosFlags Flags);
 
-        [DllImport("nanox.dll", EntryPoint = "SetWindowText", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetWindowText", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32SetWindowText(IntPtr hWnd, string lpString);
 
-        [DllImport("nanox.dll", EntryPoint = "GetWindowText", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetWindowText", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
-        [DllImport("nanox.dll", EntryPoint = "SetParent", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetParent", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32SetParent(IntPtr hWnd, IntPtr hParent);
 
-        [DllImport("nanox.dll", EntryPoint = "LoadCursorW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "LoadCursorW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32LoadCursor(IntPtr hInstance, LoadCursorType type);
 
-        [DllImport("nanox.dll", EntryPoint = "ShowCursor", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "ShowCursor", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32ShowCursor(bool bShow);
 
-        [DllImport("nanox.dll", EntryPoint = "SetCursor", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetCursor", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32SetCursor(IntPtr hCursor);
 
-        [DllImport("nanox.dll", EntryPoint = "CreateCursor", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "CreateCursor", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32CreateCursor(IntPtr hInstance, int xHotSpot, int yHotSpot, int nWidth, int nHeight, Byte[] pvANDPlane, Byte[] pvORPlane);
 
-        [DllImport("nanox.dll", EntryPoint = "DestroyCursor", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "DestroyCursor", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32DestroyCursor(IntPtr hCursor);
 
-        [DllImport("nanox.dll", EntryPoint = "DrawIcon", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "DrawIcon", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32DrawIcon(IntPtr hDC, int X, int Y, IntPtr hIcon);
 
-        [DllImport("nanox.dll", EntryPoint = "DefWindowProc", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "DefWindowProc", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32DefWindowProc(IntPtr hWnd, [MarshalAs(UnmanagedType.U4)]Msg Msg, IntPtr wParam, IntPtr lParam);
 
-        //[DllImport ("nanox.dll", EntryPoint="DefDlgProcW", CharSet=CharSet.Ansi, CallingConvention=CallingConvention.StdCall)]
+        //[DllImport (mwin_dll, EntryPoint="DefDlgProcW", CharSet=CharSet.Ansi, CallingConvention=CallingConvention.StdCall)]
         //private extern static IntPtr Win32DefDlgProc(IntPtr hWnd, Msg Msg, IntPtr wParam, IntPtr lParam);
 
-        [DllImport("nanox.dll", EntryPoint = "PostQuitMessage", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "PostQuitMessage", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32PostQuitMessage(int nExitCode);
 
-        [DllImport("nanox.dll", EntryPoint = "UpdateWindow", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "UpdateWindow", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32UpdateWindow(IntPtr hWnd);
 
-        [DllImport("nanox.dll", EntryPoint = "GetUpdateRect", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetUpdateRect", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32GetUpdateRect(IntPtr hWnd, ref RECT rect, bool erase);
 
-        [DllImport("nanox.dll", EntryPoint = "BeginPaint", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "BeginPaint", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32BeginPaint(IntPtr hWnd, ref PAINTSTRUCT ps);
 
-        [DllImport("nanox.dll", EntryPoint = "ValidateRect", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "ValidateRect", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32ValidateRect(IntPtr hWnd, ref RECT rect);
 
-        [DllImport("nanox.dll", EntryPoint = "EndPaint", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "EndPaint", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32EndPaint(IntPtr hWnd, ref PAINTSTRUCT ps);
 
-        [DllImport("nanox.dll", EntryPoint = "GetDC", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetDC", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32GetDC(IntPtr hWnd);
 
-        [DllImport("nanox.dll", EntryPoint = "GetWindowDC", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetWindowDC", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32GetWindowDC(IntPtr hWnd);
 
-        //[DllImport ("nanox.dll", EntryPoint="GetDCEx", CallingConvention=CallingConvention.StdCall)]
+        //[DllImport (mwin_dll, EntryPoint="GetDCEx", CallingConvention=CallingConvention.StdCall)]
         //private extern static IntPtr Win32GetDCEx(IntPtr hWnd, IntPtr hRgn, DCExFlags flags);
 
-        [DllImport("nanox.dll", EntryPoint = "ReleaseDC", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "ReleaseDC", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
-        [DllImport("nanox.dll", EntryPoint = "MessageBox", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "MessageBox", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32MessageBox(IntPtr hParent, string pText, string pCaption, uint uType);
 
-        [DllImport("nanox.dll", EntryPoint = "InvalidateRect", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "InvalidateRect", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32InvalidateRect(IntPtr hWnd, ref RECT lpRect, bool bErase);
 
-        //[DllImport ("nanox.dll", EntryPoint="InvalidateRect", CallingConvention=CallingConvention.StdCall)]
+        //[DllImport (mwin_dll, EntryPoint="InvalidateRect", CallingConvention=CallingConvention.StdCall)]
         //private extern static IntPtr Win32InvalidateRect(IntPtr hWnd, IntPtr lpRect, bool bErase);
 
-        [DllImport("nanox.dll", EntryPoint = "SetCapture", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetCapture", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32SetCapture(IntPtr hWnd);
 
-        [DllImport("nanox.dll", EntryPoint = "ReleaseCapture", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "ReleaseCapture", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32ReleaseCapture();
 
-        [DllImport("nanox.dll", EntryPoint = "GetWindowRect", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetWindowRect", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32GetWindowRect(IntPtr hWnd, out RECT rect);
 
-        [DllImport("nanox.dll", EntryPoint = "GetClientRect", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetClientRect", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32GetClientRect(IntPtr hWnd, out RECT rect);
 
-        [DllImport("nanox.dll", EntryPoint = "ScreenToClient", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "ScreenToClient", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32ScreenToClient(IntPtr hWnd, ref POINT pt);
 
-        [DllImport("nanox.dll", EntryPoint = "ClientToScreen", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "ClientToScreen", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32ClientToScreen(IntPtr hWnd, ref POINT pt);
 
         // This function returns the parent OR THE OWNER!
         // Use GetAncestor to only get the parent.
-        [DllImport("nanox.dll", EntryPoint = "GetParent", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetParent", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32GetParent(IntPtr hWnd);
 
-        [DllImport("nanox.dll", EntryPoint = "GetAncestor", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetAncestor", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32GetAncestor(IntPtr hWnd, AncestorType flags);
 
-        [DllImport("nanox.dll", EntryPoint = "SetActiveWindow", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetActiveWindow", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32SetActiveWindow(IntPtr hWnd);
 
-        [DllImport("nanox.dll", EntryPoint = "AdjustWindowRectEx", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "AdjustWindowRectEx", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32AdjustWindowRectEx(ref RECT lpRect, int dwStyle, bool bMenu, int dwExStyle);
 
-        [DllImport("nanox.dll", EntryPoint = "GetCursorPos", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetCursorPos", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32GetCursorPos(out POINT lpPoint);
 
-        [DllImport("nanox.dll", EntryPoint = "SetCursorPos", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetCursorPos", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32SetCursorPos(int x, int y);
 
-        //[DllImport ("nanox.dll", EntryPoint="GetWindowPlacement", CallingConvention=CallingConvention.StdCall)]
+        //[DllImport (mwin_dll, EntryPoint="GetWindowPlacement", CallingConvention=CallingConvention.StdCall)]
         //private extern static bool Win32GetWindowPlacement(IntPtr hWnd, ref WINDOWPLACEMENT lpwndpl);
 
-        [DllImport("nanox.dll", EntryPoint = "TrackMouseEvent", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "TrackMouseEvent", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32TrackMouseEvent(ref TRACKMOUSEEVENT tme);
 
-        //[DllImport ("nanox.dll", EntryPoint="CreateBrushIndirect", CallingConvention=CallingConvention.StdCall)]
+        //[DllImport (mwin_dll, EntryPoint="CreateBrushIndirect", CallingConvention=CallingConvention.StdCall)]
         //private extern static IntPtr Win32CreateBrushIndirect(ref LOGBRUSH lb);
 
-        [DllImport("nanox.dll", EntryPoint = "CreateSolidBrush", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "CreateSolidBrush", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32CreateSolidBrush(COLORREF clrRef);
 
-        [DllImport("nanox.dll", EntryPoint = "GetSysColor", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetSysColor", CallingConvention = CallingConvention.StdCall)]
         private extern static COLORREF Win32GetSysColor(int nIndex);
 
-        [DllImport("nanox.dll", EntryPoint = "PatBlt", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "PatBlt", CallingConvention = CallingConvention.StdCall)]
         private extern static int Win32PatBlt(IntPtr hdc, int nXLeft, int nYLeft, int nWidth, int nHeight, PatBltRop dwRop);
 
 
-        [DllImport("nanox.dll", EntryPoint = "GetWindowLong", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetWindowLong", CallingConvention = CallingConvention.StdCall)]
         private extern static uint Win32GetWindowLong(IntPtr hwnd, WindowLong index);
 
-        [DllImport("nanox.dll", EntryPoint = "SetLayeredWindowAttributes", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetLayeredWindowAttributes", CallingConvention = CallingConvention.StdCall)]
         private extern static uint Win32SetLayeredWindowAttributes(IntPtr hwnd, COLORREF crKey, byte bAlpha, LayeredWindowAttributes dwFlags);
 
-        [DllImport("nanox.dll", EntryPoint = "GetLayeredWindowAttributes", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetLayeredWindowAttributes", CallingConvention = CallingConvention.StdCall)]
         private extern static uint Win32GetLayeredWindowAttributes(IntPtr hwnd, out COLORREF pcrKey, out byte pbAlpha, out LayeredWindowAttributes pwdFlags);
 
-        [DllImport("nanox.dll", EntryPoint = "DeleteObject", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "DeleteObject", CallingConvention = CallingConvention.StdCall)]
         public extern static bool Win32DeleteObject(IntPtr o);
 
-        [DllImport("nanox.dll", EntryPoint = "GetKeyState", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetKeyState", CallingConvention = CallingConvention.StdCall)]
         private extern static short Win32GetKeyState(VirtualKeys nVirtKey);
 
-        [DllImport("nanox.dll", EntryPoint = "GetDesktopWindow", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetDesktopWindow", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32GetDesktopWindow();
 
-        [DllImport("nanox.dll", EntryPoint = "SetTimer", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetTimer", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32SetTimer(IntPtr hwnd, int nIDEvent, uint uElapse, IntPtr timerProc);
 
-        [DllImport("nanox.dll", EntryPoint = "KillTimer", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "KillTimer", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32KillTimer(IntPtr hwnd, int nIDEvent);
 
-        [DllImport("nanox.dll", EntryPoint = "ShowWindow", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "ShowWindow", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32ShowWindow(IntPtr hwnd, WindowPlacementFlags nCmdShow);
 
-        [DllImport("nanox.dll", EntryPoint = "EnableWindow", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "EnableWindow", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32EnableWindow(IntPtr hwnd, bool Enabled);
 
-        [DllImport("nanox.dll", EntryPoint = "SetFocus", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetFocus", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32SetFocus(IntPtr hwnd);
 
-        [DllImport("nanox.dll", EntryPoint = "GetFocus", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetFocus", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32GetFocus();
 
-        [DllImport("nanox.dll", EntryPoint = "CreateCaret", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "CreateCaret", CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32CreateCaret(IntPtr hwnd, IntPtr hBitmap, int nWidth, int nHeight);
 
-        [DllImport("nanox.dll", EntryPoint = "DestroyCaret", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "DestroyCaret", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32DestroyCaret();
 
-        [DllImport("nanox.dll", EntryPoint = "ShowCaret", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "ShowCaret", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32ShowCaret(IntPtr hwnd);
 
-        [DllImport("nanox.dll", EntryPoint = "HideCaret", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "HideCaret", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32HideCaret(IntPtr hwnd);
 
-        [DllImport("nanox.dll", EntryPoint = "SetCaretPos", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetCaretPos", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32SetCaretPos(int X, int Y);
 
-        //[DllImport ("nanox.dll", EntryPoint="GetCaretBlinkTime", CallingConvention=CallingConvention.StdCall)]
+        //[DllImport (mwin_dll, EntryPoint="GetCaretBlinkTime", CallingConvention=CallingConvention.StdCall)]
         //private  extern static uint Win32GetCaretBlinkTime();
 
-        [DllImport("nanox.dll", EntryPoint = "GetTextMetricsW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetTextMetricsW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32GetTextMetrics(IntPtr hdc, ref TEXTMETRIC tm);
 
-        [DllImport("nanox.dll", EntryPoint = "SelectObject", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SelectObject", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32SelectObject(IntPtr hdc, IntPtr hgdiobject);
 
-        //[DllImport ("nanox.dll", EntryPoint="ScrollWindowEx", CallingConvention=CallingConvention.StdCall)]
+        //[DllImport (mwin_dll, EntryPoint="ScrollWindowEx", CallingConvention=CallingConvention.StdCall)]
         //private extern static bool Win32ScrollWindowEx(IntPtr hwnd, int dx, int dy, ref RECT prcScroll, ref RECT prcClip, IntPtr hrgnUpdate, out RECT prcUpdate, ScrollWindowExFlags flags);
 
-        //[DllImport ("nanox.dll", EntryPoint="ScrollWindowEx", CallingConvention=CallingConvention.StdCall)]
+        //[DllImport (mwin_dll, EntryPoint="ScrollWindowEx", CallingConvention=CallingConvention.StdCall)]
         //private extern static bool Win32ScrollWindowEx(IntPtr hwnd, int dx, int dy, IntPtr prcScroll, ref RECT prcClip, IntPtr hrgnUpdate, out RECT prcUpdate, ScrollWindowExFlags flags);
 
-        //[DllImport ("nanox.dll", EntryPoint="ScrollWindowEx", CallingConvention=CallingConvention.StdCall)]
+        //[DllImport (mwin_dll, EntryPoint="ScrollWindowEx", CallingConvention=CallingConvention.StdCall)]
         //private extern static bool Win32ScrollWindowEx(IntPtr hwnd, int dx, int dy, ref RECT prcScroll, IntPtr prcClip, IntPtr hrgnUpdate, out RECT prcUpdate, ScrollWindowExFlags flags);
 
-        [DllImport("nanox.dll", EntryPoint = "ScrollWindowEx", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "ScrollWindowEx", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32ScrollWindowEx(IntPtr hwnd, int dx, int dy, IntPtr prcScroll, ref RECT prcClip, IntPtr hrgnUpdate, IntPtr prcUpdate, ScrollWindowExFlags flags);
 
-        //[DllImport ("nanox.dll", EntryPoint="ScrollWindowEx", CallingConvention=CallingConvention.StdCall)]
+        //[DllImport (mwin_dll, EntryPoint="ScrollWindowEx", CallingConvention=CallingConvention.StdCall)]
         //private extern static bool Win32ScrollWindowEx(IntPtr hwnd, int dx, int dy, ref RECT prcScroll, IntPtr prcClip, IntPtr hrgnUpdate, IntPtr prcUpdate, ScrollWindowExFlags flags);
 
-        //[DllImport ("nanox.dll", EntryPoint="ScrollWindowEx", CallingConvention=CallingConvention.StdCall)]
+        //[DllImport (mwin_dll, EntryPoint="ScrollWindowEx", CallingConvention=CallingConvention.StdCall)]
         //private extern static bool Win32ScrollWindowEx(IntPtr hwnd, int dx, int dy, ref RECT prcScroll, ref RECT prcClip, IntPtr hrgnUpdate, IntPtr prcUpdate, ScrollWindowExFlags flags);
 
-        [DllImport("nanox.dll", EntryPoint = "ScrollWindowEx", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "ScrollWindowEx", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32ScrollWindowEx(IntPtr hwnd, int dx, int dy, IntPtr prcScroll, IntPtr prcClip, IntPtr hrgnUpdate, IntPtr prcUpdate, ScrollWindowExFlags flags);
 
-        [DllImport("nanox.dll", EntryPoint = "GetActiveWindow", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetActiveWindow", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32GetActiveWindow();
 
-        [DllImport("nanox.dll", EntryPoint = "GetSystemMetrics", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetSystemMetrics", CallingConvention = CallingConvention.StdCall)]
         private extern static int Win32GetSystemMetrics(SystemMetrics nIndex);
 
-        [DllImport("nanox.dll", EntryPoint = "Shell_NotifyIconW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "Shell_NotifyIconW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32Shell_NotifyIcon(NotifyIconMessage dwMessage, ref NOTIFYICONDATA lpData);
 
-        [DllImport("nanox.dll", EntryPoint = "CreateRectRgn", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "CreateRectRgn", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32CreateRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect);
 
-        [DllImport("nanox.dll", EntryPoint = "IsWindowEnabled", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "IsWindowEnabled", CallingConvention = CallingConvention.StdCall)]
         private extern static bool IsWindowEnabled(IntPtr hwnd);
 
-        [DllImport("nanox.dll", EntryPoint = "IsWindowVisible", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "IsWindowVisible", CallingConvention = CallingConvention.StdCall)]
         private extern static bool IsWindowVisible(IntPtr hwnd);
 
-        //[DllImport ("nanox.dll", EntryPoint="SetClassLong", CallingConvention=CallingConvention.StdCall)]
+        //[DllImport (mwin_dll, EntryPoint="SetClassLong", CallingConvention=CallingConvention.StdCall)]
         //private extern static bool Win32SetClassLong(IntPtr hwnd, ClassLong nIndex, IntPtr dwNewLong);
 
-        [DllImport("nanox.dll", EntryPoint = "SendMessage", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SendMessage", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32SendMessage(IntPtr hwnd, Msg msg, IntPtr wParam, IntPtr lParam);
 
-        [DllImport("nanox.dll", EntryPoint = "PostMessage", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "PostMessage", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32PostMessage(IntPtr hwnd, Msg msg, IntPtr wParam, IntPtr lParam);
 
-        [DllImport("nanox.dll", EntryPoint = "SendInput", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SendInput", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         private extern static UInt32 Win32SendInput(UInt32 nInputs, [MarshalAs(UnmanagedType.LPArray)] INPUT[] inputs, Int32 cbSize);
 
-        [DllImport("nanox.dll", EntryPoint = "SystemParametersInfo", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SystemParametersInfo", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32SystemParametersInfo(SPIAction uiAction, uint uiParam, ref RECT rect, uint fWinIni);
 
-        //[DllImport ("nanox.dll", EntryPoint="SystemParametersInfoW", CharSet=CharSet.Ansi, CallingConvention=CallingConvention.StdCall)]
+        //[DllImport (mwin_dll, EntryPoint="SystemParametersInfoW", CharSet=CharSet.Ansi, CallingConvention=CallingConvention.StdCall)]
         //private extern static bool Win32SystemParametersInfo(SPIAction uiAction, uint uiParam, ref uint value, uint fWinIni);
 
-        [DllImport("nanox.dll", EntryPoint = "SystemParametersInfoW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SystemParametersInfoW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32SystemParametersInfo(SPIAction uiAction, uint uiParam, ref int value, uint fWinIni);
 
-        [DllImport("nanox.dll", EntryPoint = "SystemParametersInfoW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SystemParametersInfoW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32SystemParametersInfo(SPIAction uiAction, uint uiParam, ref bool value, uint fWinIni);
 
-        [DllImport("nanox.dll", EntryPoint = "SystemParametersInfoW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SystemParametersInfoW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32SystemParametersInfo(SPIAction uiAction, uint uiParam, ref ANIMATIONINFO value, uint fWinIni);
 
-        [DllImport("nanox.dll", EntryPoint = "OpenClipboard", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "OpenClipboard", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32OpenClipboard(IntPtr hwnd);
 
-        [DllImport("nanox.dll", EntryPoint = "EmptyClipboard", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "EmptyClipboard", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32EmptyClipboard();
 
-        [DllImport("nanox.dll", EntryPoint = "RegisterClipboardFormatW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "RegisterClipboardFormatW", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         private extern static uint Win32RegisterClipboardFormat(string format);
 
-        [DllImport("nanox.dll", EntryPoint = "CloseClipboard", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "CloseClipboard", CallingConvention = CallingConvention.StdCall)]
         private extern static bool Win32CloseClipboard();
 
-        [DllImport("nanox.dll", EntryPoint = "EnumClipboardFormats", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "EnumClipboardFormats", CallingConvention = CallingConvention.StdCall)]
         private extern static uint Win32EnumClipboardFormats(uint format);
 
-        [DllImport("nanox.dll", EntryPoint = "GetClipboardData", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetClipboardData", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32GetClipboardData(uint format);
 
-        [DllImport("nanox.dll", EntryPoint = "SetClipboardData", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetClipboardData", CallingConvention = CallingConvention.StdCall)]
         private extern static IntPtr Win32SetClipboardData(uint format, IntPtr handle);
 
-        [DllImport("nanox.dll", EntryPoint = "GlobalAlloc", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GlobalAlloc", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32GlobalAlloc(GAllocFlags Flags, int dwBytes);
 
-        [DllImport("nanox.dll", EntryPoint = "CopyMemory", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "CopyMemory", CallingConvention = CallingConvention.StdCall)]
         internal extern static void Win32CopyMemory(IntPtr Destination, IntPtr Source, int length);
 
-        [DllImport("nanox.dll", EntryPoint = "GlobalFree", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GlobalFree", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32GlobalFree(IntPtr hMem);
 
-        [DllImport("nanox.dll", EntryPoint = "GlobalSize", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GlobalSize", CallingConvention = CallingConvention.StdCall)]
         internal extern static uint Win32GlobalSize(IntPtr hMem);
 
-        [DllImport("nanox.dll", EntryPoint = "GlobalLock", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GlobalLock", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32GlobalLock(IntPtr hMem);
 
-        [DllImport("nanox.dll", EntryPoint = "GlobalUnlock", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GlobalUnlock", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32GlobalUnlock(IntPtr hMem);
 
-        [DllImport("nanox.dll", EntryPoint = "SetROP2", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetROP2", CallingConvention = CallingConvention.StdCall)]
         internal extern static int Win32SetROP2(IntPtr hdc, ROP2DrawMode fnDrawMode);
 
-        [DllImport("nanox.dll", EntryPoint = "MoveToEx", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "MoveToEx", CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32MoveToEx(IntPtr hdc, int x, int y, ref Point lpPoint);
 
-        [DllImport("nanox.dll", EntryPoint = "MoveToEx", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "MoveToEx", CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32MoveToEx(IntPtr hdc, int x, int y, IntPtr lpPoint);
 
-        [DllImport("nanox.dll", EntryPoint = "LineTo", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "LineTo", CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32LineTo(IntPtr hdc, int x, int y);
 
-        [DllImport("nanox.dll", EntryPoint = "CreatePen", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "CreatePen", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32CreatePen(PenStyle fnPenStyle, int nWidth, ref COLORREF color);
 
-        [DllImport("nanox.dll", EntryPoint = "CreatePen", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "CreatePen", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32CreatePen(PenStyle fnPenStyle, int nWidth, IntPtr color);
 
-        [DllImport("nanox.dll", EntryPoint = "GetStockObject", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetStockObject", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32GetStockObject(StockObject fnObject);
 
-        [DllImport("nanox.dll", EntryPoint = "CreateHatchBrush", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "CreateHatchBrush", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32CreateHatchBrush(HatchStyle fnStyle, IntPtr color);
 
-        [DllImport("nanox.dll", EntryPoint = "CreateHatchBrush", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "CreateHatchBrush", CallingConvention = CallingConvention.StdCall)]
         internal extern static IntPtr Win32CreateHatchBrush(HatchStyle fnStyle, ref COLORREF color);
 
-        [DllImport("nanox.dll", EntryPoint = "ExcludeClipRect", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "ExcludeClipRect", CallingConvention = CallingConvention.StdCall)]
         internal extern static int Win32ExcludeClipRect(IntPtr hdc, int left, int top, int right, int bottom);
 
-        [DllImport("nanox.dll", EntryPoint = "ExtSelectClipRgn", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "ExtSelectClipRgn", CallingConvention = CallingConvention.StdCall)]
         internal extern static int Win32ExtSelectClipRgn(IntPtr hdc, IntPtr hrgn, int mode);
 
         [DllImport("winmm.dll", EntryPoint = "PlaySoundW", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
         internal extern static IntPtr Win32PlaySound(string pszSound, IntPtr hmod, SndFlags fdwSound);
 
-        [DllImport("nanox.dll", EntryPoint = "GetDoubleClickTime", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+        [DllImport(mwin_dll, EntryPoint = "GetDoubleClickTime", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
         private extern static int Win32GetDoubleClickTime();
 
-        [DllImport("nanox.dll", EntryPoint = "SetWindowRgn", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+        [DllImport(mwin_dll, EntryPoint = "SetWindowRgn", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
         internal extern static int Win32SetWindowRgn(IntPtr hWnd, IntPtr hRgn, bool redraw);
 
-        [DllImport("nanox.dll", EntryPoint = "GetWindowRgn", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+        [DllImport(mwin_dll, EntryPoint = "GetWindowRgn", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
         internal extern static IntPtr Win32GetWindowRgn(IntPtr hWnd, IntPtr hRgn);
 
-        [DllImport("nanox.dll", EntryPoint = "ClipCursor", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "ClipCursor", CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32ClipCursor(ref RECT lpRect);
 
-        [DllImport("nanox.dll", EntryPoint = "GetClipCursor", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetClipCursor", CallingConvention = CallingConvention.StdCall)]
         internal extern static bool Win32GetClipCursor(out RECT lpRect);
 
-        [DllImport("nanox.dll", EntryPoint = "BitBlt", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "BitBlt", CallingConvention = CallingConvention.StdCall)]
         internal static extern bool Win32BitBlt(IntPtr hObject, int nXDest, int nYDest, int nWidth,
            int nHeight, IntPtr hObjSource, int nXSrc, int nYSrc, TernaryRasterOperations dwRop);
 
-        [DllImport("nanox.dll", EntryPoint = "CreateCompatibleDC", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "CreateCompatibleDC", CallingConvention = CallingConvention.StdCall)]
         internal static extern IntPtr Win32CreateCompatibleDC(IntPtr hdc);
 
-        [DllImport("nanox.dll", EntryPoint = "DeleteDC", CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
+        [DllImport(mwin_dll, EntryPoint = "DeleteDC", CallingConvention = CallingConvention.StdCall, ExactSpelling = true, SetLastError = true)]
         internal static extern bool Win32DeleteDC(IntPtr hdc);
 
-        [DllImport("nanox.dll", EntryPoint = "CreateCompatibleBitmap", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "CreateCompatibleBitmap", CallingConvention = CallingConvention.StdCall)]
         internal static extern IntPtr Win32CreateCompatibleBitmap(IntPtr hdc, int nWidth, int nHeight);
 
-        [DllImport("nanox.dll", EntryPoint = "GetSystemPowerStatus", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetSystemPowerStatus", CallingConvention = CallingConvention.StdCall)]
         internal static extern Boolean Win32GetSystemPowerStatus(SYSTEMPOWERSTATUS sps);
 
-        [DllImport("nanox.dll", EntryPoint = "GetIconInfo", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "GetIconInfo", CallingConvention = CallingConvention.StdCall)]
         internal static extern bool Win32GetIconInfo(IntPtr hIcon, out ICONINFO piconinfo);
 
-        [DllImport("nanox.dll", EntryPoint = "SetForegroundWindow", CallingConvention = CallingConvention.StdCall)]
+        [DllImport(mwin_dll, EntryPoint = "SetForegroundWindow", CallingConvention = CallingConvention.StdCall)]
         extern static bool Win32SetForegroundWindow(IntPtr hWnd);
         #endregion
     }
