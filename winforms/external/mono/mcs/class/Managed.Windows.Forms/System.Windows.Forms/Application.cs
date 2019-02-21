@@ -160,7 +160,7 @@ namespace System.Windows.Forms
 		{
 			// Attempt to load UIA support for winforms
 			// UIA support requires .NET 2.0
-			InitializeUIAutomation ();
+			//InitializeUIAutomation ();
 		}
 
 		#region Private Methods
