@@ -1490,7 +1490,7 @@ namespace System.Drawing
 		[DllImport(gdipluslibname)]                   
 		internal static extern Status GdipDeleteFont (IntPtr font);		
 		[DllImport(gdipluslibname, CharSet=CharSet.Unicode)]
-		internal static extern Status GdipGetLogFont(IntPtr font, IntPtr graphics, [MarshalAs(UnmanagedType.AsAny), Out] object logfontA);
+		internal static extern Status GdipGetLogFont(IntPtr font, IntPtr graphics, [MarshalAs(UnmanagedType.AsAny), Out] object logfontW);
 
 		[DllImport(gdipluslibname)]                   
 		internal static extern Status GdipCreateFontFromDC(IntPtr hdc, out IntPtr font);
@@ -1503,7 +1503,7 @@ namespace System.Drawing
 		internal static extern Status GdipCreateFontFromHfont(IntPtr hdc, out IntPtr font, ref LOGFONT lf);
 
 		// This is win32/gdi, not gdiplus, but it's easier to keep in here, also see above comment
-		[DllImport(wingdilibname, CallingConvention=CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+		[DllImport(wingdilibname,EntryPoint = "CreateFontIndirectW", CallingConvention=CallingConvention.StdCall, CharSet = CharSet.Unicode)]
 		internal static extern IntPtr CreateFontIndirect (ref LOGFONT logfont);	
 		[DllImport(user32dll, EntryPoint="GetDC", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
 		internal static extern IntPtr GetDC(IntPtr hwnd);	
