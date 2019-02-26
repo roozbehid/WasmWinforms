@@ -37,11 +37,10 @@
 
 using System.IO;
 using System.Drawing.Imaging;
+using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.InteropServices;
 using System.ComponentModel;
-using System.Security.Permissions;
-using System.Reflection;
 
 namespace System.Drawing
 {
@@ -53,12 +52,10 @@ namespace System.Drawing
 		#region constructors
 		// constructors
 
-#if NET_2_0
 		// required for XmlSerializer (#323246)
 		private Bitmap ()
 		{
 		}
-#endif
 
 		internal Bitmap (IntPtr ptr)
 		{
@@ -190,11 +187,7 @@ namespace System.Drawing
 				// unmanaged call for normal (successful) calls
 				if ((this.PixelFormat & PixelFormat.Indexed) != 0) {
 					string msg = Locale.GetText ("SetPixel cannot be called on indexed bitmaps.");
-#if NET_2_0
 					throw new InvalidOperationException (msg);
-#else
-					throw new Exception (msg);
-#endif
 				}
 			}
 			GDIPlus.CheckStatus (s);
@@ -235,14 +228,12 @@ namespace System.Drawing
 		}
 
 		[EditorBrowsable (EditorBrowsableState.Advanced)]
-		[SecurityPermission (SecurityAction.LinkDemand, UnmanagedCode = true)]
 		public IntPtr GetHbitmap ()
 		{
 			return GetHbitmap(Color_.Gray);
 		}
 
 		[EditorBrowsable (EditorBrowsableState.Advanced)]
-		[SecurityPermission (SecurityAction.LinkDemand, UnmanagedCode = true)]
 		public IntPtr GetHbitmap (Color_ background)
 		{
 			IntPtr HandleBmp;
@@ -254,7 +245,6 @@ namespace System.Drawing
 		}
 
 		[EditorBrowsable (EditorBrowsableState.Advanced)]
-		[SecurityPermission (SecurityAction.LinkDemand, UnmanagedCode = true)]
 		public IntPtr GetHicon ()
 		{
 			IntPtr HandleIcon;
@@ -271,9 +261,7 @@ namespace System.Drawing
 			return LockBits (rect, flags, format, result);
 		}
 
-#if NET_2_0
 		public
-#endif
 		BitmapData LockBits (Rectangle_ rect, ImageLockMode flags, PixelFormat format, BitmapData bitmapData)
 		{
 			Status status = GDIPlus.GdipBitmapLockBits (nativeObject, ref rect, flags, format, bitmapData);

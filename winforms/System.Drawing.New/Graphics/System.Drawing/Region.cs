@@ -30,13 +30,9 @@
 
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 
 namespace System.Drawing
 {
-#if !NET_2_0
-	[ComVisible (false)]
-#endif
 	public sealed class Region : MarshalByRefObject, IDisposable
 	{
                 private IntPtr nativeRegion = IntPtr.Zero;
@@ -513,7 +509,7 @@ namespace System.Drawing
 			return result;			
 		}
 		
-		[SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
+		
 		public static Region FromHrgn (IntPtr hrgn)
 		{
 			if (hrgn == IntPtr.Zero)
@@ -641,9 +637,8 @@ namespace System.Drawing
 				nativeRegion = value;
 			}
 		}
-#if NET_2_0
+
 		// why is this a instance method ? and not static ?
-		[SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
 		public void ReleaseHrgn (IntPtr regionHandle)		
 		{
 			if (regionHandle == IntPtr.Zero) 
@@ -660,6 +655,6 @@ namespace System.Drawing
 			}
 			GDIPlus.CheckStatus (status);
 		}
-#endif
+
 	}
 }

@@ -40,13 +40,8 @@ using System.Text;
 
 namespace System.Drawing
 {
-#if !NET_2_0
-	[ComVisible(false)]  
-#endif
 	public sealed class Graphics : MarshalByRefObject, IDisposable
-#if NET_2_0
 	, IDeviceContext
-#endif
 	{
 		internal IntPtr nativeObject = IntPtr.Zero;
 		internal IMacContext maccontext;
@@ -55,18 +50,12 @@ namespace System.Drawing
 		private static float defDpiY = 0;
 		private IntPtr deviceContextHdc;
 
-#if !NET_2_0
-		[ComVisible(false)]
-#endif
 		public delegate bool EnumerateMetafileProc (EmfPlusRecordType recordType,
 							    int flags,
 							    int dataSize,
 							    IntPtr data,
 							    PlayRecordCallback callbackData);
 		
-#if !NET_2_0
-		[ComVisible (false)]
-#endif
 		public delegate bool DrawImageAbort (IntPtr callbackData);
 
 		internal Graphics (IntPtr nativeGraphics)
@@ -158,7 +147,6 @@ namespace System.Drawing
  			status = GDIPlus.GdipGraphicsClear (nativeObject, color.ToArgb ());
  			GDIPlus.CheckStatus (status);
 		}
-#if NET_2_0		
 		[MonoLimitation ("Works on Win32 and on X11 (but not on Cocoa and Quartz)")]
 		public void CopyFromScreen (Point_ upperLeftSource, Point_ upperLeftDestination, Size blockRegionSize)
 		{
@@ -289,7 +277,6 @@ namespace System.Drawing
 			GDIPlus.XDestroyImage (image);
 			GDIPlus.XFree (vPtr);
 		}
-#endif
 
 		public void Dispose ()
 		{

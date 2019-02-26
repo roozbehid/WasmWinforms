@@ -35,8 +35,8 @@ using System.Text;
 using System.Collections;
 using System.ComponentModel;
 using System.Globalization;
-using System.ComponentModel.Design.Serialization;
 using System.Drawing.Text;
+using System.ComponentModel.Design.Serialization;
 using System.Reflection;
 
 namespace System.Drawing
@@ -319,9 +319,7 @@ namespace System.Drawing
 		}
 
 		public sealed class FontNameConverter : TypeConverter
-#if NET_2_0
 		, IDisposable		
-#endif
 		{
 			FontFamily [] fonts;
 			
@@ -329,11 +327,9 @@ namespace System.Drawing
 			{
 				fonts = FontFamily.Families;
 			}	
-#if NET_2_0			
 			void IDisposable.Dispose ()
 			{
 			}
-#endif
 			public override bool CanConvertFrom (ITypeDescriptorContext context, Type sourceType)
 			{
 				if (sourceType == typeof (string))

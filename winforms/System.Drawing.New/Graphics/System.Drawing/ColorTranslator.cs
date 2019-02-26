@@ -42,8 +42,7 @@ namespace System.Drawing {
 
 		public static Color_ FromHtml (string htmlColor)
 		{
-			if ((htmlColor == null) || (htmlColor.Length == 0))
-				return Color_.Empty;
+			if (string.IsNullOrEmpty (htmlColor)) return Color.Empty;
 
 			switch (htmlColor.ToLowerInvariant ()) {
 			case "buttonface":
@@ -71,6 +70,12 @@ namespace System.Drawing {
 				return Color_.LightGray;
 			}
 			
+			if (htmlColor[0] == '#' && htmlColor.Length == 4)
+			{
+				char r = htmlColor[1], g = htmlColor[2], b = htmlColor[3];
+				htmlColor = new string ( new char [] { '#', r, r, g, g, b, b } );
+			}
+
 			TypeConverter converter = TypeDescriptor.GetConverter (typeof (Color_));
 			return (Color_) converter.ConvertFromString (htmlColor);
 		}
@@ -118,7 +123,7 @@ namespace System.Drawing {
 				case KnownColor.Window:
 				case KnownColor.WindowFrame:
 				case KnownColor.WindowText:
-					return KnownColors.GetName (kc).ToLower ();
+					return KnownColors.GetName (kc).ToLowerInvariant ();
 
 				case KnownColor.ActiveCaptionText:
 					return "captiontext";

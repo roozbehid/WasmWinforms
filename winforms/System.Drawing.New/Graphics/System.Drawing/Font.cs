@@ -31,9 +31,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using System.ComponentModel;
 
 namespace System.Drawing
@@ -45,10 +45,8 @@ namespace System.Drawing
 	public sealed class Font : MarshalByRefObject, ISerializable, ICloneable, IDisposable
 	{
 		private IntPtr	fontObject = IntPtr.Zero;
-#if NET_2_0		
 		private string  systemFontName;
 		private string  originalFontName;
-#endif		
 		private float _size;
 		private object olf;
 
@@ -57,13 +55,7 @@ namespace System.Drawing
 
 		private void CreateFont (string familyName, float emSize, FontStyle style, GraphicsUnit unit, byte charSet, bool isVertical)
 		{
-#if ONLY_1_1
-			if (familyName == null)
-				throw new ArgumentNullException ("familyName");
-#endif
-#if NET_2_0
 			originalFontName = familyName;
-#endif
             FontFamily family;
 			// NOTE: If family name is null, empty or invalid,
 			// MS creates Microsoft Sans Serif font.
@@ -120,6 +112,11 @@ namespace System.Drawing
 				// check the status code (throw) at the last step
 				GDIPlus.CheckStatus (status);
 			}
+		}
+
+		internal void SetSystemFontName (string newSystemFontName)
+		{
+			systemFontName = newSystemFontName;
 		}
 
 		internal void unitConversion (GraphicsUnit fromUnit, GraphicsUnit toUnit, float nSrc, out float nTrg)
@@ -408,13 +405,11 @@ namespace System.Drawing
 		{
 			CreateFont (familyName, emSize, style, unit, gdiCharSet,  gdiVerticalFont );
 		}
-#if NET_2_0
 		internal Font (string familyName, float emSize, string systemName)
 			: this (familyName, emSize, FontStyle.Regular, GraphicsUnit.Point, DefaultCharSet, false)
 		{
 			systemFontName = systemName;
 		}
-#endif
 		public object Clone ()
 		{
 			return new Font (this, Style);
@@ -469,17 +464,12 @@ namespace System.Drawing
 			}
 		}
 
-#if NET_2_0
 		[Browsable(false)]
 		public bool IsSystemFont {
 			get {
-				if (systemFontName == null)
-					return false;
-
-				return StringComparer.Ordinal.Compare (systemFontName, string.Empty) != 0;
+				return !string.IsNullOrEmpty (systemFontName);
 			}
 		}
-#endif
 
 		private bool _italic;
 
@@ -534,7 +524,6 @@ namespace System.Drawing
 			}
 		}
 
-#if NET_2_0
 		[Browsable(false)]
 		public string SystemFontName {
 			get {
@@ -548,7 +537,6 @@ namespace System.Drawing
 				return originalFontName;
 			}
 		}
-#endif
 		private bool _underline;
 
 		[DesignerSerializationVisibility (DesignerSerializationVisibility.Hidden)]
@@ -639,7 +627,6 @@ namespace System.Drawing
 			}
 		}
 
-		[SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
 		public void ToLogFont (object logFont)
 		{
 			if (GDIPlus.RunningOnUnix ()) {
@@ -664,18 +651,13 @@ namespace System.Drawing
 			}
 		}
 
-		[SecurityPermission (SecurityAction.Demand, UnmanagedCode = true)]
 		public void ToLogFont (object logFont, Graphics graphics)
 		{
 			if (graphics == null)
 				throw new ArgumentNullException ("graphics");
 
 			if (logFont == null) {
-#if NET_2_0
 				throw new AccessViolationException ("logFont");
-#else
-				throw new NullReferenceException ("logFont");
-#endif
 			}
 
 			Type st = logFont.GetType ();
