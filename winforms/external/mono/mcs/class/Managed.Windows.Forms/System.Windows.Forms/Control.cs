@@ -3532,8 +3532,8 @@ namespace System.Windows.Forms
 			if (!IsHandleCreated) {
 				this.CreateHandle();
 			}
-            //return Graphics.FromHwnd(this.window.Handle);
-            return Graphics.FromHwnd(IntPtr.Zero);
+            return Graphics.FromHwnd(this.window.Handle);
+            //return Graphics.FromHwnd(IntPtr.Zero);
 		}
 
 		public DragDropEffects DoDragDrop(object data, DragDropEffects allowedEffects) {

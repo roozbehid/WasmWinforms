@@ -1212,8 +1212,9 @@ namespace System.Windows.Forms {
 
 			// We always have a blank line
 			Add (1, String.Empty, owner.Font, owner.ForeColor, LineEnding.None);
-			
-			this.RecalculateDocument(owner.CreateGraphicsInternal());
+
+            using (var g = owner.CreateGraphicsInternal())
+                this.RecalculateDocument(g);
 			PositionCaret(0, 0);
 
 			SetSelectionVisible (false);
@@ -3727,7 +3728,8 @@ namespace System.Windows.Forms {
 
 		private void owner_VisibleChanged(object sender, EventArgs e) {
 			if (owner.Visible) {
-				RecalculateDocument(owner.CreateGraphicsInternal());
+                using (var g = owner.CreateGraphicsInternal())
+                    RecalculateDocument(g);
 			}
 		}
 
