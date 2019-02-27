@@ -26,9 +26,6 @@
     <ProjectReference Include="..\libs\projects\libgdiplus\libgdiplus.vcxproj">
       <Project>{b119c8d8-f8be-415d-8985-5dd8ee90780e}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\libs\projects\microwindows\microwindows.vcxproj">
-      <Project>{336c5232-b0da-45d8-a371-9aa11bc7e93d}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\libs\projects\pixman\pixman.vcxproj">
       <Project>{7123a522-d07f-4f81-88b0-5793f377e58c}</Project>
     </ProjectReference>
