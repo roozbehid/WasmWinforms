@@ -3795,15 +3795,12 @@ namespace System.Windows.Forms
 
         internal override SizeF_ GetAutoScaleSize(Font font)
         {
-            Graphics g;
             float width;
             string magic_string = "The quick brown fox jumped over the lazy dog.";
             double magic_number = 44.549996948242189;
 
-            g = Graphics.FromHwnd(FosterParent);
-
-            //width = (float)(g.MeasureString(magic_string, font).Width / magic_number);
-            width = 20;
+            using (var g = Graphics.FromHwnd(FosterParent))
+                width = (float)(g.MeasureString(magic_string, font).Width / magic_number);
             return new SizeF_(width, font.Height);
         }
 
