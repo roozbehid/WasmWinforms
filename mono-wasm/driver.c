@@ -318,7 +318,7 @@ MonoDlMapping nanox_library_mappings [] = {
 	{ "SetTimer", SetTimer },							
 	{ "KillTimer", KillTimer },									
 	{ "SendMessageA", SendMessage },
-	{ "SendMessageW", SendMessageW },			
+	{ "SendMessageW", SendMessage },			
 	{ "PostMessageW", PostMessage },				
 	{ "GetActiveWindow", GetActiveWindow },
 	{ "PostMessageA", PostMessage },
