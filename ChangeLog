@@ -1,0 +1,27 @@
+28 Feb 2019
+	* Fix most Visual/Rendering glitches
+	* Added ChangeLog
+
+25 Feb 2019
+	* More visual fixes
+	* Fix memory leaks all over the place
+	* Complete switch to new MicroWindows now including most of my patches
+
+28 Jan 2019
+	* Added new calculator sample
+	* Initial support for keyboard
+	* more fonts are added
+
+25 Jan 2019
+	* Switch to Appveyor for automated building
+	* Automated generation of Nuget
+	* Use my own packager.cs
+
+21 Jan 2019
+	* Azure pipelines added
+	* Optimizations to using SetWindowLong
+
+20 Jan 2019
+	* Initial version published to github
+	* Most controls are working but with many visual and rendering errors
+
