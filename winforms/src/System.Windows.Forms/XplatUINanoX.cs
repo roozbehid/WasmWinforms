@@ -2214,6 +2214,7 @@ namespace System.Windows.Forms
             hwnd = Hwnd.ObjectFromHandle(m.HWnd);
 
             Graphics dc = (Graphics)hwnd.drawing_stack.Pop();
+            //rooz added!
             dc.Flush();
             dc.Dispose();
 
@@ -2648,6 +2649,7 @@ namespace System.Windows.Forms
 
         internal override bool IsEnabled(IntPtr handle)
         {
+            //rooz: removed
             //return IsWindowEnabled(handle);
             return true;
         }
