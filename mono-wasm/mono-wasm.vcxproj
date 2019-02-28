@@ -14,6 +14,18 @@
     <ClCompile Include="driver.c" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\libs\microwindows\src\contrib\ports\visualstudio\Microwindows\mwdrivers\mwdrivers.vcxproj">
+      <Project>{ebf9534c-a5b5-4366-b097-83238855f836}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libs\microwindows\src\contrib\ports\visualstudio\Microwindows\mwengine\mwengine.vcxproj">
+      <Project>{20f225bc-09b0-4b92-bf44-76b9d00e00bd}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libs\microwindows\src\contrib\ports\visualstudio\Microwindows\mwfonts\mwfonts.vcxproj">
+      <Project>{6dac951d-40fb-4b3a-8e21-d42a2399d75c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libs\microwindows\src\contrib\ports\visualstudio\Microwindows\MWin\MWin.vcxproj">
+      <Project>{5a130bb4-73aa-47c4-844a-be323dff845a}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\libs\projects\cairo\cairo.vcxproj">
       <Project>{b3730487-d742-401c-9f29-bdca72ef2603}</Project>
     </ProjectReference>
