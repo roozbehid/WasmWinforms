@@ -201,37 +201,37 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;MW;HAVE_FCFINI;_WINDLL;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32DLL=1;WINEXTRA=1;_CRT_SECURE_NO_WARNINGS;MW;HAVE_FCFINI;_WINDLL;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.;..\..\microwindows\src\include;..\cairo;..\cairo\cairo;..\..\fontconfig;..\..\libexpat\expat\lib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\microwindows\src\include;..\cairo;..\cairo\cairo;..\..\fontconfig;..\..\libexpat\expat\lib;..\..\microwindows\src\contrib\winextra</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>pixman.lib;libexpat.lib;nanox.lib;fontconfig.lib;cairo.lib;shcore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mwin.lib;pixman.lib;libexpat.lib;fontconfig.lib;cairo.lib;shcore.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Full</Optimization>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;MW;HAVE_FCFINI;_WINDLL;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32DLL=1;WINEXTRA=1;_CRT_SECURE_NO_WARNINGS;MW;HAVE_FCFINI;_WINDLL;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.;..\..\microwindows\src\include;..\cairo;..\cairo\cairo;..\..\fontconfig;..\..\libexpat\expat\lib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\microwindows\src\include;..\cairo;..\cairo\cairo;..\..\fontconfig;..\..\libexpat\expat\lib;..\..\microwindows\src\contrib\winextra</AdditionalIncludeDirectories>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>pixman.lib;libexpat.lib;nanox.lib;fontconfig.lib;cairo.lib;shcore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mwin.lib;pixman.lib;libexpat.lib;fontconfig.lib;cairo.lib;shcore.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WasmDbg|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>MW;_WINDLL;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\..\microwindows\src\include;..\cairo;..\cairo\cairo;..\..\fontconfig;..\..\libexpat\expat\lib</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WINEXTRA=1;MW;_WINDLL;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\microwindows\src\include;..\cairo;..\cairo\cairo;..\..\fontconfig;..\..\libexpat\expat\lib;..\..\microwindows\src\contrib\winextra</AdditionalIncludeDirectories>
       <AdditionalOptions>-s BINARYEN_TRAP_MODE=clamp -s USE_FREETYPE=1  -Wno-ignored-attributes %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -242,8 +242,8 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Full</Optimization>
-      <PreprocessorDefinitions>MW;_WINDLL;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\..\microwindows\src\include;..\cairo;..\cairo\cairo;..\..\fontconfig;..\..\libexpat\expat\lib</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WINEXTRA=1;MW;_WINDLL;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\microwindows\src\include;..\cairo;..\cairo\cairo;..\..\fontconfig;..\..\libexpat\expat\lib;..\..\microwindows\src\contrib\winextra</AdditionalIncludeDirectories>
       <AdditionalOptions>-s BINARYEN_TRAP_MODE=clamp -s USE_FREETYPE=1  -Wno-ignored-attributes %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
