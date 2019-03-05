@@ -69,6 +69,8 @@ namespace Winforms.Wasm
             var facades = Directory.GetFiles(Path.Combine(bclPath, "Facades"), "*.dll");
             var allFiles = reals.Concat(facades);
             bclAssemblies = allFiles.ToDictionary(x => Path.GetFileName(x));
+            Log.LogMessage($"-----BuildWasm SDK Path:{sdkPath}------");
+            Log.LogMessage($"-----BuildWasm BCL Path:{bclPath}------");
         }
 
         string distPath;
@@ -180,6 +182,7 @@ namespace Winforms.Wasm
                                   select Path.Combine(path, app + ext)).FirstOrDefault();
 
                 string options = $"\"{Path.Combine(sdkPath,"packager.dll")}\" --copy=always --out=\"{managedPath.TrimEnd('\\')}\" --search-path=\"{OutDir.TrimEnd('\\')}\" {Assembly}";
+                Log.LogMessage($"-----BuildWasm Running packager: {dotnetPath} {options} ------");
                 ProcessStartInfo startInfo = new ProcessStartInfo(dotnetPath, options);
                 startInfo.UseShellExecute = false;
                 startInfo.RedirectStandardError = true;
