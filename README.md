@@ -22,10 +22,14 @@ Winforms implementation requires many C libraries that I was also ported into We
 # How to compile/build
 This project uses another amazing ( :D ) project of mine: [GCCBuild](https://github.com/roozbehid/dotnet-vcxproj) which enables you to use any compiler to compile Visual Studio C/C++ projects in any OS.
 Meaning you can have Visual Studio C/C++ project files and use them to compile both for Windows/Linux and also WebAssembly. You need to have Emscripten installed, activated and already accessible from your path.
-First from Visual Studio build for Release-x86 then build for WasmRel-x86. This way you have all libraries compiled for Win32 and also WebAssembly.
+First from Visual Studio build switch to Release-x86 then build solution, then do the same for WasmRel-x86. 
+This way you have all libraries compiled for Win32 and also WebAssembly.
+Then in your `\Output\bin\x86\Release` folder you can issue a nuget pack and use that nuget.
+
+When you build an application using this nuget, look for `dist` folder which contains your index.html.
 Using Win32 compiled libraries are way easier to debug and run your application.
 
-Please note that compiling mono-wasm should only be done in WasmRel or WasmDbg targets and it would take a minute or two to complete!
+Please note that compiling mono-wasm project should only be done in WasmRel or WasmDbg targets and it would take a minute or two to complete!
 
 # Why is it so slow/buggy?
 You need to download good amount of files to run it. All dlls and big .wasm and .js files have to be downloaded.
