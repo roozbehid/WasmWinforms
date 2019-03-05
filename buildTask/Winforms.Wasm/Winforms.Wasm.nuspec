@@ -27,13 +27,13 @@
     <file src="System.Drawing.New.dll" target="lib\netstandard2.0\System.Drawing.New.dll" />
     <file src="WasmWinforms.Common.dll" target="lib\netstandard2.0\WasmWinforms.Common.dll" />
     <file src="zlib1.dll" target="lib\netstandard2.0\zlib1.dll" />
-    <file src="SDL.dll" target="lib\netstandard2.0\SDL.dll" />
+    <file src="SDL2.dll" target="lib\netstandard2.0\SDL2.dll" />
     <file src="libgdiplus.dll" target="lib\netstandard2.0\libgdiplus.dll" />
-    <file src="nanox.dll" target="lib\netstandard2.0\nanox.dll" />
+    <file src="MWin.dll" target="lib\netstandard2.0\MWin.dll" />
     <file src="libpng16.dll" target="lib\netstandard2.0\libpng16.dll" />
     <file src="freetype.dll" target="lib\netstandard2.0\freetype.dll" />
     <file src="libiconv.dll" target="lib\netstandard2.0\libiconv.dll" />
     <file src="libcharset.dll" target="lib\netstandard2.0\libcharset.dll" />
-    <file src="bz2.dll" target="lib\netstandard2.0\bz2.dll" />
+    <file src="libbz2.dll" target="lib\netstandard2.0\libbz2.dll" />
   </files>
 </package>
