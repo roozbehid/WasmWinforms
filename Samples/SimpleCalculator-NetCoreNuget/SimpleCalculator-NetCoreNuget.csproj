@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Winforms.Wasm" Version="1.0.0.41" />
+    <PackageReference Include="Winforms.Wasm" Version="1.*" />
   </ItemGroup>
 
 </Project>

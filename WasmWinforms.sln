@@ -403,7 +403,6 @@ Global
 		{24DF141A-04E3-45DA-93D9-D21B2375729B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24DF141A-04E3-45DA-93D9-D21B2375729B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{24DF141A-04E3-45DA-93D9-D21B2375729B}.Release|x86.ActiveCfg = Release|Any CPU
-		{24DF141A-04E3-45DA-93D9-D21B2375729B}.Release|x86.Build.0 = Release|Any CPU
 		{24DF141A-04E3-45DA-93D9-D21B2375729B}.WasmDbg|Any CPU.ActiveCfg = Debug|Any CPU
 		{24DF141A-04E3-45DA-93D9-D21B2375729B}.WasmDbg|Any CPU.Build.0 = Debug|Any CPU
 		{24DF141A-04E3-45DA-93D9-D21B2375729B}.WasmDbg|x86.ActiveCfg = Debug|Any CPU
@@ -411,7 +410,6 @@ Global
 		{24DF141A-04E3-45DA-93D9-D21B2375729B}.WasmRel|Any CPU.ActiveCfg = Debug|Any CPU
 		{24DF141A-04E3-45DA-93D9-D21B2375729B}.WasmRel|Any CPU.Build.0 = Debug|Any CPU
 		{24DF141A-04E3-45DA-93D9-D21B2375729B}.WasmRel|x86.ActiveCfg = Release|Any CPU
-		{24DF141A-04E3-45DA-93D9-D21B2375729B}.WasmRel|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
