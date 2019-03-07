@@ -225,7 +225,7 @@
             this.btnSqrRoot.Name = "btnSqrRoot";
             this.btnSqrRoot.Size = new System.Drawing.Size(34, 23);
             this.btnSqrRoot.TabIndex = 18;
-            this.btnSqrRoot.Text = "√";
+            this.btnSqrRoot.Text = "sq";
             this.btnSqrRoot.UseVisualStyleBackColor = true;
             this.btnSqrRoot.Click += new System.EventHandler(this.btnSqrRoot_Click);
             // 
@@ -235,7 +235,7 @@
             this.btnByTwo.Name = "btnByTwo";
             this.btnByTwo.Size = new System.Drawing.Size(34, 23);
             this.btnByTwo.TabIndex = 19;
-            this.btnByTwo.Text = "½";
+            this.btnByTwo.Text = "1/2";
             this.btnByTwo.UseVisualStyleBackColor = true;
             this.btnByTwo.Click += new System.EventHandler(this.btnByTwo_Click);
             // 
@@ -245,7 +245,7 @@
             this.btnByFour.Name = "btnByFour";
             this.btnByFour.Size = new System.Drawing.Size(34, 23);
             this.btnByFour.TabIndex = 20;
-            this.btnByFour.Text = "¼";
+            this.btnByFour.Text = "1/4";
             this.btnByFour.UseVisualStyleBackColor = true;
             this.btnByFour.Click += new System.EventHandler(this.btnByFour_Click);
             // 
