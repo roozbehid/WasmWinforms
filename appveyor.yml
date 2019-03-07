@@ -26,6 +26,7 @@ install:
   - emsdk activate latest
   - emsdk_env.bat
   - cd %APPVEYOR_BUILD_FOLDER%
+  - set NODE_OPTIONS=--max_old_space_size=4096
 
 cache: c:\tools\vcpkg\installed\
 
