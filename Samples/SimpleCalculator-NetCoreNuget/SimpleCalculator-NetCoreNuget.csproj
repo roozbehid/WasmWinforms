@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>SimpleCalculator_NetCoreNuget</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\SimpleCalculator-FullNet\Form1.cs" Link="Form1.cs" />
+    <Compile Include="..\SimpleCalculator-FullNet\Form1.Designer.cs" Link="Form1.Designer.cs" />
+    <Compile Include="..\SimpleCalculator-FullNet\Program.cs" Link="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\SimpleCalculator-FullNet\Form1.resx" Link="Form1.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Winforms.Wasm" Version="1.0.0.41" />
+  </ItemGroup>
+
+</Project>
