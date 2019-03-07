@@ -1,4 +1,7 @@
 # WasmWinforms
+[![Build status](https://ci.appveyor.com/api/projects/status/2s546s2fs3oqjfke?svg=true)](https://ci.appveyor.com/project/roozbehid/wasmwinforms)
+[![Nuget](https://img.shields.io/nuget/v/Winforms.Wasm.svg)](https://www.nuget.org/packages/Winforms.Wasm/)
+
 C# Winforms can now work in your browser!
 Wasm.Winforms is a nuget package that you can install and use your codes unchanged and run it on your browser!
 
