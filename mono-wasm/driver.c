@@ -153,7 +153,7 @@ mono_wasm_setenv (const char *name, const char *value)
 extern int WINAPI invoke_WinMain_Start(int ac, char **av);
 
 int WINAPI WinMain_Start(int ac, char **av){
-	//printf("hi from inside..");
+	//printf("inside driver.c -- Hi from inside..\n");
 	return invoke_WinMain_Start(ac,av);
 }
 
@@ -186,26 +186,26 @@ typedef struct {
 EMSCRIPTEN_KEEPALIVE int mono_unbox_int (MonoObject *obj);	
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
 {
-    void *args [4];
-    int val1 = hwnd;
-    int val2 = msg;
-    int val3 = wp;
-    int val4 = lp;
-	args [0] = &val1;
-    args [1] = &val2;
-    args [2] = &val3;
-    args [3] = &val4;
+	void *args[4];
+	int val1 = hwnd;
+	int val2 = msg;
+	int val3 = wp;
+	int val4 = lp;
+	args[0] = &val1;
+	args[1] = &val2;
+	args[2] = &val3;
+	args[3] = &val4;
 
-	WNDPROC prevregiwndclass = GetWindowLong(hwnd,GWL_WNDPROCBRIDGE);
+	WNDPROC prevregiwndclass = GetWindowLong(hwnd, GWL_WNDPROCBRIDGE);
 	int result = 0;
-
+	//printf("inside driver.c -- WndProc hwnd=%d msg=%d \n", hwnd, msg);
 	if (prevregiwndclass != NULL)
-		{
-			//printf("Running C# delegate for WndProc hwnd=%d msg=%d \n",hwnd,msg);
-			MonoObject* resultObject = mono_runtime_delegate_invoke (prevregiwndclass, args, NULL);
-			result = mono_unbox_int(resultObject);
-			//printf("result of Running C# delegate for WndProc (hwnd=%d msg=%d) : %d \n",hwnd,msg, result);
-		}
+	{
+		//printf("inside driver.c -- Running C# delegate for WndProc hwnd=%d msg=%d \n", hwnd, msg);
+		MonoObject* resultObject = mono_runtime_delegate_invoke(prevregiwndclass, args, NULL);
+		result = mono_unbox_int(resultObject);
+		//printf("inside driver.c -- result of Running C# delegate for WndProc (hwnd=%d msg=%d) : %d \n", hwnd, msg, result);
+	}
 
 	return result;
 }
@@ -213,6 +213,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
 
 ATOM WINAPI WasmRegisterClass(WNDCLASS *lpWndClass)
 {
+	//printf("inside driver.c --  WasmRegisterClass\n");
 	WNDCLASS newclass = *lpWndClass;
 	newclass.lpszClassName =  mono_string_to_utf8 ((MonoString*)lpWndClass->lpszClassName);
 	newclass.lpszMenuName =  mono_string_to_utf8 ((MonoString*)lpWndClass->lpszMenuName);
@@ -225,11 +226,11 @@ ATOM WINAPI WasmRegisterClass(WNDCLASS *lpWndClass)
 
 LONG WINAPI WasmSetWindowLong(HWND hwnd, int nIndex, LONG lNewLong)
 {
-	SetWindowLong(hwnd,nIndex,lNewLong);
-	if (nIndex == GWL_WNDPROC){
-		//printf("Win32SetWindowLong with GWL_WNDPROC from managed \n");
-		SetWindowLong(hwnd,nIndex,WndProc);
-		SetWindowLong(hwnd,GWL_WNDPROCBRIDGE,lNewLong);
+	SetWindowLong(hwnd, nIndex, lNewLong);
+	if (nIndex == GWL_WNDPROC) {
+		//printf("inside driver.c -- Win32SetWindowLong with GWL_WNDPROC from managed \n");
+		SetWindowLong(hwnd, GWL_WNDPROC, WndProc);
+		SetWindowLong(hwnd, GWL_WNDPROCBRIDGE, lNewLong);
 	}
 }
 
@@ -614,7 +615,7 @@ mono_wasm_load_runtime (const char *managed_path, int enable_debugging)
 	mono_add_internal_call ("System.Windows.Forms.InternalCalls::WasmRegisterClass", WasmRegisterClass);
 	mono_add_internal_call ("System.Windows.Forms.InternalCalls::WasmSetWindowLong", WasmSetWindowLong);
 
-	mono_dl_register_library ("libnanox.dll", nanox_library_mappings);
+	mono_dl_register_library ("libmwin.dll", nanox_library_mappings);
 	mono_dl_register_library ("libgdiplus.dll", libgdi_library_mappings);
 	
 	
