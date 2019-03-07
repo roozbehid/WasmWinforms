@@ -34,6 +34,7 @@
     <file src="freetype.dll" target="lib\netstandard2.0\freetype.dll" />
     <file src="libiconv.dll" target="lib\netstandard2.0\libiconv.dll" />
     <file src="libcharset.dll" target="lib\netstandard2.0\libcharset.dll" />
-    <file src="libbz2.dll" target="lib\netstandard2.0\libbz2.dll" />
+    <!-- it seems appveyor ends up with bz2.dll-->
+    <file src="bz2.dll" target="lib\netstandard2.0\bz2.dll" />
   </files>
 </package>
