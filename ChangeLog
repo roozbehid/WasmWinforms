@@ -1,3 +1,7 @@
+3 Mar 2019
+	* WebAssembly target now builds correctly and runs correctly again!
+	* Remove bad charachters from Calculator
+
 28 Feb 2019
 	* Fix most Visual/Rendering glitches
 	* Added ChangeLog
