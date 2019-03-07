@@ -95,7 +95,7 @@ namespace System.Windows.Forms
         [MethodImplAttribute(MethodImplOptions.NoOptimization | MethodImplOptions.NoInlining)]
         private static bool RegisterClass(ref WNDCLASS wndClass)
         {
-            Console.WriteLine("inside RegisterClass");
+            Console.WriteLine("inside C# RegisterClass");
             int platform = (int)Environment.OSVersion.Platform;
             if (platform == 4 || platform == 128 || platform == 6)
             {
@@ -967,7 +967,7 @@ namespace System.Windows.Forms
             string fontconfig_path = Environment.GetEnvironmentVariable("FONTCONFIG_PATH");
             if (String.IsNullOrWhiteSpace(fontconfig_path))
             {
-                Environment.SetEnvironmentVariable("FONTCONFIG_PATH",Path.Combine(Environment.CurrentDirectory,"etc"));
+                Environment.SetEnvironmentVariable("FONTCONFIG_PATH", Path.Combine(Environment.CurrentDirectory, "etc"));
             }
 
             // Handle singleton stuff first
@@ -2870,7 +2870,7 @@ namespace System.Windows.Forms
         internal override IntPtr DefineStdCursor(StdCursor id)
         {
             return IntPtr.Zero;
-            switch (id)
+            /*switch (id)
             {
                 case StdCursor.AppStarting: return Win32LoadCursor(IntPtr.Zero, LoadCursorType.IDC_APPSTARTING);
                 case StdCursor.Arrow: return Win32LoadCursor(IntPtr.Zero, LoadCursorType.IDC_ARROW);
@@ -2901,7 +2901,7 @@ namespace System.Windows.Forms
                 case StdCursor.VSplit: return Win32LoadCursor(IntPtr.Zero, LoadCursorType.IDC_ARROW);       // FIXME
                 case StdCursor.WaitCursor: return Win32LoadCursor(IntPtr.Zero, LoadCursorType.IDC_WAIT);
             }
-            throw new NotImplementedException();
+            throw new NotImplementedException();*/
         }
 
         internal override void DestroyCursor(IntPtr cursor)
@@ -3124,7 +3124,7 @@ namespace System.Windows.Forms
                 return;
             }
 
-            
+
             Win32SetFocus(hwnd);
         }
 
