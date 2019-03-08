@@ -62,6 +62,8 @@ for:
        secure: Pzomenosg6JoLjvRbvOeQ4WcoOEMC5+NFfEgeYNScPCu4q8dG7z5uJlFVQF9E5DK
      skip_symbols: true
      artifact: nuget package
+     on:
+       is_not_pr : true
 
   branches:
     only:
