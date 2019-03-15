@@ -20,4 +20,11 @@
     <PackageReference Include="Winforms.Wasm" Version="1.*" />
   </ItemGroup>
 
+
+  <PropertyGroup>
+    <RunCommand Condition="'$(PlatformTarget)' == 'x86'">$(MSBuildProgramFiles32)\dotnet\dotnet</RunCommand>
+    <RunCommand Condition="'$(PlatformTarget)' == 'x64'">$(ProgramW6432)\dotnet\dotnet</RunCommand>
+  </PropertyGroup>
+  
+
 </Project>

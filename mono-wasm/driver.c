@@ -210,10 +210,37 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
 	return result;
 }
 
+typedef void(CALLBACK* MAINLOOPPROC)(void);
+MAINLOOPPROC mloop;
+
+extern void MwSelect(BOOL canBlock);
+extern void MwHandleTimers(void);
+static void main_loop(void)
+{
+	mono_runtime_delegate_invoke(mloop, NULL, NULL);
+
+	/* poll mouse and keyboard for input*/
+	MwSelect(FALSE);
+
+	/* handle expired timers*/
+	MwHandleTimers();
+}
+
 
 ATOM WINAPI WasmRegisterClass(WNDCLASS *lpWndClass)
 {
-	//printf("inside driver.c --  WasmRegisterClass\n");
+	printf("inside driver.c --  WasmRegisterClass \n");
+
+	if (lpWndClass->cbClsExtra == 12345) {
+		//printf("insider driver.c -- special case of 123456 found! calling your delegate\n");
+		mloop = (MAINLOOPPROC)(lpWndClass->lpfnWndProcBridge);
+		//mloop();
+		emscripten_set_main_loop(main_loop, 0, 1);
+
+		//printf("insider driver.c -- special case of 123456 found! calling your delegate FINISHED!\n");
+		return 0;
+	}
+
 	WNDCLASS newclass = *lpWndClass;
 	newclass.lpszClassName =  mono_string_to_utf8 ((MonoString*)lpWndClass->lpszClassName);
 	newclass.lpszMenuName =  mono_string_to_utf8 ((MonoString*)lpWndClass->lpszMenuName);
@@ -337,6 +364,7 @@ MonoDlMapping nanox_library_mappings [] = {
 	{ "HideCaret", HideCaret },	
 	{ "DestroyCaret", DestroyCaret },	
 	{ "GetCursorPos", GetCursorPos },	
+	{ "GetKeyState", GetKeyState },
     { NULL, NULL }
 };
 
@@ -394,6 +422,7 @@ MonoDlMapping libgdi_library_mappings [] = {
 	{ "GdipCreateFontFromLogfontA", GdipCreateFontFromLogfontA },									
 	{ "GdipCreateFontFromLogfontW", GdipCreateFontFromLogfontW },
 	{ "GdipCreateSolidFill", GdipCreateSolidFill },
+	{ "GdipFillRectangle", GdipFillRectangle },
 	{ "GdipFillRectangleI", GdipFillRectangleI },	
 	{ "GdipSetClipRectI", GdipSetClipRectI },	
 	/**/{ "GdipCreatePen1", GdipCreatePen1 },	
@@ -480,7 +509,8 @@ MonoDlMapping libgdi_library_mappings [] = {
 	{ "GdipGraphicsClear", GdipGraphicsClear },	
 	{ "GdipDrawLinesI", GdipDrawLinesI },	
 	{ "GdipFillPie", GdipFillPie },	
-	{ "GdipFillPie", GdipFillPie },	
+	{ "GdipDisposeImage", GdipDisposeImage },
+	{ "GdipFillPie", GdipFillPie }, 
     { NULL, NULL }
 };
 

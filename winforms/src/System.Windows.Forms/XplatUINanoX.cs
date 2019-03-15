@@ -149,7 +149,7 @@ namespace System.Windows.Forms
             internal int style;
             //[MarshalAs(UnmanagedType.FunctionPtr)]
             internal WndProc lpfnWndProc;
-            internal WndProc lpfnWndProcBridge;
+            internal XplatUIDriver.MainLoopProc lpfnWndProcBridge;
             internal int cbClsExtra;
             internal int cbWndExtra;
             internal IntPtr hInstance;
@@ -2404,7 +2404,13 @@ namespace System.Windows.Forms
 
         internal override bool GetMessage(Object queue_id, ref MSG msg, IntPtr hWnd, int wFilterMin, int wFilterMax)
         {
-            return GetMessage(ref msg, hWnd, wFilterMin, wFilterMax, true);
+            // rooz:for case of wasm testing
+            
+            int platform = (int)Environment.OSVersion.Platform;
+            if (platform == 4 || platform == 128 || platform == 6)
+                return GetMessage(ref msg, hWnd, wFilterMin, wFilterMax, false);
+            else
+                return GetMessage(ref msg, hWnd, wFilterMin, wFilterMax, true);
         }
 
         private bool GetMessage(ref MSG msg, IntPtr hWnd, int wFilterMin, int wFilterMax, bool blocking)
@@ -2429,6 +2435,8 @@ namespace System.Windows.Forms
                     return false;
                 }
             }
+
+            //return 0
 
             // We need to fake WM_MOUSE_ENTER
             switch (msg.message)
@@ -2491,10 +2499,10 @@ namespace System.Windows.Forms
 
                             prev_mouse_hwnd = msg.hwnd;
 
-                            tme = new TRACKMOUSEEVENT();
-                            tme.size = Marshal.SizeOf(tme);
-                            tme.hWnd = msg.hwnd;
-                            tme.dwFlags = TMEFlags.TME_LEAVE | TMEFlags.TME_HOVER;
+                            ///tme = new TRACKMOUSEEVENT();
+                            ///tme.size = Marshal.SizeOf(tme);
+                            ///tme.hWnd = msg.hwnd;
+                            ///tme.dwFlags = TMEFlags.TME_LEAVE | TMEFlags.TME_HOVER;
                             ///Win32TrackMouseEvent(ref tme);
                             return result;
                         }
@@ -2508,12 +2516,12 @@ namespace System.Windows.Forms
 
                         mouse_state = Control.FromParamToMouseButtons((int)msg.lParam.ToInt32());
 
-                        TRACKMOUSEEVENT tme;
+                        //TRACKMOUSEEVENT tme;
 
-                        tme = new TRACKMOUSEEVENT();
-                        tme.size = Marshal.SizeOf(tme);
-                        tme.hWnd = msg.hwnd;
-                        tme.dwFlags = (TMEFlags)wm_nc_registered[msg.hwnd];
+                        //tme = new TRACKMOUSEEVENT();
+                        //tme.size = Marshal.SizeOf(tme);
+                        //tme.hWnd = msg.hwnd;
+                        //tme.dwFlags = (TMEFlags)wm_nc_registered[msg.hwnd];
                         //Win32TrackMouseEvent(ref tme);
                         return result;
                     }
@@ -2958,6 +2966,36 @@ namespace System.Windows.Forms
         internal override void EndLoop(System.Threading.Thread thread)
         {
             // Nothing to do
+        }
+
+        internal override void SetMainLoop(MainLoopProc proc)
+        {
+            //only do mainloop things in wasm
+            int platform = (int)Environment.OSVersion.Platform;
+            if (platform == 4 || platform == 128 || platform == 6)
+            {
+                Console.WriteLine("before RegisterClass of SetMainLoop");
+
+                WNDCLASS wndClass;
+
+                wndClass.style = 0;
+                wndClass.lpfnWndProc = null;
+                wndClass.lpfnWndProcBridge = proc;
+                wndClass.cbClsExtra = 12345;
+                wndClass.cbWndExtra = 0;
+                wndClass.hbrBackground = IntPtr.Zero;
+                wndClass.hCursor = IntPtr.Zero;
+                wndClass.hIcon = IntPtr.Zero;
+                wndClass.hInstance = IntPtr.Zero;
+                wndClass.lpszClassName = "";
+                wndClass.lpszMenuName = "";
+                wndClass.dummy_next = IntPtr.Zero;
+                wndClass.dummy_prev = IntPtr.Zero;
+
+                bool result = RegisterClass(ref wndClass);
+
+                Console.WriteLine("after RegisterClass of SetMainLoop");
+            }
         }
 
         internal override object StartLoop(System.Threading.Thread thread)

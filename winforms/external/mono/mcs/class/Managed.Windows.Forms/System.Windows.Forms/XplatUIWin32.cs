@@ -2850,6 +2850,10 @@ namespace System.Windows.Forms
             // Nothing to do
         }
 
+        internal override void SetMainLoop(MainLoopProc proc)
+        {
+            ;
+        }
         internal override object StartLoop(System.Threading.Thread thread)
         {
             return null;

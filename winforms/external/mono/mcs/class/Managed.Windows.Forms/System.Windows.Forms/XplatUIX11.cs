@@ -6151,7 +6151,11 @@ namespace System.Windows.Forms {
 			;	// FIXME - X11 doesn't 'hide' the cursor. we could create an empty cursor
 		}
 
-		internal override object StartLoop(Thread thread)
+        internal override void SetMainLoop(MainLoopProc proc)
+        {
+            ;
+        }
+        internal override object StartLoop(Thread thread)
 		{
 			XEventQueue q = ThreadQueue(thread);
 			return q;

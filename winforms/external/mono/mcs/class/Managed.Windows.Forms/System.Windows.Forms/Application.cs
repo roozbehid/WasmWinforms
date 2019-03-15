@@ -697,7 +697,147 @@ namespace System.Windows.Forms
 #endif
 		}
 
-		internal static void RunLoop (bool Modal, ApplicationContext context)
+        static ApplicationContext saved_context;
+        static bool saved_Modal;
+
+        internal static void main_loop()
+        {
+            //Console.WriteLine("Yaaaaaaaaay mainloop was called!");
+            bool quit = false;
+            MSG msg = new MSG();
+            ApplicationContext context = saved_context;
+            bool Modal = saved_Modal;
+
+            //while (!quit && XplatUI.PeekMessage(null, ref msg, IntPtr.Zero, 0, 0, (uint)PeekMessageFlags.PM_REMOVE))
+            while (!quit && XplatUI.GetMessage(null, ref msg, IntPtr.Zero, 0, 0))
+            {
+                Message m = Message.Create(msg.hwnd, (int)msg.message, msg.wParam, msg.lParam);
+
+                if (Application.FilterMessage(ref m))
+                    continue;
+
+                switch ((Msg)msg.message)
+                {
+                    case Msg.WM_KEYDOWN:
+                    case Msg.WM_SYSKEYDOWN:
+                    case Msg.WM_CHAR:
+                    case Msg.WM_SYSCHAR:
+                    case Msg.WM_KEYUP:
+                    case Msg.WM_SYSKEYUP:
+                        Control c;
+                        c = Control.FromHandle(msg.hwnd);
+
+                        // If we have a control with keyboard capture (usually a *Strip)
+                        // give it the message, and then drop the message
+                        if (keyboard_capture != null)
+                        {
+                            // WM_SYSKEYUP does not make it into ProcessCmdKey, so do it here
+                            if ((Msg)m.Msg == Msg.WM_SYSKEYDOWN)
+                                if (m.WParam.ToInt32() == (int)Keys.Menu)
+                                {
+                                    keyboard_capture.GetTopLevelToolStrip().Dismiss(ToolStripDropDownCloseReason.Keyboard);
+                                    continue;
+                                }
+
+                            m.HWnd = keyboard_capture.Handle;
+
+                            switch (keyboard_capture.PreProcessControlMessageInternal(ref m))
+                            {
+                                case PreProcessControlState.MessageProcessed:
+                                    continue;
+                                case PreProcessControlState.MessageNeeded:
+                                case PreProcessControlState.MessageNotNeeded:
+                                    if (((m.Msg == (int)Msg.WM_KEYDOWN || m.Msg == (int)Msg.WM_CHAR) && !keyboard_capture.ProcessControlMnemonic((char)m.WParam)))
+                                    {
+                                        if (c == null || !ControlOnToolStrip(c))
+                                            continue;
+                                        else
+                                            m.HWnd = msg.hwnd;
+                                    }
+                                    else
+                                        continue;
+
+                                    break;
+                            }
+                        }
+
+                        if (((c != null) && c.PreProcessControlMessageInternal(ref m) != PreProcessControlState.MessageProcessed) ||
+                            (c == null))
+                        {
+                            goto default;
+                        }
+                        break;
+
+                    case Msg.WM_LBUTTONDOWN:
+                    case Msg.WM_MBUTTONDOWN:
+                    case Msg.WM_RBUTTONDOWN:
+                        if (keyboard_capture != null)
+                        {
+                            Control c2 = Control.FromHandle(msg.hwnd);
+
+                            // the target is not a winforms control (an embedded control, perhaps), so
+                            // release everything
+                            if (c2 == null)
+                            {
+                                ToolStripManager.FireAppClicked();
+                                goto default;
+                            }
+
+                            // If we clicked a ToolStrip, we have to make sure it isn't
+                            // the one we are on, or any of its parents or children
+                            // If we clicked off the dropped down menu, release everything
+                            if (c2 is ToolStrip)
+                            {
+                                if ((c2 as ToolStrip).GetTopLevelToolStrip() != keyboard_capture.GetTopLevelToolStrip())
+                                    ToolStripManager.FireAppClicked();
+                            }
+                            else
+                            {
+                                if (c2.Parent != null)
+                                    if (c2.Parent is ToolStripDropDownMenu)
+                                        if ((c2.Parent as ToolStripDropDownMenu).GetTopLevelToolStrip() == keyboard_capture.GetTopLevelToolStrip())
+                                            goto default;
+                                if (c2.TopLevelControl == null)
+                                    goto default;
+
+                                ToolStripManager.FireAppClicked();
+                            }
+                        }
+
+                        goto default;
+
+                    case Msg.WM_QUIT:
+                        quit = true; // make sure we exit
+                        break;
+                    default:
+                        XplatUI.TranslateMessage(ref msg);
+                        XplatUI.DispatchMessage(ref msg);
+                        break;
+                }
+
+                // If our Form doesn't have a handle anymore, it means it was destroyed and we need to *wait* for WM_QUIT.
+                if ((context.MainForm != null) && (!context.MainForm.IsHandleCreated))
+                    continue;
+
+                // Handle exit, Form might have received WM_CLOSE and set 'closing' in response.
+                if ((context.MainForm != null) && (context.MainForm.closing || (Modal && !context.MainForm.Visible)))
+                {
+                    if (!Modal)
+                    {
+                        XplatUI.PostQuitMessage(0);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            //Console.WriteLine ("   RunLoop loop left");
+        }
+
+        internal static XplatUIDriver.MainLoopProc MainLoopProc;
+
+        internal static void RunLoop (bool Modal, ApplicationContext context)
 		{
 			Queue		toplevels;
 			MSG		msg;
@@ -719,7 +859,10 @@ namespace System.Windows.Forms
 
 			if (context == null)
 				context = new ApplicationContext();
-		
+
+            saved_context = context;
+            saved_Modal = Modal;
+
 			previous_thread_context = thread.Context;
 			thread.Context = context;
 
@@ -756,7 +899,13 @@ namespace System.Windows.Forms
 
 			bool quit = false;
 
-			while (!quit && XplatUI.GetMessage(queue_id, ref msg, IntPtr.Zero, 0, 0)) {
+            MainLoopProc = new XplatUIDriver.MainLoopProc(main_loop);
+
+            Console.WriteLine("Application.cs.RunLoop. going to call XplatUI.SetMainLoop");
+
+            XplatUI.SetMainLoop(MainLoopProc);
+
+            while (!quit && XplatUI.GetMessage(queue_id, ref msg, IntPtr.Zero, 0, 0)) {
 				Message m = Message.Create(msg.hwnd, (int)msg.message, msg.wParam, msg.lParam);
 				
 				if (Application.FilterMessage (ref m))

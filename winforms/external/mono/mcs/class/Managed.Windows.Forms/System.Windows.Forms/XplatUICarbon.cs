@@ -2054,7 +2054,12 @@ namespace System.Windows.Forms {
 				CGDisplayHideCursor (CGMainDisplayID ());
 		}
 
-		internal override object StartLoop(Thread thread) {
+        internal override void SetMainLoop(MainLoopProc proc)
+        {
+            ;
+        }
+
+        internal override object StartLoop(Thread thread) {
 			return new object ();
 		}
 		

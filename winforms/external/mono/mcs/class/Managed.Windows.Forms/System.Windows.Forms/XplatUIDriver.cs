@@ -418,6 +418,10 @@ namespace System.Windows.Forms {
 		internal abstract bool PostMessage(IntPtr hwnd, Msg message, IntPtr wParam, IntPtr lParam);
 		internal abstract int SendInput(IntPtr hwnd, System.Collections.Queue keys);
 
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        internal delegate void MainLoopProc();
+
+        internal abstract void SetMainLoop(MainLoopProc proc);
 		internal abstract object StartLoop(Thread thread);
 		internal abstract void EndLoop(Thread thread);
 

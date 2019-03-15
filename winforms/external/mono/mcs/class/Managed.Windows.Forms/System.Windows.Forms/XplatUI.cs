@@ -1094,6 +1094,11 @@ namespace System.Windows.Forms {
 			return driver.StartDrag (handle, data, allowedEffects);
 		}
 
+        internal static void SetMainLoop(XplatUIDriver.MainLoopProc proc)
+        {
+            Console.WriteLine("XplatUI.SetMainLoop called");
+            driver.SetMainLoop(proc);
+        }
 		internal static object StartLoop (Thread thread)
 		{
 			DriverDebug ("StartLoop ({0:X}): Called", thread.GetHashCode ());
