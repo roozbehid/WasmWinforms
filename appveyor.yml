@@ -23,8 +23,8 @@ install:
   - git clone https://github.com/emscripten-core/emsdk.git --depth 1 c:\emsdk
   - cd c:\emsdk
   - emsdk update-tags
-  - emsdk install sdk-tag-1.38.28-64bit
-  - emsdk activate sdk-tag-1.38.28-64bit
+  - emsdk install sdk-1.38.28-64bit
+  - emsdk activate sdk-1.38.28-64bit
   - emsdk_env.bat
   - cd %APPVEYOR_BUILD_FOLDER%
   - set NODE_OPTIONS=--max_old_space_size=4096
