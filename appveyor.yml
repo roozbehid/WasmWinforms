@@ -22,6 +22,7 @@ install:
   - git submodule update
   - git clone https://github.com/emscripten-core/emsdk.git --depth 1 c:\emsdk
   - cd c:\emsdk
+  - git checkout 1.38.28
   - emsdk install latest
   - emsdk activate latest
   - emsdk_env.bat
